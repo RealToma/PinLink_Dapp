@@ -1,0 +1,228 @@
+@font-face {
+  font-family: "Orbitron";
+  src: url(./assets/fonts/Orbitron-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url(./assets/fonts/Orbitron-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url(./assets/fonts/Orbitron-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url(./assets/fonts/Orbitron-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url(./assets/fonts/Orbitron-ExtraBold.ttf);
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url(./assets/fonts/Orbitron-Black.ttf);
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-Thin.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-ExtraLight.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-Light.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-ExtraBold.ttf);
+  font-weight: 800;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  color: #404040;
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  overflow-x: hidden;
+}
+
+
+a {
+  text-decoration: none;
+  cursor: url(/imgs/others/new-tab.png) 10 10, pointer;
+  color: #737373;
+
+  span {
+    cursor: url(/imgs/others/new-tab.png) 10 10, pointer !important;
+  }
+
+  &.pointer {
+    cursor: pointer;
+
+    span {
+      cursor: pointer !important;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+.corner-border-button {
+  background: linear-gradient(to top, #C1FF72, #C1FF72) left top no-repeat,
+    linear-gradient(to right, #C1FF72, #C1FF72) left top no-repeat,
+    linear-gradient(to left, #C1FF72, #C1FF72) right top no-repeat,
+    linear-gradient(to bottom, #C1FF72, #C1FF72) right top no-repeat,
+    linear-gradient(to left, #C1FF72, #C1FF72) left bottom no-repeat,
+    linear-gradient(to bottom, #C1FF72, #C1FF72) left bottom no-repeat,
+    linear-gradient(to top, #C1FF72, #C1FF72) right bottom no-repeat,
+    linear-gradient(to left, #C1FF72, #C1FF72) right bottom no-repeat;
+  background-size: 1px 10px, 10px 1px, 1px 10px, 10px 1px;
+  padding: 8px 16px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #C1FF72;
+  min-width: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+
+
+  &:hover {
+    background-color: #273317;
+    color: #8ACF32;
+  }
+}
+
+.button {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid #676767;
+  min-width: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+
+
+  &:hover {
+    border: 0.5px solid #676767;
+    background: #191919;
+  }
+}
+
+.flex-gap24 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+
+
+.carousel-container {
+  perspective: 1000px;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  margin-left: -100px;
+  top: 50%;
+  margin-top: -100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // backface-visibility: hidden;
+  opacity: 0.5; /* 使非活动项目更少突出 */
+  transition: transform 1s, opacity 0.5s;
+  background: #fff;
+}
+
+.carousel-item.active {
+  transform: scale(1.2); /* 使活动项目更大 */
+  opacity: 1; /* 使活动项目完全不透明 */
+}
+
+
+
+
+@media screen and (max-width:1000px) {}
