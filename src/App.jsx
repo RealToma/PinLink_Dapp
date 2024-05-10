@@ -6,12 +6,8 @@ import Header from "../components/header";
 import ScrambledText from "../components/home/scrambledText";
 import Carousel from "../components/home/carousel";
 // import PieChartWithGradient from '../components/home/pieChartWithGradient'
-<<<<<<< HEAD
-import RandomizeText from '../components/home/RandomizeText'
-=======
 import video from "./assets/vids/mac.mp4";
 import chipVideo from "./assets/vids/chip-animation.webm";
->>>>>>> 3fd21eb4664e0053e3265662831513b7ab4cdf81
 
 import Logo from "./assets/imgs/index/logo_title.svg";
 import Board2_1 from "./assets/imgs/index/board2_1.svg";
@@ -234,26 +230,9 @@ function App() {
             <ScrambledText text="THE FIRST AI DRIVEN DEPIN LIQUIDITY LAYER WITH A FRACTIONALIZED COMPUTE POWER MARKETPLACE"></ScrambledText>
           </div>
         </div>
-<<<<<<< HEAD
-        <div className='board3'>
-          <div></div>
-          {/* <ScrambledText text="THE FIRST AI DRIVEN DEPIN LIQUIDITY LAYER WITH A FRACTIONALIZED COMPUTE POWER MARKETPLACE"></ScrambledText> */}
-          <div>
-            <RandomizeText originalText={"THE FIRST AI DRIVEN"} interval={200} />
-            <RandomizeText color={"#C1FF72"} originalText={"DEPIN LIQUIDITY LAYER"} interval={250} />
-            <RandomizeText originalText={"WITH A FRACTIONALIZED"} interval={300} />
-            <RandomizeText originalText={"COMPUTE POWER"} interval={350} />
-            <RandomizeText originalText={"MARKETPLACE"} interval={400} />
-          </div>
-        </div>
-        <div className='board4'>
-          <div className='title' data-aos="fade-up">
-            <img className='left' src={LeftImg} alt='icon' />
-=======
         <div className="board4">
           <div className="title" data-aos="fade-up">
             <img className="left" src={LeftImg} alt="icon" />
->>>>>>> 3fd21eb4664e0053e3265662831513b7ab4cdf81
             <h2>HOW DOES PINLINk WORK</h2>
             <img className="right" src={RightImg} alt="icon" />
           </div>
