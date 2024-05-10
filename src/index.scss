@@ -103,11 +103,11 @@ body {
 
 a {
   text-decoration: none;
-  cursor: url(/imgs/others/new-tab.png) 10 10, pointer;
+  cursor: url(./assets/imgs/others/new-tab.png) 10 10, pointer;
   color: #737373;
 
   span {
-    cursor: url(/imgs/others/new-tab.png) 10 10, pointer !important;
+    cursor: url(./assets/imgs/others/new-tab.png) 10 10, pointer !important;
   }
 
   &.pointer {
@@ -172,6 +172,14 @@ a {
   &:hover {
     border: 0.5px solid #676767;
     background: #191919;
+  }
+
+  &.green{
+    background: #C1FF72;
+    color: #0E0E0E;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 24px;
   }
 }
 

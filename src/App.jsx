@@ -5,6 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import Header from '../components/header';
 import ScrambledText from '../components/home/scrambledText';
 import Carousel3D from '../components/home/carousel3D';
+// import PieChartWithGradient from '../components/home/pieChartWithGradient'
 
 
 import Logo from './assets/imgs/index/logo_title.svg';
@@ -13,7 +14,15 @@ import Board2_2 from './assets/imgs/index/board2_2.svg';
 import Board2_3 from './assets/imgs/index/board2_3.svg';
 import LeftImg from './assets/imgs/index/left.svg';
 import RightImg from './assets/imgs/index/right.svg';
-import Board4 from './assets/imgs/index/board4.png'
+import Board4 from './assets/imgs/index/board4.png';
+import Token from './assets/imgs/index/token.svg';
+import About from './assets/imgs/index/about.png';
+import Charts from './assets/imgs/index/charts.png';
+import Color1 from './assets/imgs/index/color1.svg';
+import Color2 from './assets/imgs/index/color2.svg';
+import Color3 from './assets/imgs/index/color3.svg';
+
+
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -177,8 +186,40 @@ function App() {
             <img className='right' src={RightImg} alt='icon' />
           </div>
           <div className='tokenomics'>
-            <div></div>
-            <div></div>
+            <div className='left'>
+              {/* <PieChartWithGradient></PieChartWithGradient> */}
+              <div className='charts'>
+                <img src={Charts} alt='icon' />
+              </div>
+              <div className='info'>
+                <div><img src={Color1} alt='icon' />Uniswap Pool: 70%</div>
+                <div><img src={Color2} alt='icon' />Staking Emissions: 20%</div>
+                <div><img src={Color3} alt='icon' />reasury: 10%</div>
+              </div>
+            </div>
+            <div className='right'>
+              <div className='main'>
+                <div className='tokenBg'>
+                  <p>PINKLink</p>
+                  <p>$Pin Token</p>
+                </div>
+                <img src={Token} alt='icon' />
+              </div>
+              <div className='info'>
+                <div><p>1</p>Ticker: $PIN</div>
+                <div><p>2</p>Supply: 100,000,000</div>
+                <div><p>3</p>Network: ERC20</div>
+              </div>
+            </div>
+          </div>
+          <div className='about'>
+            <div className='left'>
+              <p>Learn More About How PinLink Combines and Unleashes the Full Potential of RWA & DePIN.</p>
+              <a href='' className='button green'> Read Docs</a>
+            </div>
+            <div>
+              <img src={About} alt='icon' />
+            </div>
           </div>
         </div>
       </div>
