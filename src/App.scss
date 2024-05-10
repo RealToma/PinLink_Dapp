@@ -1,5 +1,5 @@
 .home {
-    background: #000;
+    background: #0E0E0E;
     padding-top: 80px;
 
     .scrollVideo {
@@ -181,7 +181,7 @@
                     margin-top: 0;
                     padding: 30px 48px;
                     text-align: left;
-                    background: #000;
+                    background: #0E0E0E;
 
                     p {
                         color: #F8F8F8;
@@ -224,11 +224,37 @@
 
         .casesMain {
             background: url(./assets/imgs/index/cases_bg.svg);
-            background-size: 60%;
+            background-size: 80%;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             background-repeat: no-repeat;
             background-position: center;
+
+            .carouselItem {
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                padding: 24px;
+                gap: 10px;
+                background: url(./assets/imgs/index/border.png);
+                background-size: 100.6% 101.5%;
+
+                p {
+                    color: #F8F8F8;
+                    font-size: 35px;
+                    font-weight: 700;
+                    line-height: 45.358px;
+                    letter-spacing: -1.215px;
+                }
+
+                span {
+                    color: #C6C6C6;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 31.549px;
+                }
+            }
         }
 
     }

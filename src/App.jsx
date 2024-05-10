@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Header from '../components/header';
 import ScrambledText from '../components/home/scrambledText';
-import Carousel3D from '../components/home/carousel3D';
+import Carousel from '../components/home/carousel';
 // import PieChartWithGradient from '../components/home/pieChartWithGradient'
 
 
@@ -69,13 +69,6 @@ function App() {
     };
   }, []);
 
-
-  const items = [
-    <div style={{ background: 'red' }}>Item 1</div>,
-    <div style={{ background: 'blue' }}>Item 2</div>,
-    <div style={{ background: 'green' }}>Item 3</div>,
-    <div style={{ background: 'yellow' }}>Item 4</div>
-  ];
 
   return (
     <>
@@ -174,10 +167,12 @@ function App() {
             <h2>Use Cases</h2>
             <img className='right' src={RightImg} alt='icon' />
           </div>
-          <p data-aos="fade-up" data-aos-duration="1000" className='info'>By bringing RWA-tokenization dynamics to the DePIN sector, PinLink achieves several key benefits</p>
+          <p data-aos="fade-up" data-aos-duration="2000" className='info'>By bringing RWA-tokenization dynamics to the DePIN sector, PinLink achieves several key benefits</p>
           <div className='casesMain'>
-            <Carousel3D items={items} />
+            <Carousel />
           </div>
+
+
         </div>
         <div className='board7'>
           <div data-aos="fade-up" className='title' style={{ "width": "600px" }}>
@@ -185,7 +180,7 @@ function App() {
             <h2>Tokenomics</h2>
             <img className='right' src={RightImg} alt='icon' />
           </div>
-          <div className='tokenomics'>
+          <div className='tokenomics' data-aos="fade-up" data-aos-duration="2000">
             <div className='left'>
               {/* <PieChartWithGradient></PieChartWithGradient> */}
               <div className='charts'>
@@ -212,7 +207,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className='about'>
+          <div className='about' data-aos="fade-up" data-aos-duration="2000">
             <div className='left'>
               <p>Learn More About How PinLink Combines and Unleashes the Full Potential of RWA & DePIN.</p>
               <a href='' className='button green'> Read Docs</a>

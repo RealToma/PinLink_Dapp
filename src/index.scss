@@ -174,7 +174,7 @@ a {
     background: #191919;
   }
 
-  &.green{
+  &.green {
     background: #C1FF72;
     color: #0E0E0E;
     font-size: 18px;
@@ -190,47 +190,42 @@ a {
   gap: 24px;
 }
 
-
-
-.carousel-container {
-  perspective: 1000px;
-  height: 100%;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+.react-responsive-3d-carousel__carousel {
+  margin-top: 15%;
+  margin-bottom: 10%;
 }
 
-.carousel {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transition: transform 1s;
+.react-responsive-3d-carousel__indicators.small {
+  display: none;
 }
 
-.carousel-item {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  left: 50%;
-  margin-left: -100px;
-  top: 50%;
-  margin-top: -100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // backface-visibility: hidden;
-  opacity: 0.5; /* 使非活动项目更少突出 */
-  transition: transform 1s, opacity 0.5s;
-  background: #fff;
-}
-
-.carousel-item.active {
-  transform: scale(1.2); /* 使活动项目更大 */
-  opacity: 1; /* 使活动项目完全不透明 */
+.react-responsive-3d-carousel__status.shadow {
+  display: none;
 }
 
 
+
+.react-responsive-3d-carousel__arrows.shadow svg {
+  border: 1.333px solid #C7C7C7;
+  border-radius: 50%;
+}
+
+.react-responsive-3d-carousel__arrows path {
+  stroke-width: 1px !important;
+}
+
+.react-responsive-3d-carousel__arrows.right {
+  right: 12% !important;
+}
+
+.react-responsive-3d-carousel__arrows.left {
+  left: 12% !important;
+}
+
+.react-responsive-3d-carousel__carousel__item {
+  background: #080808;
+  border-radius: 35px;
+}
 
 
 @media screen and (max-width:1000px) {}
