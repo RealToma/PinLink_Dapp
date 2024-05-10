@@ -8,6 +8,7 @@ import Carousel from "../components/home/carousel";
 // import PieChartWithGradient from '../components/home/pieChartWithGradient'
 import video from "./assets/vids/mac.mp4";
 import chipVideo from "./assets/vids/chip-animation.webm";
+import planetVideo from "./assets/vids/planet.mp4";
 
 import Logo from "./assets/imgs/index/logo_title.svg";
 import Board2_1 from "./assets/imgs/index/board2_1.svg";
@@ -50,7 +51,7 @@ function App() {
         trigger: horizontalSection,
         scrub: true,
         pin: true,
-        markers: true,
+        // markers: true,
         anticipatePin: true,
         // scroller: container, // Use this if your container is scrollable
       },
@@ -62,6 +63,7 @@ function App() {
     if (videoElement) {
       videoElement.pause();
       videoElement.currentTime = 0;
+      //set a tween that animate the video's currentTime from 0s to 42s
       let videoTweenTmp = gsap.fromTo(
         videoElement,
         {
@@ -72,21 +74,25 @@ function App() {
           duration: 10,
           ease: "none",
           paused: true,
-          markers: true,
+          // markers: true,
         }
       );
+      //create a tween that animates the video's currentTime from 0 to 1
       let videoTween = gsap.to(videoTweenTmp, {
         duration: 1,
         ease: "power2",
         paused: true,
       });
 
+      //create a ScrollTrigger that will update the videoTween's progress based on the scroll position
       ScrollTrigger.create({
         trigger: mainDiv,
         start: "top top",
         end: "bottom bottom",
         onUpdate: (self) => {
+          //update the videoTween's progress to match the scroll position
           videoTween.vars.progress = self.progress * 1;
+          //ensure the tween invalidates/refreshes on the next render for smooth scrubbing
           videoTween.invalidate().restart();
         },
         scrub: true,
@@ -104,7 +110,7 @@ function App() {
           start: "top bottom",
           end: "bottom bottom",
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
     }
@@ -112,26 +118,68 @@ function App() {
     const chipVideoElement = chipVideoRef.current;
     const board5 = document.querySelector(".board5");
     if (chipVideoElement) {
+      chipVideoElement.pause();
       chipVideoElement.currentTime = 0;
+      let videoTweenTmp = gsap.fromTo(
+        chipVideoElement,
+        {
+          currentTime: 0,
+        },
+        {
+          currentTime: 20,
+          duration: 20,
+          ease: "none",
+          paused: true,
+          // markers: true,
+        }
+      );
+      let videoTween = gsap.to(videoTweenTmp, {
+        duration: 1,
+        ease: "power2",
+        paused: true,
+      });
 
-      const fadeInOut = gsap.timeline();
-      fadeInOut.to(chipVideoElement, {
+      ScrollTrigger.create({
+        trigger: board5,
+        start: "top top",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          videoTween.vars.progress = self.progress * 1;
+          videoTween.invalidate().restart();
+        },
+        scrub: true,
+        // markers: true,
+      });
+
+      gsap.to(chipVideoElement, {
         opacity: 1,
-        duration: 0.9,
-      })  .to(chipVideoElement, {
-        opacity: 0,
-        duration: 0.5,     
-      })
-  ScrollTrigger.create({
-    trigger: board5,
-    start: "top 50%",
-    end: "bottom bottom",
-    scrub: true,
-    animation: fadeInOut,
-    markers: true,
-  });
-    }
+        duration: 1,
+        paused: true,
+        scrollTrigger: {
+          trigger: board5,
+          start: "top 50%",
+          end: "50% bottom",
+          scrub: true,
+          // markers: true,
+        },
+      });
 
+      const lastItem = document.querySelector(".keysItem-last");
+
+      // Fade-out the video
+      gsap.to(chipVideoElement, {
+        opacity: 0,
+        duration: 1,
+        paused: true,
+        scrollTrigger: {
+          trigger: lastItem,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          // markers: true,
+        },
+      });
+    }
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
@@ -281,7 +329,7 @@ function App() {
               </div>
               <div></div>
             </div>
-            <div className="keysItem">
+            <div className="keysItem keysItem-last">
               <div className="step">
                 <p>Service User Rebate Model</p>
                 <span>
@@ -310,6 +358,15 @@ function App() {
             achieves several key benefits
           </p>
           <div className="casesMain">
+          <video
+            loop
+            muted
+            autoPlay
+            className="bg-video planet-video"
+            src={planetVideo}
+            preload="auto"
+            type="video/mp4"
+          ></video>
             <Carousel />
           </div>
         </div>

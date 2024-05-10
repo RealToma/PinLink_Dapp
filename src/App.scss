@@ -25,6 +25,7 @@
   }
   .chip-video{
     opacity: 0;
+    width: 80%;
   }
 
   .scrollVideo {
@@ -243,12 +244,23 @@
     }
 
     .casesMain {
-      background: url(./assets/imgs/index/cases_bg.svg);
-      background-size: 80%;
+        position: relative;
+        z-index: 1;
+        max-height: 100vh;
+
+        .planet-video {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+            transform: translate(-50%, -50%);
+          width: 80%;
+          height: 100%;
+          z-index: 0;
+
+        }
+    //   background: url(./assets/imgs/index/cases_bg.svg);
       width: 100%;
-      min-height: 100vh;
-      background-repeat: no-repeat;
-      background-position: center;
+     
 
       .carouselItem {
         align-items: center;
