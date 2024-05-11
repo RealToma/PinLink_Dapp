@@ -3,9 +3,10 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Header from "../components/header";
-import ScrambledText from "../components/home/scrambledText";
+import Footer from "../components/footer";
 import Carousel from "../components/home/carousel";
-// import PieChartWithGradient from '../components/home/pieChartWithGradient'
+import RandomizeText from "../components/home/RandomizeText";
+
 import video from "./assets/vids/mac.mp4";
 import chipVideo from "./assets/vids/chip-animation.webm";
 import planetVideo from "./assets/vids/planet.mp4";
@@ -24,16 +25,8 @@ import Color1 from "./assets/imgs/index/color1.svg";
 import Color2 from "./assets/imgs/index/color2.svg";
 import Color3 from "./assets/imgs/index/color3.svg";
 
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
 
 function App() {
-  // useEffect(() => {
-  //   AOS.init({
-  //     duration: 2000,
-  //     once: true,
-  //   });
-  // }, []);
 
   const horizontalSectionRef = useRef(null);
   const bgVideoRef = useRef(null);
@@ -185,6 +178,8 @@ function App() {
     };
   }, []);
 
+
+
   return (
     <>
       <Header></Header>
@@ -214,7 +209,7 @@ function App() {
         </div>
         <div id="first-vid-trigger">
           <div className="board1">
-            <div data-aos="fade-up">
+            <div className="top">
               <img src={Logo} alt="logo" />
               <p>
                 Where DePIN and <br />
@@ -226,6 +221,7 @@ function App() {
                 costs for AI and blockchain developers, and allows 3rd parties
                 to earn through fractional shares.
               </span>
+              <div className="arrow-down"></div>
             </div>
           </div>
           <div
@@ -275,25 +271,29 @@ function App() {
           </div>
           <div className="board3">
             <div></div>
-            <ScrambledText text="THE FIRST AI DRIVEN DEPIN LIQUIDITY LAYER WITH A FRACTIONALIZED COMPUTE POWER MARKETPLACE"></ScrambledText>
+            <div>
+              <RandomizeText originalText={"THE FIRST AI DRIVEN"} interval={200} />
+              <RandomizeText color={"#C1FF72"} originalText={"DEPIN LIQUIDITY LAYER"} interval={200} />
+              <RandomizeText originalText={"WITH A FRACTIONALIZED"} interval={200} />
+              <RandomizeText originalText={"COMPUTE POWER"} interval={200} />
+              <RandomizeText originalText={"MARKETPLACE"} interval={200} />
+            </div>
           </div>
         </div>
         <div className="board4">
-          <div className="title" data-aos="fade-up">
+          <div className="title">
             <img className="left" src={LeftImg} alt="icon" />
             <h2>HOW DOES PINLINk WORK</h2>
             <img className="right" src={RightImg} alt="icon" />
           </div>
           <img
-            data-aos="fade-up"
-            data-aos-duration="2000"
             className="mainImg"
             src={Board4}
             alt="icon"
           />
         </div>
         <div className="board5">
-          <div data-aos="fade-up" className="title" style={{ width: "600px" }}>
+          <div className="title" style={{ width: "600px" }}>
             <img className="left" src={LeftImg} alt="icon" />
             <h2>Key Features</h2>
             <img className="right" src={RightImg} alt="icon" />
@@ -348,41 +348,36 @@ function App() {
           </div>
         </div>
         <div className="board6">
-          <div data-aos="fade-up" className="title" style={{ width: "600px" }}>
+          <div className="title" style={{ width: "600px" }}>
             <img className="left" src={LeftImg} alt="icon" />
             <h2>Use Cases</h2>
             <img className="right" src={RightImg} alt="icon" />
           </div>
-          <p data-aos="fade-up" data-aos-duration="2000" className="info">
+          <p className="info">
             By bringing RWA-tokenization dynamics to the DePIN sector, PinLink
             achieves several key benefits
           </p>
           <div className="casesMain">
-          <video
-            loop
-            muted
-            autoPlay
-            className="bg-video planet-video"
-            src={planetVideo}
-            preload="auto"
-            type="video/mp4"
-          ></video>
+            <video
+              loop
+              muted
+              autoPlay
+              className="bg-video planet-video"
+              src={planetVideo}
+              preload="auto"
+              type="video/mp4"
+            ></video>
             <Carousel />
           </div>
         </div>
         <div className="board7">
-          <div data-aos="fade-up" className="title" style={{ width: "600px" }}>
+          <div className="title" style={{ width: "600px" }}>
             <img className="left" src={LeftImg} alt="icon" />
             <h2>Tokenomics</h2>
             <img className="right" src={RightImg} alt="icon" />
           </div>
-          <div
-            className="tokenomics"
-            data-aos="fade-up"
-            data-aos-duration="2000"
-          >
+          <div className="tokenomics">
             <div className="left">
-              {/* <PieChartWithGradient></PieChartWithGradient> */}
               <div className="charts">
                 <img src={Charts} alt="icon" />
               </div>
@@ -422,7 +417,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="about" data-aos="fade-up" data-aos-duration="2000">
+          <div className="about">
             <div className="left">
               <p>
                 Learn More About How PinLink Combines and Unleashes the Full
@@ -439,6 +434,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

@@ -191,7 +191,7 @@ a {
 }
 
 .react-responsive-3d-carousel__carousel {
-  margin-top: 15%;
+  margin-top: 10%;
   margin-bottom: 10%;
 }
 
@@ -208,6 +208,9 @@ a {
 .react-responsive-3d-carousel__arrows.shadow svg {
   border: 1.333px solid #C7C7C7;
   border-radius: 50%;
+  &:hover{
+    border-color: #C1FF72;
+  }
 }
 
 .react-responsive-3d-carousel__arrows path {
