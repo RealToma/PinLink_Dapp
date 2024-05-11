@@ -20,15 +20,10 @@ import Logo from "./assets/imgs/index/logo_title.svg";
 import LeftImg from "./assets/imgs/index/left.svg";
 import RightImg from "./assets/imgs/index/right.svg";
 import Board4 from "./assets/imgs/index/board4.png";
-import Token from "./assets/imgs/index/token.svg";
-import About from "./assets/imgs/index/about.png";
-import Charts from "./assets/imgs/index/charts.png";
-import Color1 from "./assets/imgs/index/color1.svg";
-import Color2 from "./assets/imgs/index/color2.svg";
-import Color3 from "./assets/imgs/index/color3.svg";
 import { KeyFeatures } from "../components/home/KeyFeatures";
 import { HorizontalFeat } from "../components/home/HorizontalFeat";
 import { BackgroundVideo } from "../components/home/BackgroundVideo";
+import { Tokennomics } from "../components/home/Tokennomics";
 
 function App() {
   useEffect(() => {
@@ -119,14 +114,6 @@ function App() {
           return;
         }
 
-        // gsap.from(chars, {
-        //   duration: 0.5,
-        //   opacity: 0,
-        //   ease: "power2.out",
-        //   stagger: 0.02,
-        //   scrollTrigger: textFadeInAnimationTrigger,
-        // });
-
         gsap.from(leftImg, {
           x: -100,
           opacity: 0,
@@ -141,6 +128,35 @@ function App() {
         });
       }
     });
+
+    const useCasesTitle = document.querySelector(".use-cases-title");
+    const board6 = document.querySelector(".board6");
+
+
+    gsap.from(useCasesTitle, {
+      opacity: 0,
+      y: 100,
+      scrollTrigger: {
+        trigger: board6,
+        start: "top 50%",
+        end: "top 20%",
+        scrub: true,
+      },
+
+  });
+
+  const planetVideoElement = document.querySelector(".planet-video");
+  gsap.from(planetVideoElement, {
+    opacity: 0,
+    scale: 0.3,
+      scrollTrigger: {
+        trigger: board6,
+        start: "top 50%",
+        end: "top 20%",
+        scrub: true,
+      },
+    });   
+
   });
 
   return (
@@ -215,7 +231,7 @@ function App() {
             <h2>Use Cases</h2>
             <img className="right" src={RightImg} alt="icon" />
           </div>
-          <p className="info">
+          <p className="info use-cases-title">
             By bringing RWA-tokenization dynamics to the DePIN sector, PinLink
             achieves several key benefits
           </p>
@@ -233,67 +249,12 @@ function App() {
           </div>
         </div>
         <div className="board7" ref={tokenomicsRef}>
-          <div className="title" style={{ width: "600px" }}>
+        <div className="title" style={{ width: "600px" }}>
             <img className="left" src={LeftImg} alt="icon" />
             <h2>Tokenomics</h2>
             <img className="right" src={RightImg} alt="icon" />
           </div>
-          <div className="tokenomics">
-            <div className="left">
-              <div className="charts">
-                <img src={Charts} alt="icon" />
-              </div>
-              <div className="info">
-                <div>
-                  <img src={Color1} alt="icon" />
-                  Uniswap Pool: 70%
-                </div>
-                <div>
-                  <img src={Color2} alt="icon" />
-                  Staking Emissions: 20%
-                </div>
-                <div>
-                  <img src={Color3} alt="icon" />
-                  reasury: 10%
-                </div>
-              </div>
-            </div>
-            <div className="right">
-              <div className="main">
-                <div className="tokenBg">
-                  <p>PINKLink</p>
-                  <p>$Pin Token</p>
-                </div>
-                <img src={Token} alt="icon" />
-              </div>
-              <div className="info">
-                <div>
-                  <p>1</p>Ticker: $PIN
-                </div>
-                <div>
-                  <p>2</p>Supply: 100,000,000
-                </div>
-                <div>
-                  <p>3</p>Network: ERC20
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="about">
-            <div className="left">
-              <p>
-                Learn More About How PinLink Combines and Unleashes the Full
-                Potential of RWA & DePIN.
-              </p>
-              <a href="" className="button green">
-                {" "}
-                Read Docs
-              </a>
-            </div>
-            <div>
-              <img src={About} alt="icon" />
-            </div>
-          </div>
+          <Tokennomics/>
         </div>
       </div>
       <Footer
