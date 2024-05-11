@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { useGSAP } from '@gsap/react';
 
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -27,16 +28,12 @@ import Color1 from "./assets/imgs/index/color1.svg";
 import Color2 from "./assets/imgs/index/color2.svg";
 import Color3 from "./assets/imgs/index/color3.svg";
 
-
-
 function App() {
-
   const horizontalSectionRef = useRef(null);
   const bgVideoRef = useRef(null);
   const chipVideoRef = useRef(null);
 
   useEffect(() => {
-
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     const horizontalSection = horizontalSectionRef.current;
@@ -217,33 +214,32 @@ function App() {
       gsap.to(window, {
         scrollTo: {
           y: tokenomicsRef.current,
-          autoKill: true
+          autoKill: true,
         },
-        duration: 3
+        duration: 3,
       });
     }
   };
+  const fadeInRef = useRef(null);
 
-
-  // const fadeInRef = useRef(null);
-  // useEffect(() => {
-  //  下方渐入效果
-  //   gsap.from(fadeInRef.current, {
-  //     y: 200,
-  //     opacity: 0,
-  //     duration: 2,
-  //     ease: 'power3.out'
-  //   });
-  // }, []);
-
-
-
+  useGSAP(() => {
+   //下方渐入效果
+    gsap.from(fadeInRef.current, {
+      y: 200,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+  });
 
   return (
     <>
-      <Header scrollToUseCases={scrollToUseCases} scrollToTokenomics={scrollToTokenomics}></Header>
+      <Header
+        scrollToUseCases={scrollToUseCases}
+        scrollToTokenomics={scrollToTokenomics}
+      ></Header>
       <div className="home" id="home">
-        <div id="bg-video-container" className="bg-video-container"   >
+        <div id="bg-video-container" className="bg-video-container">
           <video
             ref={bgVideoRef}
             loop
@@ -268,7 +264,7 @@ function App() {
         </div>
         <div id="first-vid-trigger">
           <div className="board1">
-            <div className="top">
+            <div className="top" ref={fadeInRef}>
               <img src={Logo} alt="logo" />
               <p>
                 Where DePIN and <br />
@@ -331,9 +327,19 @@ function App() {
           <div className="board3">
             <div></div>
             <div>
-              <RandomizeText originalText={"THE FIRST AI DRIVEN"} interval={200} />
-              <RandomizeText color={"#C1FF72"} originalText={"DEPIN LIQUIDITY LAYER"} interval={200} />
-              <RandomizeText originalText={"WITH A FRACTIONALIZED"} interval={200} />
+              <RandomizeText
+                originalText={"THE FIRST AI DRIVEN"}
+                interval={200}
+              />
+              <RandomizeText
+                color={"#C1FF72"}
+                originalText={"DEPIN LIQUIDITY LAYER"}
+                interval={200}
+              />
+              <RandomizeText
+                originalText={"WITH A FRACTIONALIZED"}
+                interval={200}
+              />
               <RandomizeText originalText={"COMPUTE POWER"} interval={200} />
               <RandomizeText originalText={"MARKETPLACE"} interval={200} />
             </div>
@@ -345,11 +351,7 @@ function App() {
             <h2>HOW DOES PINLINk WORK</h2>
             <img className="right" src={RightImg} alt="icon" />
           </div>
-          <img
-            className="mainImg"
-            src={Board4}
-            alt="icon"
-          />
+          <img className="mainImg" src={Board4} alt="icon" />
         </div>
         <div className="board5">
           <div className="title" style={{ width: "600px" }}>
@@ -493,7 +495,10 @@ function App() {
           </div>
         </div>
       </div>
-      <Footer scrollToUseCases={scrollToUseCases} scrollToTokenomics={scrollToTokenomics}></Footer>
+      <Footer
+        scrollToUseCases={scrollToUseCases}
+        scrollToTokenomics={scrollToTokenomics}
+      ></Footer>
     </>
   );
 }
