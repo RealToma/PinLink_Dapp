@@ -2,6 +2,8 @@ import "./App.scss";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
+
 
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -33,6 +35,9 @@ function App() {
   const horizontalSectionRef = useRef(null);
   const bgVideoRef = useRef(null);
   const chipVideoRef = useRef(null);
+
+  gsap.registerPlugin(ScrollToPlugin);
+
 
   useEffect(() => {
 
@@ -183,6 +188,32 @@ function App() {
     };
   }, []);
 
+  const useCasesRef = useRef(null);
+  const scrollToUseCases = () => {
+    if (useCasesRef.current) {
+      gsap.to(window, {
+        scrollTo: {
+          y: useCasesRef.current,
+          autoKill: true
+        },
+        duration: 3
+      });
+    }
+  };
+
+  const tokenomicsRef = useRef(null);
+  const scrollToTokenomics = () => {
+    if (tokenomicsRef.current) {
+      gsap.to(window, {
+        scrollTo: {
+          y: tokenomicsRef.current,
+          autoKill: true
+        },
+        duration: 3
+      });
+    }
+  };
+
 
   // const fadeInRef = useRef(null);
   // useEffect(() => {
@@ -200,7 +231,7 @@ function App() {
 
   return (
     <>
-      <Header></Header>
+      <Header scrollToUseCases={scrollToUseCases} scrollToTokenomics={scrollToTokenomics}></Header>
       <div className="home" id="home">
         <div id="bg-video-container" className="bg-video-container">
           <video
@@ -365,7 +396,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="board6">
+        <div className="board6" ref={useCasesRef}>
           <div className="title" style={{ width: "600px" }}>
             <img className="left" src={LeftImg} alt="icon" />
             <h2>Use Cases</h2>
@@ -388,7 +419,7 @@ function App() {
             <Carousel />
           </div>
         </div>
-        <div className="board7">
+        <div className="board7" ref={tokenomicsRef}>
           <div className="title" style={{ width: "600px" }}>
             <img className="left" src={LeftImg} alt="icon" />
             <h2>Tokenomics</h2>
@@ -452,7 +483,7 @@ function App() {
           </div>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer scrollToUseCases={scrollToUseCases} scrollToTokenomics={scrollToTokenomics}></Footer>
     </>
   );
 }

@@ -7,6 +7,8 @@
     width: 100%;
     background: #000;
     flex-wrap: wrap;
+    z-index: 1;
+    position: relative;
 
     .footerMain {
         display: flex;
@@ -24,7 +26,15 @@
             gap: 32px;
             align-items: center;
 
-            a {
+            div {
+                cursor: url(/src/assets/imgs/others/new-tab.png) 10 10, pointer;
+
+                span {
+                    cursor: url(/src/assets/imgs/others/new-tab.png) 10 10, pointer;
+                }
+            }
+
+            div {
                 border-left: 1px solid #4E4E4E;
                 padding-left: 32px;
                 height: 30px;
@@ -56,10 +66,10 @@
                 }
             }
         }
-       
+
     }
 
-    p{
+    p {
         color: #C8C1C1;
         text-align: center;
         font-size: 12px;

@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
 
-export default function Footer() {
+export default function Footer(props) {
     return (
         <>
             <div className={styles.footer}>
@@ -9,11 +9,11 @@ export default function Footer() {
                         <img src='/src/assets/imgs/index/logo_title.svg' alt='logo' />
                     </a>
                     <div className={styles.menuList}>
-                        <a href="/" rel="nofollow noopener noreferrer" style={{ "borderLeft": "none", "paddingLeft": "0" }}><span>About</span></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><span>Features</span></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><span>Use cases</span></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><span>Tokenomics</span></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><span>FAQ</span></a>
+                        <div style={{ "borderLeft": "none", "paddingLeft": "0" }}><a href="/" rel="nofollow noopener noreferrer" ><span>About</span></a></div>
+                        <div><a href="/" rel="nofollow noopener noreferrer"><span>Features</span></a></div>
+                        <div onClick={props.scrollToUseCases}><span>Use cases</span></div>
+                        <div onClick={props.scrollToTokenomics}><span>Tokenomics</span></div>
+                        <div><a href="/" rel="nofollow noopener noreferrer"><span>FAQ</span></a></div>
                     </div>
                     <div className={`${styles.linkList} ${'flex-gap24'}`}>
                         <a href="/" rel="nofollow noopener noreferrer"><img src='/src/assets/imgs/others/x.svg' alt='icon' /></a>

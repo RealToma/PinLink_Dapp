@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
 
-export default function Header() {
+export default function Header(props) {
     return (
         <>
             <div className={styles.head}>
@@ -9,10 +9,10 @@ export default function Header() {
                         <img src='/src/assets/imgs/index/logo_title.svg' alt='logo' />
                     </a>
                     <div className={styles.menuList}>
-                        <a href="/" rel="nofollow noopener noreferrer" style={{ "borderLeft": "none", "paddingLeft": "0" }}><span>About</span></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><span>Features</span></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><span>Use cases</span></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><span>Tokenomics</span></a>
+                        <div style={{ "borderLeft": "none", "paddingLeft": "0" }}><a href="/" rel="nofollow noopener noreferrer" ><span>About</span></a></div>
+                        <div><a href="/" rel="nofollow noopener noreferrer"><span>Features</span></a></div>
+                        <div onClick={props.scrollToUseCases}><span>Use cases</span></div>
+                        <div onClick={props.scrollToTokenomics}><span>Tokenomics</span></div>
                     </div>
                     <div className={styles.h5Menu}>
                         <div className='flex-gap24'>
