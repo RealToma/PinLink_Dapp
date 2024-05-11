@@ -42,6 +42,7 @@ function App() {
     ScrollSmoother.create({
       smooth: 0, // seconds it takes to "catch up" to native scroll position
       effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
+      // content: "#home",
     });
 
     return () => {
@@ -84,6 +85,63 @@ function App() {
       duration: 1,
       ease: "power3.out",
     });
+
+    const titleElements = document.querySelectorAll(".title");
+
+    titleElements.forEach((titleElement) => {
+      const leftImg = titleElement.querySelector(".left");
+      const rightImg = titleElement.querySelector(".right");
+      const title = titleElement.querySelector("h2");
+
+      const textFadeInAnimationTrigger = {
+        trigger: titleElement,
+        start: "top 90%",
+        end: "top 20%",
+        scrub: true,
+        // markers: true,
+      };
+
+      if (leftImg && rightImg && title) {
+
+        //needs to wrap in try catch because of the SplitText.create wont work in the first render
+        try {
+          let mySplitText = new SplitText.create(title, {
+            type: "chars",
+          });
+          let chars = mySplitText.chars;
+      
+          gsap.from(chars, {
+            opacity: 0,
+            ease: "power2.out",
+            stagger: 0.04,
+            scrollTrigger: textFadeInAnimationTrigger,
+          });
+        } catch (e) {
+          return;
+        }
+
+        // gsap.from(chars, {
+        //   duration: 0.5,
+        //   opacity: 0,
+        //   ease: "power2.out",
+        //   stagger: 0.02,
+        //   scrollTrigger: textFadeInAnimationTrigger,
+        // });
+
+        gsap.from(leftImg, {
+          x: -50,
+          opacity: 0,
+          duration: 1,
+          scrollTrigger: textFadeInAnimationTrigger,
+        });
+        gsap.from(rightImg, {
+          x: 50,
+          opacity: 0,
+          duration: 1,
+          scrollTrigger: textFadeInAnimationTrigger,
+        });
+      }
+    });
   });
 
   return (
@@ -95,7 +153,7 @@ function App() {
       <div className="home" id="home">
         <BackgroundVideo />
         <div id="first-vid-trigger">
-          <div className="board1">
+          <div className="board board1">
             <div className="top" ref={fadeInRef}>
               <img src={Logo} alt="logo" />
               <p>
@@ -114,7 +172,7 @@ function App() {
 
           <HorizontalFeat />
 
-          <div className="board3">
+          <div className="board board3">
             <div></div>
             <div>
               <RandomizeText

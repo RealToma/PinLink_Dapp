@@ -1,5 +1,5 @@
-import video from "../../src/assets/vids/mac.mp4";
-import chipVideo from "../../src/assets/vids/chip-animation.webm";
+import video from "../../src/assets/vids/gpu.mp4";
+import chipVideo from "../../src/assets/vids/chip.mp4";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -8,69 +8,78 @@ export const BackgroundVideo = () => {
   const bgVideoRef = useRef(null);
   const chipVideoRef = useRef(null);
   useEffect(() => {
-    gsap.registerPlugin(
-        ScrollTrigger,       
-      );
-      
+    gsap.registerPlugin(ScrollTrigger);
+
     const mainDiv = document.querySelector("#first-vid-trigger");
     const videoElement = bgVideoRef.current;
-
     if (videoElement) {
-      videoElement.pause();
-      videoElement.currentTime = 0;
+
       // ScrollTrigger.create({
-      //   trigger: videoElement,
+      //   trigger:videoElement,
       //   pin: true,
       //   start: "top top",
-      //   end: "+=500000",
-      //   markers: true
-      // });
+      //   end: "+=50000",
+      // })
+  
 
-      //set a tween that animate the video's currentTime from 0s to 42s
-      let videoTweenTmp = gsap.fromTo(
+      videoElement.pause();
+      videoElement.currentTime = 0;
+
+      const bgVideoSegments = [0, 4, 8, 14, 22];
+      let sections = gsap.utils.toArray(".board");
+      const videoTweenTmp = gsap.fromTo(
         videoElement,
+        { currentTime: bgVideoSegments[0] },
         {
-          currentTime: 0,
-        },
-        {
-          currentTime: 42,
-          duration: 10,
+          currentTime: bgVideoSegments[sections.length],
+          duration: bgVideoSegments[sections.length],
           ease: "none",
           paused: true,
         }
       );
-      //create a tween that animates the video's currentTime from 0 to 1
-      let videoTween = gsap.to(videoTweenTmp, {
+      const videoTween = gsap.to(videoTweenTmp, {
         duration: 1,
         ease: "power2",
         paused: true,
       });
 
-      //create a ScrollTrigger that will update the videoTween's progress based on the scroll position
-      ScrollTrigger.create({
-        trigger: mainDiv,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          //update the videoTween's progress to match the scroll position
-          videoTween.vars.progress = self.progress * 1;
-          //ensure the tween invalidates/refreshes on the next render for smooth scrubbing
-          videoTween.invalidate().restart();
-        },
-        scrub: 0.1,
-        //markers: true,
-      });
-      const board4 = document.querySelector(".board4");
+      sections.forEach((step, i) => {
+        let segmentLength = bgVideoSegments[i + 1] - bgVideoSegments[i],
+          inc = segmentLength / bgVideoSegments[sections.length];
 
-      // Fade-out the video
+        step.style.height = 100 + "vh";
+
+        let starting;
+
+        if (i == 0) {
+          starting = "top bottom";
+        } else {
+          starting = "top bottom";
+        }
+
+        ScrollTrigger.create({
+          trigger: step,
+          start: starting,
+          end: "bottom top",
+          onUpdate: (self) => {
+            videoTween.vars.progress =
+              bgVideoSegments[i] / bgVideoSegments[sections.length] +
+              self.progress * inc;
+            videoTween.invalidate().restart();
+          },
+          // markers: true,
+        });
+      });
+
+      //   // Fade-out the video
       gsap.to(videoElement, {
         opacity: 0,
         duration: 1,
         paused: true,
         scrollTrigger: {
-          trigger: board4,
-          start: "top bottom",
-          end: "bottom bottom",
+          trigger: sections[sections.length - 1],
+          start: "top top",
+          end: "bottom 50%",
           scrub: true,
           // markers: true,
         },
@@ -88,9 +97,8 @@ export const BackgroundVideo = () => {
           currentTime: 0,
         },
         {
-          currentTime: 20,
-          duration: 20,
-          ease: "none",
+          currentTime: 4,
+          duration: 4,
           paused: true,
           // markers: true,
         }
@@ -112,35 +120,17 @@ export const BackgroundVideo = () => {
         scrub: true,
         // markers: true,
       });
-
-      gsap.to(chipVideoElement, {
-        opacity: 1,
-        duration: 1,
-        paused: true,
+      const fadeInOutTimeLine = gsap.timeline({
         scrollTrigger: {
           trigger: board5,
           start: "top 50%",
-          end: "50% bottom",
+          end: "bottom 50%",
           scrub: true,
-          // markers: true,
         },
       });
-
-      const lastItem = document.querySelector(".keysItem-last");
-
-      // Fade-out the video
-      gsap.to(chipVideoElement, {
-        opacity: 0,
-        duration: 1,
-        paused: true,
-        scrollTrigger: {
-          trigger: lastItem,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: true,
-          // markers: true,
-        },
-      });
+      fadeInOutTimeLine
+        .to(chipVideoElement, { opacity: 1, duration: 1 }, "start")
+        .to(chipVideoElement, { opacity: 0, duration: 1 }, "start+=5");
     }
   }, []);
   return (

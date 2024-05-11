@@ -29,7 +29,7 @@ export const HorizontalFeat = () => {
     <div
       ref={horizontalSectionRef}
       style={{ overflowY: "auto", height: "100vh" }}
-      className="board2"
+      className="board board2"
     >
       <div style={{ width: "170vw", display: "flex", gap: "120px" }}>
         <div className="board2_item">

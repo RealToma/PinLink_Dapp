@@ -8,8 +8,8 @@ export const KeyFeatures = ()=>{
           scrollTrigger: {
             trigger: `${"#keyItems"+i}`,
             start: "top 50%",
-            end: "100% 85%",
-            markers: true,
+            end: "bottom bottom",
+            //markers: true,
             scrub: true,
           },
         });
@@ -57,7 +57,7 @@ export const KeyFeatures = ()=>{
               </div>
               <div></div>
             </div>
-            <div className="keysItem keysItem-last" id="keyItems3">
+            <div className="keysItem" id="keyItems3">
               <div className="step">
                 <p className="step-title" id="step-title-3">Service User Rebate Model</p>
                 <span className="step-desc" id="step-desc-3">

@@ -3,32 +3,29 @@
   padding-top: 80px;
   overflow-y: scroll;
 
-  .board1,
-  .board2,
-  .board3,
-  .board4,
-  .board5,
-  .board6,
-  .board7,
-  #first-vid-trigger {
+  .board,
+  #first-vid-trigger,
+  .keyList {
     position: relative;
     z-index: 1;
   }
-
+  .keysItem-last{
+    background-color: rgba(0, 221, 255, 0.5);
+  }
 
   .bg-video-container {
     flex: 1;
     width: 100vw;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: fixed;
     z-index: 1;
   }
 
   .bg-video {
-    background-color: #000;
-    opacity: 1;
-    visibility: visible;
+    width: 80%;
+    padding-top: 10%;
   }
 
   .chip-video {
@@ -74,7 +71,6 @@
     }
 
     @keyframes bounce {
-
       0%,
       20%,
       50%,
@@ -96,12 +92,12 @@
       display: inline-block;
       width: 40px;
       height: 40px;
-      background: url(./assets/imgs/others/arrow-down.svg) no-repeat center center;
+      background: url(./assets/imgs/others/arrow-down.svg) no-repeat center
+        center;
       background-size: contain;
       animation: bounce 2s infinite;
       margin-top: 53px;
     }
-
   }
 
   .board2 {
@@ -295,12 +291,10 @@
         width: 80%;
         height: 100%;
         z-index: 0;
-
       }
 
       //   background: url(./assets/imgs/index/cases_bg.svg);
       width: 100%;
-
 
       .carouselItem {
         align-items: center;
