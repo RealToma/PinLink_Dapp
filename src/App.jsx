@@ -2,6 +2,7 @@ import "./App.scss";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Carousel from "../components/home/carousel";
@@ -26,6 +27,7 @@ import Color2 from "./assets/imgs/index/color2.svg";
 import Color3 from "./assets/imgs/index/color3.svg";
 
 
+
 function App() {
 
   const horizontalSectionRef = useRef(null);
@@ -33,6 +35,7 @@ function App() {
   const chipVideoRef = useRef(null);
 
   useEffect(() => {
+
     const horizontalSection = horizontalSectionRef.current;
     let board2_items = gsap.utils.toArray(".board2_item");
 
@@ -173,10 +176,25 @@ function App() {
         },
       });
     }
+
+
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
+
+  // const fadeInRef = useRef(null);
+  // useEffect(() => {
+  //  下方渐入效果
+  //   gsap.from(fadeInRef.current, {
+  //     y: 200,
+  //     opacity: 0,
+  //     duration: 2,
+  //     ease: 'power3.out'
+  //   });
+  // }, []);
+
 
 
 
