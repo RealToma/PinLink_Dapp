@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -36,12 +35,9 @@ function App() {
   const bgVideoRef = useRef(null);
   const chipVideoRef = useRef(null);
 
-  gsap.registerPlugin(ScrollToPlugin);
-
-
   useEffect(() => {
 
-    gsap.registerPlugin(ScrollTrigger,);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     const horizontalSection = horizontalSectionRef.current;
     let board2_items = gsap.utils.toArray(".board2_item");
