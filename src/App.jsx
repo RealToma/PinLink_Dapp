@@ -67,9 +67,8 @@ function App() {
       SplitText
     );
     ScrollSmoother.create({
-      smooth: 3, // seconds it takes to "catch up" to native scroll position
+      smooth: 1, // seconds it takes to "catch up" to native scroll position
       effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
-      content: "#home",
     });
 
     //下方渐入效果
@@ -160,12 +159,13 @@ function App() {
   });
 
   return (
-    <>
+<div id="smooth-wrapper">
+  <div id="smooth-content">
       <Header
         scrollToUseCases={scrollToUseCases}
         scrollToTokenomics={scrollToTokenomics}
       ></Header>
-      <div className="home" id="home">
+      <div className="home">
         <BackgroundVideo />
         <div id="first-vid-trigger">
           <div className="board board1">
@@ -261,7 +261,8 @@ function App() {
         scrollToUseCases={scrollToUseCases}
         scrollToTokenomics={scrollToTokenomics}
       ></Footer>
-    </>
+    </div>
+    </div>
   );
 }
 
