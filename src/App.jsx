@@ -32,19 +32,6 @@ import { BackgroundVideo } from "../components/home/BackgroundVideo";
 
 function App() {
   useEffect(() => {
-    gsap.registerPlugin(
-      ScrollTrigger,
-      ScrollToPlugin,
-      ScrollSmoother,
-      SplitText
-    );
-
-    ScrollSmoother.create({
-      smooth: 0, // seconds it takes to "catch up" to native scroll position
-      effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
-      // content: "#home",
-    });
-
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
@@ -78,6 +65,18 @@ function App() {
   const fadeInRef = useRef(null);
 
   useGSAP(() => {
+    gsap.registerPlugin(
+      ScrollTrigger,
+      ScrollToPlugin,
+      ScrollSmoother,
+      SplitText
+    );
+    ScrollSmoother.create({
+      smooth: 3, // seconds it takes to "catch up" to native scroll position
+      effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
+      content: "#home",
+    });
+
     //下方渐入效果
     gsap.from(fadeInRef.current, {
       y: 200,
@@ -129,13 +128,13 @@ function App() {
         // });
 
         gsap.from(leftImg, {
-          x: -50,
+          x: -100,
           opacity: 0,
           duration: 1,
           scrollTrigger: textFadeInAnimationTrigger,
         });
         gsap.from(rightImg, {
-          x: 50,
+          x: 100,
           opacity: 0,
           duration: 1,
           scrollTrigger: textFadeInAnimationTrigger,

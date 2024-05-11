@@ -3,35 +3,39 @@ import gsap from "gsap";
 import Board2_1 from "../../src/assets/imgs/index/board2_1.svg";
 import Board2_2 from "../../src/assets/imgs/index/board2_2.svg";
 import Board2_3 from "../../src/assets/imgs/index/board2_3.svg";
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
+import { useGSAP } from "@gsap/react";
+
 export const HorizontalFeat = () => {
   const horizontalSectionRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const horizontalSection = horizontalSectionRef.current;
     let board2_items = gsap.utils.toArray(".board2_item");
 
     // Set up horizontal scrolling in the designated section
     gsap.to(board2_items, {
-      xPercent: -100 * (board2_items.length - 1),
+      xPercent: -300 * (board2_items.length - 1),
       ease: "none",
+      delay: 0.2,
       scrollTrigger: {
         trigger: horizontalSection,
-        scrub: 1,
+        start: "top -10%",
+        scrub: 4,
         pin: true,
         // markers: true,
         anticipatePin: true,
         // scroller: container, // Use this if your container is scrollable
       },
     });
-  }, []);
+  });
   return (
     <div
       ref={horizontalSectionRef}
       style={{ overflowY: "auto", height: "100vh" }}
       className="board board2"
     >
-      <div style={{ width: "170vw", display: "flex", gap: "120px" }}>
+      <div className="board2_items">
         <div className="board2_item">
           <div className="item_info">
             <img src={Board2_1} alt="icon" />

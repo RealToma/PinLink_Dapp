@@ -3,29 +3,38 @@ import chipVideo from "../../src/assets/vids/chip.mp4";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 export const BackgroundVideo = () => {
   const bgVideoRef = useRef(null);
   const chipVideoRef = useRef(null);
-  useEffect(() => {
+  useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const mainDiv = document.querySelector("#first-vid-trigger");
     const videoElement = bgVideoRef.current;
+    
     if (videoElement) {
 
-      // ScrollTrigger.create({
-      //   trigger:videoElement,
-      //   pin: true,
-      //   start: "top top",
-      //   end: "+=50000",
-      // })
+      ScrollTrigger.create({
+        trigger:videoElement,
+        pin: true,
+        start: "top top",
+        end: "+=50000",
+      })
+
+      ScrollTrigger.create({
+        trigger:chipVideoRef.current,
+        pin: true,
+        start: "top top",
+        end: "+=50000",
+      })
   
 
       videoElement.pause();
       videoElement.currentTime = 0;
 
-      const bgVideoSegments = [0, 4, 8, 14, 22];
+      const bgVideoSegments = [0, 5, 8, 14, 22];
       let sections = gsap.utils.toArray(".board");
       const videoTweenTmp = gsap.fromTo(
         videoElement,
@@ -123,16 +132,16 @@ export const BackgroundVideo = () => {
       const fadeInOutTimeLine = gsap.timeline({
         scrollTrigger: {
           trigger: board5,
-          start: "top 50%",
-          end: "bottom 50%",
+          start: "top 20%",
+          end: "bottom 60%",
           scrub: true,
         },
       });
       fadeInOutTimeLine
-        .to(chipVideoElement, { opacity: 1, duration: 1 }, "start")
-        .to(chipVideoElement, { opacity: 0, duration: 1 }, "start+=5");
+        .to(chipVideoElement, { opacity: 1}, "start")
+        .to(chipVideoElement, { opacity: 0}, "start+=5");
     }
-  }, []);
+  });
   return (
     <>
       <div id="bg-video-container" className="bg-video-container">

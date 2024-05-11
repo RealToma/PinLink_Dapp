@@ -24,7 +24,7 @@
   }
 
   .bg-video {
-    width: 80%;
+    width: 90%;
     padding-top: 10%;
   }
 
@@ -101,12 +101,19 @@
   }
 
   .board2 {
+    .board2_items{
+        display: flex;
+        justify-content: center;
+        gap: 120px;
+        width: 170vw;
+        padding-bottom: 8vh;
+    }
     .board2_item {
       width: 50vw;
       height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: end;
       padding: 20px;
 
       img {
