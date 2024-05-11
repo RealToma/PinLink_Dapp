@@ -2,6 +2,8 @@ import "./App.scss";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Carousel from "../components/home/carousel";
@@ -33,16 +35,23 @@ function App() {
   const chipVideoRef = useRef(null);
 
   useEffect(() => {
+gsap.registerPlugin(ScrollTrigger,);
+    
     const horizontalSection = horizontalSectionRef.current;
     let board2_items = gsap.utils.toArray(".board2_item");
-
+    // const smoother= ScrollSmoother.create({
+    //   smooth: 0.2,
+    //   content:"#home" ,
+    //   normalizeScroll: true
+    // });
+      // Update ScrollSmoother effect on resize
     // Set up horizontal scrolling in the designated section
     gsap.to(board2_items, {
       xPercent: -100 * (board2_items.length - 1),
       ease: "none",
       scrollTrigger: {
         trigger: horizontalSection,
-        scrub: true,
+        scrub: 1,
         pin: true,
         // markers: true,
         anticipatePin: true,
@@ -56,6 +65,14 @@ function App() {
     if (videoElement) {
       videoElement.pause();
       videoElement.currentTime = 0;
+      // ScrollTrigger.create({
+      //   trigger: videoElement,
+      //   pin: true,
+      //   start: "top top",
+      //   end: "+=500000",
+      //   markers: true
+      // });
+      
       //set a tween that animate the video's currentTime from 0s to 42s
       let videoTweenTmp = gsap.fromTo(
         videoElement,
@@ -67,7 +84,6 @@ function App() {
           duration: 10,
           ease: "none",
           paused: true,
-          // markers: true,
         }
       );
       //create a tween that animates the video's currentTime from 0 to 1
@@ -88,8 +104,8 @@ function App() {
           //ensure the tween invalidates/refreshes on the next render for smooth scrubbing
           videoTween.invalidate().restart();
         },
-        scrub: true,
-        // markers: true,
+        scrub: 0.1,
+       markers: true,      
       });
       const board4 = document.querySelector(".board4");
 
@@ -103,7 +119,7 @@ function App() {
           start: "top bottom",
           end: "bottom bottom",
           scrub: true,
-          // markers: true,
+         // markers: true,
         },
       });
     }
@@ -184,7 +200,7 @@ function App() {
     <>
       <Header></Header>
       <div className="home" id="home">
-        <div id="bg-video-container" className="bg-video-container">
+        <div id="bg-video-container" className="bg-video-container"   >
           <video
             ref={bgVideoRef}
             loop
