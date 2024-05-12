@@ -148,10 +148,9 @@ function App() {
     const board6TL = gsap.timeline({
       scrollTrigger: {
         trigger: board6,
-        start: "top 40%",
+        start: "top 50%",
         end: "top 20%",
-        scrub: true,
-        duration:30,
+        scrub: 2,
       },
     });
 
@@ -162,7 +161,7 @@ function App() {
           opacity: 0,
           scale: 0.8,
         },
-        "start+=4"
+        "start+=2"
       )
       .from(
         carouselItems,
@@ -170,7 +169,7 @@ function App() {
           opacity: 0,
           x: -90,
           scale:0.8,
-          stagger: 1,
+          stagger: 0.4,
         },
         "start"
       );

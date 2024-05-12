@@ -6,7 +6,7 @@ const CarouselMain = () => {
 
 
   return (
-    <Carousel autoPlay={false} width='510px' height='530px' depth={4} arrowsWidth={50} arrowsHeight={50} arrowsHoveredColor="#C1FF72">
+    <Carousel autoPlay={false} width='35rem' height='33.25rem' depth={4} arrowsWidth={50} arrowsHeight={50} arrowsHoveredColor="#C1FF72">
       <div className='carouselItem'>
         <img src='/src/assets/imgs/index/01.png' alt='icon' />
         <p>Increased Income For DePIN Asset Owners</p>
