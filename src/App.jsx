@@ -22,6 +22,7 @@ import { KeyFeatures } from "../components/home/KeyFeatures";
 import { HorizontalFeat } from "../components/home/HorizontalFeat";
 import { BackgroundVideo } from "../components/home/BackgroundVideo";
 import { Tokennomics } from "../components/home/Tokennomics";
+import { Loader } from "../components/shared/Loader";
 
 function App() {
   useEffect(() => {
@@ -123,8 +124,8 @@ function App() {
         trigger: board4,
         start: "top bottom",
         end: "top 20%",
-        scrub: 1,
-        markers: true,
+        scrub: 2,
+        //markers: true,
       },
     });
 
@@ -176,8 +177,10 @@ function App() {
   });
 
   return (
-    <div id="smooth-wrapper">
+
+     <div id="smooth-wrapper">
       <div id="smooth-content">
+        <Loader/>
         <Header
           scrollToUseCases={scrollToUseCases}
           scrollToTokenomics={scrollToTokenomics}
@@ -280,6 +283,7 @@ function App() {
         ></Footer>
       </div>
     </div>
+
   );
 }
 
