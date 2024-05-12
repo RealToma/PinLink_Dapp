@@ -12,7 +12,7 @@ export const BackgroundVideo = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
     const smoother=ScrollSmoother.create({
-      smooth:0.2,   
+      smooth:0,   
     });
 
     const mainDiv = document.querySelector("#first-vid-trigger");
@@ -20,19 +20,19 @@ export const BackgroundVideo = () => {
     
     if (videoElement) {
 
-      ScrollTrigger.create({
-        trigger:videoElement,
-        pin: true,
-        start: "top top",
-        end: "+=50000",
-      })
+      // ScrollTrigger.create({
+      //   trigger:videoElement,
+      //   pin: true,
+      //   start: "top top",
+      //   end: "+=50000",
+      // })
 
-      ScrollTrigger.create({
-        trigger:chipVideoRef.current,
-        pin: true,
-        start: "top top",
-        end: "+=50000",
-      })
+      // ScrollTrigger.create({
+      //   trigger:chipVideoRef.current,
+      //   pin: true,
+      //   start: "top top",
+      //   end: "+=50000",
+      // })
   
 
       videoElement.pause();

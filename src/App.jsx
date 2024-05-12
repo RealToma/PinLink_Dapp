@@ -178,8 +178,8 @@ function App() {
 
   return (
 
-     <div id="smooth-wrapper">
-      <div id="smooth-content">
+     <div id="smooth-wrapperss">
+      <div id="smooth-contentss">
         <Loader/>
         <Header
           scrollToUseCases={scrollToUseCases}

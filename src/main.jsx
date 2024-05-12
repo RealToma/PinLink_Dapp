@@ -12,7 +12,7 @@ gsap.registerPlugin(
   ScrollTrigger,
   ScrollToPlugin,
   SplitText,
-  ScrollSmoother
+  // ScrollSmoother
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(

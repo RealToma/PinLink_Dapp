@@ -10,7 +10,7 @@ export const Loader = () => {
         const timer = setTimeout(() => {
             setIsLoading(false);
             document.documentElement.style.overflow = 'auto';
-        }, 3000);
+        }, 500);
         return () => clearTimeout(timer);
     },[])
 
