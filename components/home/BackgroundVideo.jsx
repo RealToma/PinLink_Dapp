@@ -10,85 +10,48 @@ export const BackgroundVideo = () => {
   const bgVideoRef = useRef(null);
   const chipVideoRef = useRef(null);
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
-    const smoother=ScrollSmoother.create({
-      smooth:0,   
-    });
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
     const mainDiv = document.querySelector("#first-vid-trigger");
-    const videoElement = bgVideoRef.current;
-    
-    if (videoElement) {
+    const graphicVideoElement = bgVideoRef.current;
 
-      // ScrollTrigger.create({
-      //   trigger:videoElement,
-      //   pin: true,
-      //   start: "top top",
-      //   end: "+=50000",
-      // })
-
-      // ScrollTrigger.create({
-      //   trigger:chipVideoRef.current,
-      //   pin: true,
-      //   start: "top top",
-      //   end: "+=50000",
-      // })
-  
-
-      videoElement.pause();
-      videoElement.currentTime = 0;
-
-      const bgVideoSegments = [0, 5, 8, 14, 22];
-      let sections = gsap.utils.toArray(".board");
-      const videoTweenTmp = gsap.fromTo(
-        videoElement,
-        { currentTime: bgVideoSegments[0] },
-        {
-          currentTime: bgVideoSegments[sections.length],
-          duration: bgVideoSegments[sections.length],
-          ease: "none",
-          paused: true,
-        }
-      );
-      const videoTween = gsap.to(videoTweenTmp, {
-        duration:1,
-        ease: "power2",
-        paused: true,
+    if (graphicVideoElement) {
+      ScrollTrigger.create({
+        trigger: graphicVideoElement,
+        pin: true,
+        start: "top top",
+        end: "+=50000",
       });
 
-      const heights=[100,86,150]
+      ScrollTrigger.create({
+        trigger: chipVideoRef.current,
+        pin: true,
+        start: "top top",
+        end: "+=50000",
+      });
 
-      sections.forEach((step, i) => {
-        let segmentLength = bgVideoSegments[i + 1] - bgVideoSegments[i],
-          inc = segmentLength / bgVideoSegments[sections.length];
+      graphicVideoElement.pause();
+      graphicVideoElement.currentTime = 0;
 
-        // step.style.height = heights[i] + "vh";
-
-        let starting;
-
-        if (i == 0) {
-          starting = "top bottom";
-        } else {
-          starting = "top bottom";
-        }
-
-        ScrollTrigger.create({
-          trigger: step,
-          start: starting,
-          scrub:0.5,
-          end: "bottom top",
-          onUpdate: (self) => {
-            videoTween.vars.progress =
-              bgVideoSegments[i] / bgVideoSegments[sections.length] +
-              self.progress * inc;
-            videoTween.invalidate().restart();
-          },
+      let graphicCardVideoTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: mainDiv,
+          start: "top top",
+          end: "bottom+=200% bottom",
+          scrub: true,
           // markers: true,
-        });
+        },
       });
 
+      // wait until video metadata is loaded, so we can grab the proper duration before adding the onscroll animation. Might need to add a loader for long videos
+      graphicVideoElement.onloadedmetadata = function () {
+        graphicCardVideoTL.to(graphicVideoElement, {
+          currentTime: graphicVideoElement.duration,
+        });
+      };
+      let sections = gsap.utils.toArray(".board");
       //   // Fade-out the video
-      gsap.to(videoElement, {
+      gsap.to(graphicVideoElement, {
         opacity: 0,
         duration: 1,
         paused: true,
@@ -96,7 +59,7 @@ export const BackgroundVideo = () => {
           trigger: sections[sections.length - 1],
           start: "top top",
           end: "bottom 50%",
-          scrub: 0.5,
+          scrub: true,
           // markers: true,
         },
       });
@@ -106,47 +69,36 @@ export const BackgroundVideo = () => {
     const board5 = document.querySelector(".board5");
     if (chipVideoElement) {
       chipVideoElement.pause();
-      chipVideoElement.currentTime = 0;
-      let videoTweenTmp = gsap.fromTo(
-        chipVideoElement,
-        {
-          currentTime: 0,
+      chipVideoElement.currentTime = 0.3;
+      let chipVideoTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: board5,
+          start: "top top",
+          end: "bottom+=120% bottom",
+          scrub: true,
+          //markers: true,
         },
-        {
-          currentTime: 4,
-          duration: 4,
-          paused: true,
-          // markers: true,
-        }
-      );
-      let videoTween = gsap.to(videoTweenTmp, {
-        duration: 1,
-        ease: "power2",
-        paused: true,
       });
 
-      ScrollTrigger.create({
-        trigger: board5,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          videoTween.vars.progress = self.progress * 1;
-          videoTween.invalidate().restart();
-        },
-        scrub:  0.5,
-        // markers: true,
-      });
+      // wait until video metadata is loaded, so we can grab the proper duration before adding the onscroll animation. Might need to add a loader for long videos
+      chipVideoElement.onloadedmetadata = function () {
+        chipVideoTL.to(chipVideoElement, {
+          currentTime: chipVideoElement.duration,
+          repeat: 1,
+          repeatDelay: 0,
+        });
+      };
       const fadeInOutTimeLine = gsap.timeline({
         scrollTrigger: {
           trigger: board5,
           start: "top 20%",
           end: "bottom 60%",
-          scrub: 0.5,
+          scrub: true,
         },
       });
       fadeInOutTimeLine
-        .to(chipVideoElement, { opacity: 1}, "start")
-        .to(chipVideoElement, { opacity: 0}, "start+=5");
+        .to(chipVideoElement, { opacity: 1, x: 0 }, "start")
+        .to(chipVideoElement, { opacity: 0, x: 100 }, "start+=5");
     }
   });
   return (

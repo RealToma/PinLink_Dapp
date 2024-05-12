@@ -12,8 +12,11 @@ gsap.registerPlugin(
   ScrollTrigger,
   ScrollToPlugin,
   SplitText,
-  // ScrollSmoother
+  ScrollSmoother
 );
+ScrollSmoother.create({
+  smooth:2.5,   
+});
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

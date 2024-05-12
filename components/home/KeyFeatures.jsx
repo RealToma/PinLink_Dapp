@@ -10,7 +10,7 @@ export const KeyFeatures = ()=>{
             start: "top 50%",
             end: "bottom bottom",
             //markers: true,
-            scrub: 2,
+            scrub: true,
           },
         });
         const tween = {

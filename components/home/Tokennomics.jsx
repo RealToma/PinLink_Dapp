@@ -21,7 +21,7 @@ export const Tokennomics = () => {
         trigger: board7,
         start: "top 50%",
         end: "top 0%",
-        scrub: 2,
+        scrub: true,
       },
     });
     imgs.forEach((img) => {
@@ -51,7 +51,7 @@ export const Tokennomics = () => {
         trigger: board7,
         start: "top 50%",
         end: "top 0%",
-        scrub: 2,
+        scrub: true,
       },
     });
 
@@ -71,7 +71,7 @@ export const Tokennomics = () => {
       trigger: about,
       start: "top bottom",
         end: "bottom 70%",
-      scrub: 2,
+      scrub: true,
     };
 
     gsap.from(aboutLeft, {

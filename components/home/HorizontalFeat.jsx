@@ -19,11 +19,10 @@ export const HorizontalFeat = () => {
       scrollTrigger: {
         trigger: horizontalSection,
         start: "top -15%",
-        scrub: 2,
+        scrub: true,
         pin: true,
         // markers: true,
         anticipatePin: true,
-        // scroller: container, // Use this if your container is scrollable
       },
     });
   });

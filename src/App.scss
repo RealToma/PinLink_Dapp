@@ -31,6 +31,7 @@
   .chip-video {
     opacity: 0;
     width: 80%;
+    transform: translateX(-100px);
   }
 
   .scrollVideo {
@@ -97,6 +98,7 @@
       background-size: contain;
       animation: bounce 2s infinite;
       margin-top: 53px;
+      cursor: pointer;
     }
   }
 

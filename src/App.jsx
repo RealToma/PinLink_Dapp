@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 import { useGSAP } from "@gsap/react";
 
@@ -25,6 +26,8 @@ import { Tokennomics } from "../components/home/Tokennomics";
 import { Loader } from "../components/shared/Loader";
 
 function App() {
+  const smoother=ScrollSmoother.get();
+
   useEffect(() => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -34,28 +37,21 @@ function App() {
   const useCasesRef = useRef(null);
   const scrollToUseCases = () => {
     if (useCasesRef.current) {
-      gsap.to(window, {
-        scrollTo: {
-          y: useCasesRef.current,
-          autoKill: true,
-        },
-        duration: 3,
-      });
+      smoother.scrollTo( useCasesRef.current, 2, "top +=50");      
     }
   };
 
   const tokenomicsRef = useRef(null);
   const scrollToTokenomics = () => {
     if (tokenomicsRef.current) {
-      gsap.to(window, {
-        scrollTo: {
-          y: tokenomicsRef.current,
-          autoKill: true,
-        },
-        duration: 3,
-      });
+      smoother.scrollTo( tokenomicsRef.current, 2,"top +=50");      
     }
   };
+
+  const scrollDown = () => {
+      smoother.scrollTo( ".board2", 15, "top -=10");          
+  };
+
   const fadeInRef = useRef(null);
 
   useGSAP(() => {
@@ -78,7 +74,7 @@ function App() {
         trigger: titleElement,
         start: "top 90%",
         end: "top 20%",
-        scrub: 2,
+        scrub: true,
         // markers: true,
       };
 
@@ -124,7 +120,7 @@ function App() {
         trigger: board4,
         start: "top bottom",
         end: "top 20%",
-        scrub: 2,
+        scrub: true,
         //markers: true,
       },
     });
@@ -140,7 +136,7 @@ function App() {
         trigger: board6,
         start: "top 50%",
         end: "top 20%",
-        scrub: 2,
+        scrub: true,
       },
     });
 
@@ -151,7 +147,7 @@ function App() {
         trigger: board6,
         start: "top 50%",
         end: "top 20%",
-        scrub: 2,
+        scrub: true,
       },
     });
 
@@ -201,7 +197,7 @@ function App() {
                   capacity, lowers costs for AI and blockchain developers, and
                   allows 3rd parties to earn through fractional shares.
                 </span>
-                <div className="arrow-down"></div>
+                <div className="arrow-down" onClick={scrollDown}></div>
               </div>
             </div>
 
