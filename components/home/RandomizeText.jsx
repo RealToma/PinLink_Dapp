@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-
-const RandomizeText = ({ color, originalText, interval, charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#!$%^&*" }) => {
-
-  const [displayedText, setDisplayedText] = useState('');
+const RandomizeText = ({
+  color,
+  originalText,
+  interval,
+  charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#!$%^&*",
+}) => {
+  const [displayedText, setDisplayedText] = useState("");
   const elementRef = useRef(null);
   const observerRef = useRef(null);
 
@@ -15,15 +18,18 @@ const RandomizeText = ({ color, originalText, interval, charset = "ABCDEFGHIJKLM
 
   // IntersectionObserver 来观察元素是否出现在视口中
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          resetAndStartAnimation();
-        }
-      });
-    }, {
-      threshold: 0.5 // 调整根据需要，0.5 表示元素一半以上可见时触发
-    });
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            resetAndStartAnimation();
+          }
+        });
+      },
+      {
+        threshold: 0.5, // 调整根据需要，0.5 表示元素一半以上可见时触发
+      }
+    );
 
     if (elementRef.current) {
       observerRef.current.observe(elementRef.current);
@@ -40,7 +46,7 @@ const RandomizeText = ({ color, originalText, interval, charset = "ABCDEFGHIJKLM
   const resetAndStartAnimation = () => {
     setDisplayedText(generateRandomString(originalText.length, charset)); // 重新生成随机字符串
     const timer = setInterval(() => {
-      setDisplayedText(prev => updateText(prev, originalText, charset));
+      setDisplayedText((prev) => updateText(prev, originalText, charset));
     }, interval);
 
     setTimeout(() => clearInterval(timer), originalText.length * interval); // 停止动画
@@ -48,7 +54,7 @@ const RandomizeText = ({ color, originalText, interval, charset = "ABCDEFGHIJKLM
 
   // 生成随机字符串函数
   const generateRandomString = (length, chars) => {
-    let result = '';
+    let result = "";
     for (let i = 0; i < length; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length));
     }
@@ -57,16 +63,21 @@ const RandomizeText = ({ color, originalText, interval, charset = "ABCDEFGHIJKLM
 
   // 更新文本函数
   const updateText = (currentText, targetText, chars) => {
-    return currentText.split('').map((char, index) => {
-      if (char === targetText.charAt(index)) {
-        return char;
-      }
-      return Math.random() > 0.5 ? targetText.charAt(index) : chars.charAt(Math.floor(Math.random() * chars.length));
-    }).join('');
+    return currentText
+      .split("")
+      .map((char, index) => {
+        if (char === targetText.charAt(index)) {
+          return char;
+        }
+        return Math.random() > 0.5
+          ? targetText.charAt(index)
+          : chars.charAt(Math.floor(Math.random() * chars.length));
+      })
+      .join("");
   };
 
   return (
-    <div ref={elementRef} style={{ "color": color }}>
+    <div ref={elementRef} style={{ color: color }}>
       {displayedText}
     </div>
   );

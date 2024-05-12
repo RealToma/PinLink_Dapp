@@ -1,34 +1,41 @@
 import video from "../../src/assets/vids/gpu.mp4";
 import chipVideo from "../../src/assets/vids/chip.mp4";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 export const BackgroundVideo = () => {
   const bgVideoRef = useRef(null);
   const chipVideoRef = useRef(null);
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
+    const smoother=ScrollSmoother.create({
+      smooth:0,
+      onUpdate:(scroll)=>{
+       // console.log(scroll.progress)
+      }
+    });
 
     const mainDiv = document.querySelector("#first-vid-trigger");
     const videoElement = bgVideoRef.current;
     
     if (videoElement) {
 
-      ScrollTrigger.create({
-        trigger:videoElement,
-        pin: true,
-        start: "top top",
-        end: "+=50000",
-      })
+      // ScrollTrigger.create({
+      //   trigger:videoElement,
+      //   pin: true,
+      //   start: "top top",
+      //   end: "+=50000",
+      // })
 
-      ScrollTrigger.create({
-        trigger:chipVideoRef.current,
-        pin: true,
-        start: "top top",
-        end: "+=50000",
-      })
+      // ScrollTrigger.create({
+      //   trigger:chipVideoRef.current,
+      //   pin: true,
+      //   start: "top top",
+      //   end: "+=50000",
+      // })
   
 
       videoElement.pause();
@@ -61,7 +68,7 @@ export const BackgroundVideo = () => {
         let starting;
 
         if (i == 0) {
-          starting = "top bottom";
+          starting = "top 120%";
         } else {
           starting = "top bottom";
         }
@@ -71,6 +78,7 @@ export const BackgroundVideo = () => {
           start: starting,
           end: "bottom top",
           onUpdate: (self) => {
+            console.log(self.progress)
             videoTween.vars.progress =
               bgVideoSegments[i] / bgVideoSegments[sections.length] +
               self.progress * inc;

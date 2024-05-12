@@ -2,8 +2,6 @@ import "./App.scss";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { SplitText } from "gsap/SplitText";
 
 import { useGSAP } from "@gsap/react";
@@ -59,18 +57,7 @@ function App() {
   };
   const fadeInRef = useRef(null);
 
-  useGSAP(() => {
-    gsap.registerPlugin(
-      ScrollTrigger,
-      ScrollToPlugin,
-      ScrollSmoother,
-      SplitText
-    );
-    ScrollSmoother.create({
-      smooth: 1, // seconds it takes to "catch up" to native scroll position
-      effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
-    });
-
+  useGSAP(() => {  
     //下方渐入效果
     gsap.from(fadeInRef.current, {
       y: 200,
