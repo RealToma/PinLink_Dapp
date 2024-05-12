@@ -12,10 +12,7 @@ export const BackgroundVideo = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
     const smoother=ScrollSmoother.create({
-      smooth:0,
-      onUpdate:(scroll)=>{
-       // console.log(scroll.progress)
-      }
+      smooth:0.2,   
     });
 
     const mainDiv = document.querySelector("#first-vid-trigger");
@@ -23,19 +20,19 @@ export const BackgroundVideo = () => {
     
     if (videoElement) {
 
-      // ScrollTrigger.create({
-      //   trigger:videoElement,
-      //   pin: true,
-      //   start: "top top",
-      //   end: "+=50000",
-      // })
+      ScrollTrigger.create({
+        trigger:videoElement,
+        pin: true,
+        start: "top top",
+        end: "+=50000",
+      })
 
-      // ScrollTrigger.create({
-      //   trigger:chipVideoRef.current,
-      //   pin: true,
-      //   start: "top top",
-      //   end: "+=50000",
-      // })
+      ScrollTrigger.create({
+        trigger:chipVideoRef.current,
+        pin: true,
+        start: "top top",
+        end: "+=50000",
+      })
   
 
       videoElement.pause();
@@ -54,23 +51,23 @@ export const BackgroundVideo = () => {
         }
       );
       const videoTween = gsap.to(videoTweenTmp, {
-        duration: 1,
+        duration:1,
         ease: "power2",
         paused: true,
       });
 
-      const heights=[100,90,100]
+      const heights=[100,86,150]
 
       sections.forEach((step, i) => {
         let segmentLength = bgVideoSegments[i + 1] - bgVideoSegments[i],
           inc = segmentLength / bgVideoSegments[sections.length];
 
-        step.style.height = heights[i] + "vh";
+        // step.style.height = heights[i] + "vh";
 
         let starting;
 
         if (i == 0) {
-          starting = "top 120%";
+          starting = "top bottom";
         } else {
           starting = "top bottom";
         }
@@ -78,9 +75,9 @@ export const BackgroundVideo = () => {
         ScrollTrigger.create({
           trigger: step,
           start: starting,
+          scrub:0.5,
           end: "bottom top",
           onUpdate: (self) => {
-            console.log(self.progress)
             videoTween.vars.progress =
               bgVideoSegments[i] / bgVideoSegments[sections.length] +
               self.progress * inc;
@@ -99,7 +96,7 @@ export const BackgroundVideo = () => {
           trigger: sections[sections.length - 1],
           start: "top top",
           end: "bottom 50%",
-          scrub: true,
+          scrub: 0.5,
           // markers: true,
         },
       });
@@ -136,7 +133,7 @@ export const BackgroundVideo = () => {
           videoTween.vars.progress = self.progress * 1;
           videoTween.invalidate().restart();
         },
-        scrub: true,
+        scrub:  0.5,
         // markers: true,
       });
       const fadeInOutTimeLine = gsap.timeline({
@@ -144,7 +141,7 @@ export const BackgroundVideo = () => {
           trigger: board5,
           start: "top 20%",
           end: "bottom 60%",
-          scrub: true,
+          scrub: 0.5,
         },
       });
       fadeInOutTimeLine

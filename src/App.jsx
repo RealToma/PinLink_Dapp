@@ -57,7 +57,7 @@ function App() {
   };
   const fadeInRef = useRef(null);
 
-  useGSAP(() => {  
+  useGSAP(() => {
     //下方渐入效果
     gsap.from(fadeInRef.current, {
       y: 200,
@@ -77,19 +77,18 @@ function App() {
         trigger: titleElement,
         start: "top 90%",
         end: "top 20%",
-        scrub: true,
+        scrub: 2,
         // markers: true,
       };
 
       if (leftImg && rightImg && title) {
-
         //needs to wrap in try catch because of the SplitText.create wont work in the first render
         try {
           let mySplitText = new SplitText.create(title, {
             type: "chars",
           });
           let chars = mySplitText.chars;
-      
+
           gsap.from(chars, {
             opacity: 0,
             ease: "power2.out",
@@ -115,9 +114,23 @@ function App() {
       }
     });
 
+    const board4 = document.querySelector(".board4");
+    const mainImg = document.querySelector(".mainImg");
+    gsap.from(mainImg, {
+      opacity: 0,
+      scale: 0.3,
+      scrollTrigger: {
+        trigger: board4,
+        start: "top bottom",
+        end: "top 20%",
+        scrub: 1,
+        markers: true,
+      },
+    });
+
     const useCasesTitle = document.querySelector(".use-cases-title");
     const board6 = document.querySelector(".board6");
-
+    const carouselItems = gsap.utils.toArray(".carouselItem");
 
     gsap.from(useCasesTitle, {
       opacity: 0,
@@ -126,129 +139,147 @@ function App() {
         trigger: board6,
         start: "top 50%",
         end: "top 20%",
-        scrub: true,
+        scrub: 2,
       },
+    });
 
-  });
+    const planetVideoElement = document.querySelector(".planet-video");
 
-  const planetVideoElement = document.querySelector(".planet-video");
-  gsap.from(planetVideoElement, {
-    opacity: 0,
-    scale: 0.3,
+    const board6TL = gsap.timeline({
       scrollTrigger: {
         trigger: board6,
-        start: "top 50%",
+        start: "top 40%",
         end: "top 20%",
         scrub: true,
+        duration:30,
       },
-    });   
+    });
 
+    board6TL
+      .from(
+        planetVideoElement,
+        {
+          opacity: 0,
+          scale: 0.8,
+        },
+        "start+=4"
+      )
+      .from(
+        carouselItems,
+        {
+          opacity: 0,
+          x: -90,
+          scale:0.8,
+          stagger: 1,
+        },
+        "start"
+      );
   });
 
   return (
-<div id="smooth-wrapper">
-  <div id="smooth-content">
-      <Header
-        scrollToUseCases={scrollToUseCases}
-        scrollToTokenomics={scrollToTokenomics}
-      ></Header>
-      <div className="home">
-        <BackgroundVideo />
-        <div id="first-vid-trigger">
-          <div className="board board1">
-            <div className="top" ref={fadeInRef}>
-              <img src={Logo} alt="logo" />
-              <p>
-                Where DePIN and <br />
-                RWA meet
-              </p>
-              <span>
-                PinLink, the first RWA-Tokenized DePIN platform, boosts revenue
-                by letting owners tokenize and rent out DePIN capacity, lowers
-                costs for AI and blockchain developers, and allows 3rd parties
-                to earn through fractional shares.
-              </span>
-              <div className="arrow-down"></div>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <Header
+          scrollToUseCases={scrollToUseCases}
+          scrollToTokenomics={scrollToTokenomics}
+        ></Header>
+        <div className="home">
+          <BackgroundVideo />
+          <div id="first-vid-trigger">
+            <div className="board board1">
+              <div className="top" ref={fadeInRef}>
+                <img src={Logo} alt="logo" />
+                <p>
+                  Where DePIN and <br />
+                  RWA meet
+                </p>
+                <span>
+                  PinLink, the first RWA-Tokenized DePIN platform, boosts
+                  revenue by letting owners tokenize and rent out DePIN
+                  capacity, lowers costs for AI and blockchain developers, and
+                  allows 3rd parties to earn through fractional shares.
+                </span>
+                <div className="arrow-down"></div>
+              </div>
+            </div>
+
+            <HorizontalFeat />
+
+            <div className="board board3">
+              <div></div>
+              <div>
+                <RandomizeText
+                  originalText={"THE FIRST AI DRIVEN"}
+                  interval={200}
+                />
+                <RandomizeText
+                  color={"#C1FF72"}
+                  originalText={"DEPIN LIQUIDITY LAYER"}
+                  interval={200}
+                />
+                <RandomizeText
+                  originalText={"WITH A FRACTIONALIZED"}
+                  interval={200}
+                />
+                <RandomizeText originalText={"COMPUTE POWER"} interval={200} />
+                <RandomizeText originalText={"MARKETPLACE"} interval={200} />
+              </div>
             </div>
           </div>
+          <div className="board4">
+            <div className="title">
+              <img className="left" src={LeftImg} alt="icon" />
+              <h2>HOW DOES PINLINk WORK</h2>
+              <img className="right" src={RightImg} alt="icon" />
+            </div>
+            <img className="mainImg" src={Board4} alt="icon" />
+          </div>
+          <div className="board5">
+            <div className="title" style={{ width: "600px" }}>
+              <img className="left" src={LeftImg} alt="icon" />
+              <h2>Key Features</h2>
+              <img className="right" src={RightImg} alt="icon" />
+            </div>
 
-          <HorizontalFeat />
-
-          <div className="board board3">
-            <div></div>
-            <div>
-              <RandomizeText
-                originalText={"THE FIRST AI DRIVEN"}
-                interval={200}
-              />
-              <RandomizeText
-                color={"#C1FF72"}
-                originalText={"DEPIN LIQUIDITY LAYER"}
-                interval={200}
-              />
-              <RandomizeText
-                originalText={"WITH A FRACTIONALIZED"}
-                interval={200}
-              />
-              <RandomizeText originalText={"COMPUTE POWER"} interval={200} />
-              <RandomizeText originalText={"MARKETPLACE"} interval={200} />
+            <KeyFeatures />
+          </div>
+          <div className="board6" ref={useCasesRef}>
+            <div className="title" style={{ width: "600px" }}>
+              <img className="left" src={LeftImg} alt="icon" />
+              <h2>Use Cases</h2>
+              <img className="right" src={RightImg} alt="icon" />
+            </div>
+            <p className="info use-cases-title">
+              By bringing RWA-tokenization dynamics to the DePIN sector, PinLink
+              achieves several key benefits
+            </p>
+            <div className="casesMain">
+              <video
+                loop
+                muted
+                autoPlay
+                className="bg-video planet-video"
+                src={planetVideo}
+                preload="auto"
+                type="video/mp4"
+              ></video>
+              <Carousel />
             </div>
           </div>
-        </div>
-        <div className="board4">
-          <div className="title">
-            <img className="left" src={LeftImg} alt="icon" />
-            <h2>HOW DOES PINLINk WORK</h2>
-            <img className="right" src={RightImg} alt="icon" />
-          </div>
-          <img className="mainImg" src={Board4} alt="icon" />
-        </div>
-        <div className="board5">
-          <div className="title" style={{ width: "600px" }}>
-            <img className="left" src={LeftImg} alt="icon" />
-            <h2>Key Features</h2>
-            <img className="right" src={RightImg} alt="icon" />
-          </div>
-
-          <KeyFeatures />
-        </div>
-        <div className="board6" ref={useCasesRef}>
-          <div className="title" style={{ width: "600px" }}>
-            <img className="left" src={LeftImg} alt="icon" />
-            <h2>Use Cases</h2>
-            <img className="right" src={RightImg} alt="icon" />
-          </div>
-          <p className="info use-cases-title">
-            By bringing RWA-tokenization dynamics to the DePIN sector, PinLink
-            achieves several key benefits
-          </p>
-          <div className="casesMain">
-            <video
-              loop
-              muted
-              autoPlay
-              className="bg-video planet-video"
-              src={planetVideo}
-              preload="auto"
-              type="video/mp4"
-            ></video>
-            <Carousel />
+          <div className="board7" ref={tokenomicsRef}>
+            <div className="title" style={{ width: "600px" }}>
+              <img className="left" src={LeftImg} alt="icon" />
+              <h2>Tokenomics</h2>
+              <img className="right" src={RightImg} alt="icon" />
+            </div>
+            <Tokennomics />
           </div>
         </div>
-        <div className="board7" ref={tokenomicsRef}>
-        <div className="title" style={{ width: "600px" }}>
-            <img className="left" src={LeftImg} alt="icon" />
-            <h2>Tokenomics</h2>
-            <img className="right" src={RightImg} alt="icon" />
-          </div>
-          <Tokennomics/>
-        </div>
+        <Footer
+          scrollToUseCases={scrollToUseCases}
+          scrollToTokenomics={scrollToTokenomics}
+        ></Footer>
       </div>
-      <Footer
-        scrollToUseCases={scrollToUseCases}
-        scrollToTokenomics={scrollToTokenomics}
-      ></Footer>
-    </div>
     </div>
   );
 }

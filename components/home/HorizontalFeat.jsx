@@ -16,12 +16,10 @@ export const HorizontalFeat = () => {
     // Set up horizontal scrolling in the designated section
     gsap.to(board2_items, {
       xPercent: -300 * (board2_items.length - 1),
-      ease: "none",
-      delay: 0.2,
       scrollTrigger: {
         trigger: horizontalSection,
-        start: "top -10%",
-        scrub: 4,
+        start: "top -15%",
+        scrub: 2,
         pin: true,
         // markers: true,
         anticipatePin: true,
@@ -32,7 +30,6 @@ export const HorizontalFeat = () => {
   return (
     <div
       ref={horizontalSectionRef}
-      style={{ overflowY: "auto", height: "100vh" }}
       className="board board2"
     >
       <div className="board2_items">
