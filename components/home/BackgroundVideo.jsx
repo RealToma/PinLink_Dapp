@@ -59,11 +59,13 @@ export const BackgroundVideo = () => {
         paused: true,
       });
 
+      const heights=[100,90,100]
+
       sections.forEach((step, i) => {
         let segmentLength = bgVideoSegments[i + 1] - bgVideoSegments[i],
           inc = segmentLength / bgVideoSegments[sections.length];
 
-        step.style.height = 100 + "vh";
+        step.style.height = heights[i] + "vh";
 
         let starting;
 
