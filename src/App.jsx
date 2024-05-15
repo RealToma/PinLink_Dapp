@@ -204,7 +204,7 @@ function App() {
             <HorizontalFeat />
 
             <div className="board board3">
-              <div>
+              <div className="randomize-text-wrapper">
                 <RandomizeText
                   originalText={"THE FIRST AI DRIVEN"}
                   interval={200}

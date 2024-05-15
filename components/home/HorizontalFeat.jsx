@@ -5,6 +5,7 @@ import Board2_2 from "../../src/assets/imgs/index/board2_2.svg";
 import Board2_3 from "../../src/assets/imgs/index/board2_3.svg";
 import {  useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { MOBILE_BREAKPOINT } from "../../utils/constants";
 
 export const HorizontalFeat = () => {
   const horizontalSectionRef = useRef(null);
@@ -12,6 +13,31 @@ export const HorizontalFeat = () => {
   useGSAP(() => {
     const horizontalSection = horizontalSectionRef.current;
     let board2_items = gsap.utils.toArray(".board2_item");
+    const width = window.innerWidth;
+    if(width<MOBILE_BREAKPOINT)
+      {
+       
+        board2_items.forEach((item, index) => {
+          gsap.set(item, {marginBottom:"100vh"});
+          if(index===0)
+            {
+              gsap.set(item, {marginTop:"100vh"});
+            }
+          gsap.to(item, {
+            opacity: 0,
+            y:-item.innerHeight,
+            scrollTrigger:{
+              trigger:item,
+              start: "top 50%",
+              end: "top 0%",
+              scrub:true,
+            }
+          });
+        })
+
+      }
+      else
+      {
 
     // Set up horizontal scrolling in the designated section
     gsap.to(board2_items, {
@@ -25,6 +51,8 @@ export const HorizontalFeat = () => {
         anticipatePin: true,
       },
     });
+      }
+
   });
   return (
     <div

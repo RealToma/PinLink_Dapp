@@ -6,16 +6,27 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { MOBILE_BREAKPOINT } from "../../utils/constants";
 
 export const BackgroundVideo = () => {
-  const bgVideoRef = useRef(null);
   const chipVideoRef = useRef(null);
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
+    const width = window.innerWidth;
     const mainDiv = document.querySelector("#first-vid-trigger");
-    const graphicVideoElement = bgVideoRef.current;
+    const pcVideo = document.querySelector(".bg-video.pc");
+    const mobileVideo = document.querySelector(".bg-video.mobile");
 
+    let graphicVideoElement
+    if(width<MOBILE_BREAKPOINT){
+      graphicVideoElement=mobileVideo
+      pcVideo.style.display = "none";
+    }
+    else{
+      graphicVideoElement=pcVideo
+      mobileVideo.style.display = "none";
+    }
     if (graphicVideoElement) {
       ScrollTrigger.create({
         trigger: graphicVideoElement,
@@ -38,7 +49,7 @@ export const BackgroundVideo = () => {
         scrollTrigger: {
           trigger: mainDiv,
           start: "top top",
-          end: "bottom+=200% bottom",
+          end: width<MOBILE_BREAKPOINT?"bottom+=50% bottom":"bottom+=200% bottom",
           scrub: true,
           // markers: true,
         },
@@ -61,14 +72,14 @@ export const BackgroundVideo = () => {
           start: "top top",
           end: "bottom 50%",
           scrub: true,
-          // markers: true,
+          //markers: true,
         },
       });
     }
 
     const chipVideoElement = chipVideoRef.current;
     const board5 = document.querySelector(".board5");
-    if (chipVideoElement) {
+    if (chipVideoElement &&!(width<MOBILE_BREAKPOINT)) {
       chipVideoElement.pause();
       chipVideoElement.currentTime = 0.3;
       let chipVideoTL = gsap.timeline({
@@ -106,7 +117,6 @@ export const BackgroundVideo = () => {
     <>
       <div id="bg-video-container" className="bg-video-container">
         <video
-          ref={bgVideoRef}
           loop
           muted
           className="bg-video pc"
@@ -115,7 +125,6 @@ export const BackgroundVideo = () => {
           type="video/mp4"
         ></video>
         <video
-          ref={bgVideoRef}
           loop
           muted
           className="bg-video mobile"

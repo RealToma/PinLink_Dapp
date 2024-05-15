@@ -8,18 +8,17 @@ export const Loader = () => {
     document.documentElement.scrollTop = 0;
 
     const videoElements = document.querySelectorAll("video");
+    console.log('Video elements:', videoElements.length)
     const loadedVideos = [];
 
     const handleVideoLoaded = () => {
-      console.log('Video loaded');
       loadedVideos.push(true);
-      if (loadedVideos.length === videoElements.length) {
+      if (loadedVideos.length >= videoElements.length/2) {
         gsap.to(".preload", {
           autoAlpha: 0,
           duration: 0.5,
           onComplete: () => {
             document.documentElement.style.overflow = "auto";
-            console.log('Loader hidden');
           },
         });
       }
