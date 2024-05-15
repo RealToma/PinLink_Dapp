@@ -1,4 +1,5 @@
-import video from "../../src/assets/vids/gpu.mp4";
+import gpuVideo from "../../src/assets/vids/gpu.mp4";
+import gpuVideoMobile from "../../src/assets/vids/gpu_mobile.mp4";
 import chipVideo from "../../src/assets/vids/chip.mp4";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -74,7 +75,7 @@ export const BackgroundVideo = () => {
         scrollTrigger: {
           trigger: board5,
           start: "top top",
-          end: "bottom+=120% bottom",
+          end: "bottom+=100% bottom",
           scrub: true,
           //markers: true,
         },
@@ -98,7 +99,7 @@ export const BackgroundVideo = () => {
       });
       fadeInOutTimeLine
         .to(chipVideoElement, { opacity: 1, x: 0 }, "start")
-        .to(chipVideoElement, { opacity: 0, x: 100 }, "start+=5");
+        .to(chipVideoElement, { opacity: 0}, "start+=5");
     }
   });
   return (
@@ -108,8 +109,17 @@ export const BackgroundVideo = () => {
           ref={bgVideoRef}
           loop
           muted
-          className="bg-video"
-          src={video}
+          className="bg-video pc"
+          src={gpuVideo}
+          preload="auto"
+          type="video/mp4"
+        ></video>
+        <video
+          ref={bgVideoRef}
+          loop
+          muted
+          className="bg-video mobile"
+          src={gpuVideoMobile}
           preload="auto"
           type="video/mp4"
         ></video>

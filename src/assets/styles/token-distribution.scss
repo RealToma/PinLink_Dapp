@@ -1,0 +1,71 @@
+.skill {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  transform: scale(2.4);
+}
+
+.outer {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 6px 0px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(193, 255, 114, 0.4);
+  background-color: #131313;
+}
+.inner {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px rgba(0, 0, 0, 0.7),
+    -0.5px -0.5px 0px rgba(0, 0, 0, 1), 0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+    0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#number {
+  font-weight: 600;
+  color: #555;
+}
+
+#segment1 {
+  fill: none;
+  stroke: url(#GradientColor1);
+  stroke-width: 15px;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 799;
+}
+#segment2 {
+  fill: none;
+  stroke: url(#GradientColor2);
+  stroke-width: 10px;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 413;
+  // display: none;
+}
+#segment3 {
+  fill: none;
+  stroke: url(#GradientColor3);
+  stroke-width: 9px;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 480;
+  // display: none;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.svg1 {
+  transform: rotate(100deg);
+}
+.svg2 {
+  transform: rotate(115deg);
+}
+.svg3 {
+  transform: rotate(171deg);
+}

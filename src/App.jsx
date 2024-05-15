@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 import { useGSAP } from "@gsap/react";
 
@@ -17,16 +17,21 @@ import planetVideo from "./assets/vids/planet.mp4";
 import Logo from "./assets/imgs/index/logo_title.svg";
 
 import LeftImg from "./assets/imgs/index/left.svg";
+import LeftImgMobile from "./assets/imgs/index/left_mobile.svg";
 import RightImg from "./assets/imgs/index/right.svg";
+import RightImgMobile from "./assets/imgs/index/right_mobile.svg";
 import Board4 from "./assets/imgs/index/board4.png";
+import Board4Mobile from "./assets/imgs/index/board4_mobile.png";
 import { KeyFeatures } from "../components/home/KeyFeatures";
 import { HorizontalFeat } from "../components/home/HorizontalFeat";
 import { BackgroundVideo } from "../components/home/BackgroundVideo";
 import { Tokennomics } from "../components/home/Tokennomics";
 import { Loader } from "../components/shared/Loader";
+import { Roadmap } from "../components/home/Roadmap";
+import { MOBILE_BREAKPOINT } from "../utils/constants";
 
 function App() {
-  const smoother=ScrollSmoother.get();
+  const smoother = ScrollSmoother.get();
 
   useEffect(() => {
     return () => {
@@ -35,26 +40,24 @@ function App() {
   }, []);
 
   const useCasesRef = useRef(null);
-  const scrollToUseCases = () => {
-    if (useCasesRef.current) {
-      smoother.scrollTo( useCasesRef.current, 2, "top +=50");      
-    }
-  };
-
   const tokenomicsRef = useRef(null);
-  const scrollToTokenomics = () => {
-    if (tokenomicsRef.current) {
-      smoother.scrollTo( tokenomicsRef.current, 2,"top +=50");      
+  const aboutRef = useRef(null);
+  const featRef = useRef(null);
+
+  const scrollTo = (ref,position="top +=50") => {
+    if (ref.current) {
+      smoother.scrollTo(ref.current, 2,position);
     }
   };
 
   const scrollDown = () => {
-      smoother.scrollTo( ".board2", 15, "top -=10");          
+    smoother.scrollTo(".board2", 15, "top -=10");
   };
 
   const fadeInRef = useRef(null);
 
   useGSAP(() => {
+    const width=  window.innerWidth;
     //下方渐入效果
     gsap.from(fadeInRef.current, {
       y: 200,
@@ -66,8 +69,8 @@ function App() {
     const titleElements = document.querySelectorAll(".title");
 
     titleElements.forEach((titleElement) => {
-      const leftImg = titleElement.querySelector(".left");
-      const rightImg = titleElement.querySelector(".right");
+      const leftImg = titleElement.querySelector(width<MOBILE_BREAKPOINT?".titleLeftMobile":".titleLeft");
+      const rightImg = titleElement.querySelector(width<MOBILE_BREAKPOINT?".left":".titleRight");
       const title = titleElement.querySelector("h2");
 
       const textFadeInAnimationTrigger = {
@@ -127,15 +130,15 @@ function App() {
 
     const useCasesTitle = document.querySelector(".use-cases-title");
     const board6 = document.querySelector(".board6");
-    const carouselItems = gsap.utils.toArray(".carouselItem");
+    const carouselItems = gsap.utils.toArray(".react-responsive-3d-carousel__carousel__item.shadow");
 
     gsap.from(useCasesTitle, {
       opacity: 0,
       y: 100,
       scrollTrigger: {
         trigger: board6,
-        start: "top 50%",
-        end: "top 20%",
+        start: "top 20%",
+        end: "top 0%",
         scrub: true,
       },
     });
@@ -151,51 +154,48 @@ function App() {
       },
     });
 
-    board6TL
-      .from(
-        planetVideoElement,
-        {
-          opacity: 0,
-          scale: 0.8,
-        },
-        "start+=2"
-      )
-      .from(
-        carouselItems,
-        {
-          opacity: 0,
-          x: -90,
-          scale:0.8,
-          stagger: 0.4,
-        },
-        "start"
-      );
+    // board6TL
+    //   .from(
+    //     planetVideoElement,
+    //     {
+    //       opacity: 0,
+    //       scale: 0.8,
+    //     },
+    //     "start+=4"
+    //   )
+    //   .from(
+    //     carouselItems,
+    //     {
+    //       opacity: 0,
+    //       x: -120,
+    //       scale: 0.6,
+    //       stagger: 1.3,         
+    //     },
+    //     "start",    
+    //   );
   });
 
   return (
-
-     <div id="smooth-wrapperss">
+    <div id="smooth-wrapperss">
       <div id="smooth-contentss">
-        <Loader/>
+        <Loader />
         <Header
-          scrollToUseCases={scrollToUseCases}
-          scrollToTokenomics={scrollToTokenomics}
+          scrollToAbout={() => scrollTo(aboutRef)}
+          scrollToFeatures={() => scrollTo(featRef,"top +=100")}
+          scrollToUseCases={() => scrollTo(useCasesRef)}
+          scrollToTokenomics={() => scrollTo(tokenomicsRef)}
         ></Header>
         <div className="home">
           <BackgroundVideo />
           <div id="first-vid-trigger">
             <div className="board board1">
               <div className="top" ref={fadeInRef}>
-                <img src={Logo} alt="logo" />
-                <p>
-                  Where DePIN and <br />
-                  RWA meet
+                <img src={Logo} alt="logo" className="pinlink-logo" />
+                <p className="board1-title">
+                  Where DePIN and RWAs meet
                 </p>
-                <span>
-                  PinLink, the first RWA-Tokenized DePIN platform, boosts
-                  revenue by letting owners tokenize and rent out DePIN
-                  capacity, lowers costs for AI and blockchain developers, and
-                  allows 3rd parties to earn through fractional shares.
+                <span className="board1-desc">
+                PinLink is the first RWA-Tokenized DePIN protocol, reducing costs for users of DePIN services and creating new revenue streams for owners of DePIN assets.
                 </span>
                 <div className="arrow-down" onClick={scrollDown}></div>
               </div>
@@ -204,7 +204,6 @@ function App() {
             <HorizontalFeat />
 
             <div className="board board3">
-              <div></div>
               <div>
                 <RandomizeText
                   originalText={"THE FIRST AI DRIVEN"}
@@ -224,34 +223,41 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="board4">
+          <div className="board4" ref={aboutRef}>
             <div className="title">
-              <img className="left" src={LeftImg} alt="icon" />
+              <img className="titleLeft" src={LeftImg} alt="icon" />
+              <img className="titleLeftMobile" src={LeftImgMobile} alt="icon" />
               <h2>HOW DOES PINLINk WORK</h2>
-              <img className="right" src={RightImg} alt="icon" />
+              <img className="titleRight" src={RightImg} alt="icon" />
+              <img className="titleRightMobile" src={RightImgMobile} alt="icon" />
             </div>
             <img className="mainImg" src={Board4} alt="icon" />
+            <img className="mainImgMobile" src={Board4Mobile} alt="icon" />
           </div>
-          <div className="board5">
-            <div className="title" style={{ width: "600px" }}>
-              <img className="left" src={LeftImg} alt="icon" />
+          <div className="board5" ref={featRef}>
+            <div className="title">
+              <img className="titleLeft" src={LeftImg} alt="icon" />
+              <img className="titleLeftMobile" src={LeftImgMobile} alt="icon" />
               <h2>Key Features</h2>
-              <img className="right" src={RightImg} alt="icon" />
+              <img className="titleRight" src={RightImg} alt="icon" />
+              <img className="titleRightMobile" src={RightImgMobile} alt="icon" />
             </div>
 
             <KeyFeatures />
           </div>
+          <Roadmap/>
           <div className="board6" ref={useCasesRef}>
-            <div className="title" style={{ width: "600px" }}>
-              <img className="left" src={LeftImg} alt="icon" />
+            <div className="title" >
+              <img className="titleLeft" src={LeftImg} alt="icon" />
+              <img className="titleLeftMobile" src={LeftImgMobile} alt="icon" />
               <h2>Use Cases</h2>
-              <img className="right" src={RightImg} alt="icon" />
+              <img className="titleRight" src={RightImg} alt="icon" />
+              <img className="titleRightMobile" src={RightImgMobile} alt="icon" />
             </div>
             <p className="info use-cases-title">
               By bringing RWA-tokenization dynamics to the DePIN sector, PinLink
               achieves several key benefits
             </p>
-            <div className="casesMain">
               <video
                 loop
                 muted
@@ -262,24 +268,26 @@ function App() {
                 type="video/mp4"
               ></video>
               <Carousel />
-            </div>
           </div>
           <div className="board7" ref={tokenomicsRef}>
-            <div className="title" style={{ width: "600px" }}>
-              <img className="left" src={LeftImg} alt="icon" />
+            <div className="title">
+              <img className="titleLeft" src={LeftImg} alt="icon" />
+              <img className="titleLeftMobile" src={LeftImgMobile} alt="icon" />
               <h2>Tokenomics</h2>
-              <img className="right" src={RightImg} alt="icon" />
+              <img className="titleRight" src={RightImg} alt="icon" />
+              <img className="titleRightMobile" src={RightImgMobile} alt="icon" />
             </div>
             <Tokennomics />
           </div>
         </div>
         <Footer
-          scrollToUseCases={scrollToUseCases}
-          scrollToTokenomics={scrollToTokenomics}
+          scrollToAbout={() => scrollTo(aboutRef)}
+          scrollToFeatures={() => scrollTo(featRef,"top +=100")}
+          scrollToUseCases={() => scrollTo(useCasesRef)}
+          scrollToTokenomics={() => scrollTo(tokenomicsRef)}
         ></Footer>
       </div>
     </div>
-
   );
 }
 

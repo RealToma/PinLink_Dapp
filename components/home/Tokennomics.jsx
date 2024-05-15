@@ -6,9 +6,12 @@ import Color2 from "../../src/assets/imgs/index/color2.svg";
 import Color3 from "../../src/assets/imgs/index/color3.svg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import TokenDistributions from "./TokenDistributions";
+import { MOBILE_BREAKPOINT } from "../../utils/constants";
 
 export const Tokennomics = () => {
   useGSAP(() => {
+    const width = window.innerWidth;
     const board7 = document.querySelector(".board7");
     const tokenImg = document.querySelector("#token-img");
     const chartImg = document.querySelector("#chart-img");
@@ -19,8 +22,8 @@ export const Tokennomics = () => {
     const tokenImgTl = gsap.timeline({
       scrollTrigger: {
         trigger: board7,
-        start: "top 50%",
-        end: "top 0%",
+        start: width<MOBILE_BREAKPOINT?"top bottom":"top 50%",
+        end: width<MOBILE_BREAKPOINT?"top 50%":"top 0%",
         scrub: true,
       },
     });
@@ -87,24 +90,26 @@ export const Tokennomics = () => {
   });
 
   return (
-    <>
+    <div  className="tokenomics-wrapper">
       <div className="tokenomics">
         <div className="left">
           <div className="charts">
-            <img id="chart-img" src={Charts} alt="icon" />
+             <img id="chart-img" src={Charts} alt="icon" />
+             {/* <TokenDistributions/>  */}
           </div>
           <div className="info">
-            <div className="chart-desc">
-              <img src={Color1} alt="icon" />
-              Uniswap Pool: 70%
+          <div className="chart-desc">
+              <img src={Color3} alt="icon" />
+              Uniswap LP: 85%
             </div>
+            
             <div className="chart-desc">
               <img src={Color2} alt="icon" />
-              Staking Emissions: 20%
+              Staking Emissions: 10%
             </div>
             <div className="chart-desc">
-              <img src={Color3} alt="icon" />
-              reasury: 10%
+              <img src={Color1} alt="icon" />
+              CEX Reserve: 5%
             </div>
           </div>
         </div>
@@ -124,26 +129,27 @@ export const Tokennomics = () => {
               <p>2</p>Supply: 100,000,000
             </div>
             <div className="token-desc">
-              <p>3</p>Network: ERC20
+              <p>3</p>Network: Ethereum
+            </div>
+            <div className="token-desc">
+              <p>4</p>Token Standard: ERC-20*
             </div>
           </div>
         </div>
       </div>
       <div className="about">
-        <div className="left" id="about-left">
+        <div className="about-left" id="about-left">
           <p>
             Learn More About How PinLink Combines and Unleashes the Full
             Potential of RWA & DePIN.
           </p>
-          <a href="" className="button green">
-            {" "}
+          <a href="https://pinlink.gitbook.io/pinlink" target="_blank" className="button green">
             Read Docs
           </a>
         </div>
-        <div id="about-right">
-          <img src={About} alt="icon" />
-        </div>
+        <img src={About} alt="icon"  className="about-right" id="about-right"/>
+        
       </div>
-    </>
+    </div>
   );
 };

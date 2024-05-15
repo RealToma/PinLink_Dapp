@@ -35,25 +35,21 @@ export const HorizontalFeat = () => {
         <div className="board2_item">
           <div className="item_info">
             <img src={Board2_1} alt="icon" />
-            <div>
               <h2>RWA-Tokenized Model</h2>
               <span>
                 The RWA-tokenized model provides new revenue streams for PinLink
                 compared with existing DePIN marketplace models.
               </span>
             </div>
-          </div>
         </div>
         <div className="board2_item">
           <div className="item_info">
             <img src={Board2_2} alt="icon" />
-            <div>
               <h2>The First Fractionalized Liquidity Layer for DePIN</h2>
               <span>
                 PinLink opens the door for a huge opportunity to tokenize and
                 trade various DePIN assets.
               </span>
-            </div>
           </div>
         </div>
         <div className="board2_item">

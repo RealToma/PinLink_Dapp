@@ -1,5 +1,4 @@
 .footer {
-    height: 80px;
     padding: 0px 44px;
     display: flex;
     align-items: center;
@@ -82,4 +81,32 @@
 }
 
 
-@media screen and (max-width:1000px) {}
+@media screen and (max-width:1000px) {
+    .footer {
+        gap:0.62rem;
+        padding: 0.2rem 1rem;
+    .footerMain {
+        flex-direction: column;
+        gap:0.62rem;
+
+        .menuList {
+            gap: 0px;
+
+            div{
+                justify-content: space-between;
+                padding: 0.5rem;
+                border-left: none;
+            }
+        }
+        .logo {
+            width: auto;
+            height: 1.7rem;
+        }
+
+        p {
+            font-size: 0.75rem;
+
+        }
+    }
+    }
+}

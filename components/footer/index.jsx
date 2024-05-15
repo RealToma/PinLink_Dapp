@@ -1,4 +1,8 @@
 import styles from './index.module.scss'
+import logo from '../../src/assets/imgs/index/logo_title.svg'
+import xLogo from '../../src/assets/imgs/others/x.svg'
+import tgLogo from '../../src/assets/imgs/others/tg.svg'
+import bookLogo from '../../src/assets/imgs/others/book.svg'
 
 export default function Footer(props) {
     return (
@@ -6,19 +10,18 @@ export default function Footer(props) {
             <div className={styles.footer}>
                 <div className={styles.footerMain}>
                     <a href="/" className={styles.logo}>
-                        <img src='/src/assets/imgs/index/logo_title.svg' alt='logo' />
+                        <img src={logo} alt='logo' />
                     </a>
                     <div className={styles.menuList}>
-                        <div style={{ "borderLeft": "none", "paddingLeft": "0" }}><a href="/" rel="nofollow noopener noreferrer" ><span>About</span></a></div>
-                        <div><a href="/" rel="nofollow noopener noreferrer"><span>Features</span></a></div>
+                        <div  onClick={props.scrollToAbout} style={{ "borderLeft": "none", "paddingLeft": "0" }}><span>About</span></div>
+                        <div onClick={props.scrollToFeatures} ><span>Features</span></div>
                         <div onClick={props.scrollToUseCases}><span>Use cases</span></div>
                         <div onClick={props.scrollToTokenomics}><span>Tokenomics</span></div>
-                        <div><a href="/" rel="nofollow noopener noreferrer"><span>FAQ</span></a></div>
                     </div>
                     <div className={`${styles.linkList} ${'flex-gap24'}`}>
-                        <a href="/" rel="nofollow noopener noreferrer"><img src='/src/assets/imgs/others/x.svg' alt='icon' /></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><img src='/src/assets/imgs/others/tg.svg' alt='icon' /></a>
-                        <a href="/" rel="nofollow noopener noreferrer"><img src='/src/assets/imgs/others/book.svg' alt='icon' /></a>
+                        <a href="https://x.com/pinlinknetwork" target='_blank' rel="nofollow noopener noreferrer"><img src={xLogo} alt='icon' /></a>
+                        <a href="https://pinlink.gitbook.io/pinlink" rel="nofollow noopener noreferrer" target='_blank'><img src={tgLogo} alt='icon' /></a>
+                        <a href="https://pinlink.gitbook.io/pinlink" rel="nofollow noopener noreferrer" target='_blank'><img src={bookLogo} alt='icon' /></a>
                     </div>
                 </div>
                 <p>

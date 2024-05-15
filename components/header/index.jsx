@@ -1,4 +1,5 @@
 import styles from './index.module.scss'
+import titleLogo from '../../src/assets/imgs/index/logo_title.svg'
 
 export default function Header(props) {
     return (
@@ -6,11 +7,11 @@ export default function Header(props) {
             <div className={styles.head}>
                 <div className={styles.headMain}>
                     <a href="/" className={styles.logo}>
-                        <img src='/src/assets/imgs/index/logo_title.svg' alt='logo' />
+                        <img src={titleLogo} alt='logo' />
                     </a>
                     <div className={styles.menuList}>
-                        <div style={{ "borderLeft": "none", "paddingLeft": "0" }}><a href="/" rel="nofollow noopener noreferrer" ><span>About</span></a></div>
-                        <div><a href="/" rel="nofollow noopener noreferrer"><span>Features</span></a></div>
+                        <div onClick={props.scrollToAbout} style={{ "borderLeft": "none", "paddingLeft": "0" }}><span>About</span></div>
+                        <div onClick={props.scrollToFeatures} ><span>Features</span></div>
                         <div onClick={props.scrollToUseCases}><span>Use cases</span></div>
                         <div onClick={props.scrollToTokenomics}><span>Tokenomics</span></div>
                     </div>
