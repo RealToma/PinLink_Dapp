@@ -1,12 +1,13 @@
-import gpuVideo from "../../src/assets/vids/gpu.mp4";
-import gpuVideoMobile from "../../src/assets/vids/gpu_mobile.mp4";
-import chipVideo from "../../src/assets/vids/chip.mp4";
+import gpuVideo from "@assets/vids/gpu.mp4";
+import gpuVideoMobile from "@assets/vids/gpu_mobile.mp4";
+import chipVideo from "@assets/vids/chip.mp4";
 import { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { MOBILE_BREAKPOINT } from "../../utils/constants";
+import {MOBILE_BREAKPOINT} from "../../utils/constants";
+
 
 export const BackgroundVideo = () => {
   const chipVideoRef = useRef(null);
@@ -138,7 +139,6 @@ export const BackgroundVideo = () => {
           ref={chipVideoRef}
           loop
           muted
-          autoPlay
           className="chip-video"
           src={chipVideo}
           preload="auto"

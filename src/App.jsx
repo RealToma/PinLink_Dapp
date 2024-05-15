@@ -1,5 +1,4 @@
 import "./App.scss";
-import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -154,25 +153,25 @@ function App() {
       },
     });
 
-    // board6TL
-    //   .from(
-    //     planetVideoElement,
-    //     {
-    //       opacity: 0,
-    //       scale: 0.8,
-    //     },
-    //     "start+=4"
-    //   )
-    //   .from(
-    //     carouselItems,
-    //     {
-    //       opacity: 0,
-    //       x: -120,
-    //       scale: 0.6,
-    //       stagger: 1.3,         
-    //     },
-    //     "start",    
-    //   );
+    board6TL
+      .from(
+        planetVideoElement,
+        {
+          opacity: 0,
+          scale: 0.8,
+        },
+        "start+=4"
+      )
+      .from(
+        carouselItems,
+        {
+          opacity: 0,
+          x: -120,
+          scale: 0.6,
+          stagger: 1.3,         
+        },
+        "start",    
+      );
   });
 
   return (
@@ -261,7 +260,6 @@ function App() {
               <video
                 loop
                 muted
-                autoPlay
                 className="bg-video planet-video"
                 src={planetVideo}
                 preload="auto"

@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import titleLogo from '../../src/assets/imgs/index/logo_title.svg'
+import titleLogo from '@assets/imgs/index/logo_title.svg'
 
 export default function Header(props) {
     return (

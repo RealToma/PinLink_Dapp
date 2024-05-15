@@ -11,7 +11,8 @@ export const Loader = () => {
     console.log('Video elements:', videoElements.length)
     const loadedVideos = [];
 
-    const handleVideoLoaded = () => {
+    const handleVideoLoaded = (e) => {
+      console.log("loadeddata",e)
       loadedVideos.push(true);
       if (loadedVideos.length >= videoElements.length/2) {
         gsap.to(".preload", {
@@ -43,7 +44,8 @@ export const Loader = () => {
       video.addEventListener("loadeddata", handleVideoLoaded);
       video.addEventListener("error", handleVideoError);
       video.preload = "auto";
-      console.log('Video element:', video);
+      console.log('Video elementtt:', video);
+      handleVideoError("error")
     });
 
     return () => {

@@ -10,6 +10,18 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
+  globals: {
+    // Add your auto-imported functions here
+    useRef: "readonly",
+    useState: "readonly",
+    useEffect: "readonly",
+    useContext: "readonly",
+    useReducer: "readonly",
+    useCallback: "readonly",
+    useMemo: "readonly",
+    useLayoutEffect: "readonly",
+    useImperativeHandle: "readonly",
+  },
   plugins: ['react-refresh'],
   rules: {
     'react/jsx-no-target-blank': 'off',

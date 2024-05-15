@@ -1,11 +1,12 @@
-import LeftImg from "../../src/assets/imgs/index/left.svg";
-import LeftImgMobile from "../../src/assets/imgs/index/left_mobile.svg";
-import RightImg from "../../src/assets/imgs/index/right.svg";
-import RightImgMobile from "../../src/assets/imgs/index/right_mobile.svg";
+import LeftImg from "@assets/imgs/index/left.svg";
+import LeftImgMobile from "@assets/imgs/index/left_mobile.svg";
+import RightImg from "@assets/imgs/index/right.svg";
+import RightImgMobile from "@assets/imgs/index/right_mobile.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
-import { MOBILE_BREAKPOINT } from "../../utils/constants";
+import {MOBILE_BREAKPOINT} from "../../utils/constants";
+
 
 export const Roadmap = () => {
   useEffect(() => {

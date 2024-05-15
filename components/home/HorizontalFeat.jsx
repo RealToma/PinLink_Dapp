@@ -1,11 +1,12 @@
 import gsap from "gsap";
 
-import Board2_1 from "../../src/assets/imgs/index/board2_1.svg";
-import Board2_2 from "../../src/assets/imgs/index/board2_2.svg";
-import Board2_3 from "../../src/assets/imgs/index/board2_3.svg";
+import Board2_1 from "@assets/imgs/index/board2_1.svg";
+import Board2_2 from "@assets/imgs/index/board2_2.svg";
+import Board2_3 from "@assets/imgs/index/board2_3.svg";
 import {  useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { MOBILE_BREAKPOINT } from "../../utils/constants";
+import {MOBILE_BREAKPOINT} from "../../utils/constants";
+
 
 export const HorizontalFeat = () => {
   const horizontalSectionRef = useRef(null);

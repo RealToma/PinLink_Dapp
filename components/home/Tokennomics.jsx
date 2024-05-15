@@ -1,13 +1,14 @@
-import Token from "../../src/assets/imgs/index/token.svg";
-import About from "../../src/assets/imgs/index/about.png";
-import Charts from "../../src/assets/imgs/index/charts.png";
-import Color1 from "../../src/assets/imgs/index/color1.svg";
-import Color2 from "../../src/assets/imgs/index/color2.svg";
-import Color3 from "../../src/assets/imgs/index/color3.svg";
+import Token from "@assets/imgs/index/token.svg";
+import About from "@assets/imgs/index/about.png";
+import Charts from "@assets/imgs/index/charts.png";
+import Color1 from "@assets/imgs/index/color1.svg";
+import Color2 from "@assets/imgs/index/color2.svg";
+import Color3 from "@assets/imgs/index/color3.svg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import TokenDistributions from "./TokenDistributions";
-import { MOBILE_BREAKPOINT } from "../../utils/constants";
+import {MOBILE_BREAKPOINT} from "../../utils/constants";
+
 
 export const Tokennomics = () => {
   useGSAP(() => {

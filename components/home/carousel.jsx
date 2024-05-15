@@ -1,9 +1,9 @@
 
 import { Carousel } from 'react-responsive-3d-carousel';
-import carouselImg1 from '../../src/assets/imgs/index/01.png';
-import carouselImg1Active from '../../src/assets/imgs/index/01_active.png';
-import carouselImg2 from '../../src/assets/imgs/index/02.png';
-import carouselImg3 from '../../src/assets/imgs/index/03.png';
+import carouselImg1 from '@assets/imgs/index/01.png';
+import carouselImg1Active from '@assets/imgs/index/01_active.png';
+import carouselImg2 from '@assets/imgs/index/02.png';
+import carouselImg3 from '@assets/imgs/index/03.png';
 import { useEffect} from 'react';
 
 

@@ -1,8 +1,8 @@
 import styles from './index.module.scss'
-import logo from '../../src/assets/imgs/index/logo_title.svg'
-import xLogo from '../../src/assets/imgs/others/x.svg'
-import tgLogo from '../../src/assets/imgs/others/tg.svg'
-import bookLogo from '../../src/assets/imgs/others/book.svg'
+import logo from '@assets/imgs/index/logo_title.svg'
+import xLogo from '@assets/imgs/others/x.svg'
+import tgLogo from '@assets/imgs/others/tg.svg'
+import bookLogo from '@assets/imgs/others/book.svg'
 
 export default function Footer(props) {
     return (

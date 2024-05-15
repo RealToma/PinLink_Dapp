@@ -115,6 +115,14 @@ body {
   overflow-x: hidden;
   width: 100vw;
 }
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 
 
 a {

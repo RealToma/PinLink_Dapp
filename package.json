@@ -21,7 +21,8 @@
     "react-responsive-3d-carousel": "^1.4.3",
     "react-slick": "^0.30.2",
     "scramble-text": "^0.0.9",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "unplugin-auto-import": "^0.17.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
