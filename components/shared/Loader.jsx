@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import titleLogo from '@assets/imgs/index/logo_title.svg'
 
 export const Loader = () => {
   useEffect(() => {
@@ -54,6 +55,7 @@ export const Loader = () => {
   return (
     <>
       <div className="preload">
+        <img src={titleLogo} alt='logo' />
         <div className="loader"></div>
       </div>
     </>

@@ -39,7 +39,7 @@ export const HorizontalFeat = () => {
       }
       else
       {
-
+        gsap.set(board2_items, { xPercent: 10 * (board2_items.length - 1) });
     // Set up horizontal scrolling in the designated section
     gsap.to(board2_items, {
       xPercent: -300 * (board2_items.length - 1),
@@ -64,32 +64,39 @@ export const HorizontalFeat = () => {
         <div className="board2_item">
           <div className="item_info">
             <img src={Board2_1} alt="icon" />
-              <h2>RWA-Tokenized Model</h2>
+            <div>
+            <h2>RWA-Tokenized Model</h2>
               <span>
                 The RWA-tokenized model provides new revenue streams for PinLink
                 compared with existing DePIN marketplace models.
               </span>
             </div>
+             
+            </div>
         </div>
         <div className="board2_item">
           <div className="item_info">
             <img src={Board2_2} alt="icon" />
+            <div>
               <h2>The First Fractionalized Liquidity Layer for DePIN</h2>
               <span>
                 PinLink opens the door for a huge opportunity to tokenize and
                 trade various DePIN assets.
               </span>
           </div>
+          </div>
         </div>
         <div className="board2_item">
           <div className="item_info">
             <img src={Board2_3} alt="icon" />
+            <div>
             <div>
               <h2>Deep Learning AI Powered Platform</h2>
               <span>
                 Analyzes the performance of the DePIN ecosystem, as well as
                 tokenized GPUs, nodes, and other decentralized physical assets.
               </span>
+            </div>
             </div>
           </div>
         </div>

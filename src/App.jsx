@@ -6,27 +6,27 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 import { useGSAP } from "@gsap/react";
 
-import Header from "../components/header";
-import Footer from "../components/footer";
-import Carousel from "../components/home/Carousel";
-import RandomizeText from "../components/home/RandomizeText";
+import Header from "@components/header";
+import Footer from "@components/footer";
+import Carousel from "@components/home/Carousel";
+import RandomizeText from "@components/home/RandomizeText";
 
-import planetVideo from "./assets/vids/planet.mp4";
+import planetVideo from "@assets/vids/planet.mp4";
 
-import Logo from "./assets/imgs/index/logo_title.svg";
+import Logo from "@assets/imgs/index/logo_title.svg";
 
-import LeftImg from "./assets/imgs/index/left.svg";
-import LeftImgMobile from "./assets/imgs/index/left_mobile.svg";
-import RightImg from "./assets/imgs/index/right.svg";
-import RightImgMobile from "./assets/imgs/index/right_mobile.svg";
-import Board4 from "./assets/imgs/index/board4.png";
-import Board4Mobile from "./assets/imgs/index/board4_mobile.png";
-import { KeyFeatures } from "../components/home/KeyFeatures";
-import { HorizontalFeat } from "../components/home/HorizontalFeat";
-import { BackgroundVideo } from "../components/home/BackgroundVideo";
-import { Tokennomics } from "../components/home/Tokennomics";
-import { Loader } from "../components/shared/Loader";
-import { Roadmap } from "../components/home/Roadmap";
+import LeftImg from "@assets/imgs/index/left.svg";
+import LeftImgMobile from "@assets/imgs/index/left_mobile.svg";
+import RightImg from "@assets/imgs/index/right.svg";
+import RightImgMobile from "@assets/imgs/index/right_mobile.svg";
+import Board4 from "@assets/imgs/index/board4.png";
+import Board4Mobile from "@assets/imgs/index/board4_mobile.png";
+import { KeyFeatures } from "@components/home/KeyFeatures";
+import { HorizontalFeat } from "@components/home/HorizontalFeat";
+import { BackgroundVideo } from "@components/home/BackgroundVideo";
+import { Tokennomics } from "@components/home/Tokennomics";
+import { Loader } from "@components/shared/Loader";
+import { Roadmap } from "@components/home/Roadmap";
 import { MOBILE_BREAKPOINT } from "../utils/constants";
 
 function App() {

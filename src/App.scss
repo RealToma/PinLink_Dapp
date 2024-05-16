@@ -130,10 +130,9 @@
 
     .board2 {
       .board2_items {
-        display: flex;
+        display: inline-flex;
         justify-content: center;
-        gap: 120px;
-        width: 170vw;
+        gap: 25vw;
       }
       .board2_item {
         width: 50vw;

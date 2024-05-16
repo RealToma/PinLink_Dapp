@@ -12,7 +12,7 @@ export default defineConfig({
   assetsInclude: ['**/*.glb'],
   resolve: {
     alias: {
-      '@components': resolve(__dirname, 'src/components'),
+      '@components': resolve(__dirname, 'components'),
       '@utils': resolve(__dirname, 'src/utils'),
       '@styles': resolve(__dirname, 'src/styles'),
       '@assets': resolve(__dirname, 'src/assets')
