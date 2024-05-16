@@ -198,6 +198,11 @@ function App() {
                 </span>
                 <div className="arrow-down" onClick={scrollDown}></div>
               </div>
+              <div className="bottom">
+                <div className="bottom-text">RWA-Fractionization</div>
+                <div className="bottom-text">DePIN-Tokenization</div>
+                <div className="bottom-text">Powered by AI</div>
+              </div>
             </div>
 
             <HorizontalFeat />

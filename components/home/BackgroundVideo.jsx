@@ -43,6 +43,27 @@ export const BackgroundVideo = () => {
       });
 
     }
+    const btmTexts = document.querySelectorAll(".bottom-text");
+const bottomTextsTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".bottom",
+          start: "bottom bottom-=10%",
+          end: "bottom bottom-=30%",
+          scrub: true,
+           //markers: true,
+        },
+})
+
+bottomTextsTL.to(btmTexts[0], {
+        x: -100,
+        opacity: 0,
+      },0).to(btmTexts[1], {
+        opacity: 0,
+      },0).to(btmTexts[2], {
+        x: 100,
+        opacity: 0,
+      },0);
+
     if (graphicVideoElement) {
  
       // Play and pause the video otherwise the video will not be loaded on Iphone devices
