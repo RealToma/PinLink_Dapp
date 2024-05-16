@@ -7,13 +7,11 @@ export const Loader = () => {
     document.documentElement.scrollTop = 0;
 
     const videoElements = document.querySelectorAll("video");
-    console.log('Video elements:', videoElements.length)
     const loadedVideos = [];
 
-    const handleVideoLoaded = (e) => {
-      console.log("loadeddata",e)
+    const handleVideoLoaded = () => {
       loadedVideos.push(true);
-      if (loadedVideos.length >= videoElements.length/2) {
+      if (loadedVideos.length === videoElements.length) {
         gsap.to(".preload", {
           autoAlpha: 0,
           duration: 0.5,
@@ -24,8 +22,8 @@ export const Loader = () => {
       }
     };
 
-    const handleVideoError = (e) => {
-      console.error('Video load error', e);
+    const handleVideoError = () => {
+      console.error('Video load error');
       // Consider a timeout to hide the loader after a reasonable wait time
       setTimeout(() => {
         gsap.to(".preload", {
@@ -43,8 +41,6 @@ export const Loader = () => {
       video.addEventListener("loadeddata", handleVideoLoaded);
       video.addEventListener("error", handleVideoError);
       video.preload = "auto";
-      console.log('Video elementtt:', video);
-      handleVideoError("error")
     });
 
     return () => {

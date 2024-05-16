@@ -45,6 +45,7 @@ export const BackgroundVideo = () => {
     }
     if (graphicVideoElement) {
  
+      // Play and pause the video otherwise the video will not be loaded on Iphone devices
       graphicVideoElement.play().then(() => {
         graphicVideoElement.pause();
         graphicVideoElement.currentTime = 0;
@@ -55,7 +56,7 @@ export const BackgroundVideo = () => {
         scrollTrigger: {
           trigger: mainDiv,
           start: "top top",
-          end: width<MOBILE_BREAKPOINT?"bottom+=50% bottom":"bottom+=200% bottom",
+          end: width<MOBILE_BREAKPOINT?"bottom 50%":"bottom+=200% bottom",
           scrub: true,
           // markers: true,
         },
@@ -85,7 +86,8 @@ export const BackgroundVideo = () => {
 
     const chipVideoElement = chipVideoRef.current;
     const board5 = document.querySelector(".board5");
-    if (chipVideoElement &&!(width<MOBILE_BREAKPOINT)) {
+    if (chipVideoElement) {
+      // Play and pause the video otherwise the video will not be loaded on Iphone devices
       chipVideoElement.play().then(() => {
         chipVideoElement.pause();
         chipVideoElement.currentTime = 0;
@@ -118,7 +120,7 @@ export const BackgroundVideo = () => {
         },
       });
       fadeInOutTimeLine
-        .to(chipVideoElement, { opacity: 1, x: 0 }, "start")
+        .to(chipVideoElement, { opacity: 1,...width<MOBILE_BREAKPOINT?{}:{ x: 0} }, "start")
         .to(chipVideoElement, { opacity: 0}, "start+=5");
     }
   });

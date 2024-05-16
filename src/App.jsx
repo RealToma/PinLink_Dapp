@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-import Carousel from "../components/home/carousel";
+import Carousel from "../components/home/Carousel";
 import RandomizeText from "../components/home/RandomizeText";
 
 import planetVideo from "./assets/vids/planet.mp4";

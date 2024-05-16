@@ -1,9 +1,13 @@
 
 import { Carousel } from 'react-responsive-3d-carousel';
 import carouselImg1 from '@assets/imgs/index/01.png';
-import carouselImg1Active from '@assets/imgs/index/01_active.png';
+import carouselImg1Active from '@assets/imgs/index/01_active_t.png';
 import carouselImg2 from '@assets/imgs/index/02.png';
+import carouselImg2Active from '@assets/imgs/index/02_active.png';
 import carouselImg3 from '@assets/imgs/index/03.png';
+import carouselImg3Active from '@assets/imgs/index/03_active.png';
+import carouselImg4 from '@assets/imgs/index/04.png';
+import carouselImg4Active from '@assets/imgs/index/04_active.png';
 import { useEffect} from 'react';
 
 
@@ -17,15 +21,21 @@ const CarouselMain = () => {
   },
   {
     src:carouselImg2,
-    active:carouselImg1Active,
+    active:carouselImg2Active,
     title:'Attracting More Capital',
     desc:'PinLink allows non DePIN owners to buy fractional shares of DePIN assets, earning rental income and diversifying investment strategies with RWAs, thus enhancing the ecosystem\'s decentralization and capital flow.'
   },
   {
     src:carouselImg3,
-    active:carouselImg1Active,
+    active:carouselImg3Active,
     title:'Lower Costs For DePIN End Users',
     desc:'PinLink collects commissions on NFT sales to support the Service User Rebate Fund, which invests in low-risk yields to reduce costs for developers. Additionally, PinLink\'s rigorous asset vetting ensures enterprise-grade scalability for developers.'
+  },
+  {
+    src:carouselImg4,
+    active:carouselImg4Active,
+    title:'Decentralization & Deeper AI Learning',
+    desc:'PinLink earns from rentals and NFT sales, reinvesting in expanding its DePIN assets focused initially on AI and blockchain sectors. It uses AI analytics to target high-demand areas, advancing the RWA-tokenized DePIN ecosystem.'
   },
 ]
 
@@ -85,13 +95,13 @@ useEffect (()=>{
 
   return (
     <>
-     <Carousel autoPlay={false} transitionTime={transitionTime} width='35rem' height='33.25rem' depth={4} selectable={false} arrowsWidth={"3.5rem"} arrowsHeight={"3.5rem"} arrowsHoveredColor="#C1FF72" >
+     <Carousel autoPlay={false} transitionTime={transitionTime} width='35rem' height='38rem' depth={4} selectable={false} arrowsWidth={"3.5rem"} arrowsHeight={"3.5rem"} arrowsHoveredColor="#C1FF72" >
      {
         imgs.map((item,index)=>(
           <div className='carouselItem' key={`carousel-${index}`}>
-          <img src={index==0?item.active:item.src} alt={`carousel-image-${index+1}`} />
-          <p>{item.title}</p>
-          <span>{item.desc}</span>
+          <img src={index==0?item.active:item.src} alt={`carousel-image-${index+1}`}   className='carousel-img'/>
+          <p  className='carousel-title'>{item.title}</p>
+          <span  className='carousel-desc'>{item.desc}</span>
         </div>
         ))
      }
@@ -100,7 +110,7 @@ useEffect (()=>{
     {
         imgs.map((item,index)=>(
           <div className='carouselItem' key={`carousel-${index}`}>
-          <img src={item.active} alt={`carousel-image-${index+1}`} />
+          <img src={item.active} alt={`carousel-image-${index+1}`}  className='carousel-img'/>
           <p className='carousel-title'>{item.title}</p>
           <span className='carousel-desc'>{item.desc}</span>
         </div>

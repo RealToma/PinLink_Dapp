@@ -6,24 +6,69 @@ export const KeyFeatures = () => {
     const width = window.innerWidth;
 
     const keysItems = gsap.utils.toArray(".keysItem");
-      keysItems.forEach((item, i) => {
-        const fadeInLeft = gsap.timeline({
+    const board5 = document.querySelector(".board5");
+    if(width<MOBILE_BREAKPOINT)
+      {
+        const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: item,
-            start: "top bottom",
-            end: width<MOBILE_BREAKPOINT?"bottom 90%":"bottom top",
-            // markers: true,
+            trigger: board5,
+            start: "top 10%",
+            end: "bottom bottom",
             scrub: true,
-          },
+            pin: true,
+            pinSpacing: false
+          }
         });
-        const tween = {
-          opacity: 0,
-          x: -100,
-        };
-        fadeInLeft
-          .from(`#step-title-${i+1}`, tween, "start")
-          .from(`#step-desc-${i+1}`, tween, "start+=0.2");
-      });    
+
+        // Add 2 extra items to the top and bottom of the list
+        const totalItems=keysItems.length + 2
+        const totalDuration = 12;
+    
+        // Move up animation
+        tl.to(
+          keysItems,
+          {
+            y: -1 * keysItems[0].offsetHeight * totalItems,
+            duration:totalDuration
+          }
+        )
+    
+        // Fade up animation with stagger
+        .to(
+          keysItems,
+          {
+            opacity: 0,
+            duration: 0.5,
+            stagger: {
+              each: totalDuration/totalItems,
+            },
+          },
+          0 // Ensure it starts at the same time as the move up animation
+        );
+      
+      }
+      else
+      {
+        keysItems.forEach((item, i) => {
+          const fadeInLeft = gsap.timeline({
+            scrollTrigger: {
+              trigger: item,
+              start: "top bottom",
+              end: "bottom top",
+              // markers: true,
+              scrub: true,
+            },
+          });
+          const tween = {
+            opacity: 0,
+            x: -100,
+          };
+          fadeInLeft
+            .from(`#step-title-${i+1}`, tween, "start")
+            .from(`#step-desc-${i+1}`, tween, "start+=0.2");
+        });    
+      }
+   
     
   });
   return (

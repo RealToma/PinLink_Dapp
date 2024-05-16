@@ -29,11 +29,12 @@
     width: 90%;
     padding-top: 10%;
   }
-  
+
   .chip-video {
     opacity: 0;
     width: 80%;
     transform: translateX(-100px);
+    z-index: 1;
   }
 
   .scrollVideo {
@@ -231,6 +232,8 @@
     justify-content: center;
     flex-direction: column;
     margin-bottom: 20vh;
+    position: relative;
+    z-index: 2;
 
     .keyList {
       width: 100%;
@@ -299,7 +302,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -60%);
       z-index: 0;
       width: 60%;
     }
@@ -311,17 +314,22 @@
       justify-content: center;
       display: flex;
       flex-direction: column;
-      padding: 24px;
+      padding: 2.63rem;
       gap: 10px;
       background: url(./assets/imgs/index/border.png);
       background-size: 100.6% 101.5%;
 
+      .carousel-img {
+        width: 19.8125rem;
+        margin-bottom: 1rem;
+      }
       .carousel-title {
         color: #f8f8f8;
         font-size: 35px;
         font-weight: 700;
         line-height: 45.358px;
         letter-spacing: -1.215px;
+        align-self: flex-start;
       }
 
       .carousel-desc {
@@ -586,8 +594,7 @@
   }
 }
 @media screen and (max-width: 1000px) {
-  .home {  
-
+  .home {
     .title {
       h2 {
         font-size: 1.125rem;
@@ -609,6 +616,10 @@
         width: 5rem;
         transform: translate(-20%, 15px);
       }
+    }
+    .chip-video {
+      width: 220%;
+      transform: translate(-60vw, -10vh);
     }
     .board1 {
       .top {
@@ -687,11 +698,9 @@
     }
 
     .board5 {
-      margin-bottom: 20vh;
-
       .keyList {
         width: 100%;
-        padding: 10rem 2rem;
+        padding: 50vh 2rem 10rem 2rem;
         gap: 30vh;
         .keysItem {
           width: 100%;
@@ -721,11 +730,11 @@
 
       max-height: 10000vh;
       .planet-video {
-        top: 22%;
+        top: 18%;
         width: 130vw;
       }
       .react-responsive-3d-carousel__carousel {
-       display: none;
+        display: none;
       }
       .carouselItem {
         background-color: black;
@@ -793,6 +802,7 @@
       }
       .about {
         margin: 0;
+        padding: 0 1.5rem;
         display: flex;
         align-items: center;
         flex-direction: column;

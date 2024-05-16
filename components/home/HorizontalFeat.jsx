@@ -19,10 +19,10 @@ export const HorizontalFeat = () => {
       {
        
         board2_items.forEach((item, index) => {
-          gsap.set(item, {marginBottom:"100vh"});
+          gsap.set(item, {marginBottom:"0vh"});
           if(index===0)
             {
-              gsap.set(item, {marginTop:"100vh"});
+              gsap.set(item, {marginTop:"50vh"});
             }
           gsap.to(item, {
             opacity: 0,
