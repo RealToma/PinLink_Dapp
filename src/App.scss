@@ -701,7 +701,7 @@
       .keyList {
         width: 100%;
         padding: 50vh 2rem 10rem 2rem;
-        gap: 30vh;
+        gap: 25vh;
         .keysItem {
           width: 100%;
         }
@@ -773,6 +773,7 @@
         .progress-bar-container {
           width: 2.5rem;
           margin-left: 1rem;
+          height: 70vh;
         }
       }
     }
@@ -827,6 +828,11 @@
           width: 100%;
         }
       }
+    }
+  }
+  @media screen and (max-width: 390px) {
+    .carouselItem{
+      width: 90%;
     }
   }
 }

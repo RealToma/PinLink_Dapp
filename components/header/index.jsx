@@ -1,5 +1,6 @@
 import styles from './index.module.scss'
 import titleLogo from '@assets/imgs/index/logo_title.svg'
+import MobileNavbar from './MobileNavbar'
 
 export default function Header(props) {
     return (
@@ -21,6 +22,8 @@ export default function Header(props) {
                             <a className='button' href="/" rel="nofollow noopener noreferrer">Stake</a>
                         </div>
                     </div>
+                    <MobileNavbar scrollToAbout={props.scrollToAbout} scrollToFeatures={props.scrollToFeatures} scrollToUseCases={props.scrollToUseCases} scrollToTokenomics={props.scrollToTokenomics} />
+
                 </div>
             </div >
 

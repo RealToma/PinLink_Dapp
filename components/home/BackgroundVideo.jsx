@@ -97,7 +97,7 @@ export const BackgroundVideo = () => {
         scrollTrigger: {
           trigger: board5,
           start: "top 10%",
-          end: "bottom top+=-200",
+          end: width<MOBILE_BREAKPOINT?"bottom -100%":"bottom top+=-200",
           scrub: true,
           //markers: true,
         },

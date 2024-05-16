@@ -69,7 +69,7 @@ export const Roadmap = () => {
     const masterTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".roadmap",
-        start: width < MOBILE_BREAKPOINT ? "top top+=220" : "top top+=100",
+        start: width < MOBILE_BREAKPOINT ? "top top+=270" : "top top+=100",
         end: () => "+=" + roadmapSections.length * window.innerHeight * 0.4,
         pin: true,
         scrub: true,
