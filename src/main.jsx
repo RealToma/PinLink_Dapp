@@ -16,7 +16,7 @@ gsap.registerPlugin(
 );
 ScrollSmoother.create({
   smooth:2.5,   
-  normalizeScroll: true,
+  // normalizeScroll: true,
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(

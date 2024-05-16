@@ -27,8 +27,7 @@ export const BackgroundVideo = () => {
     else{
       graphicVideoElement=pcVideo
       mobileVideo.style.display = "none";
-    }
-    if (graphicVideoElement) {
+
       ScrollTrigger.create({
         trigger: graphicVideoElement,
         pin: true,
@@ -43,8 +42,14 @@ export const BackgroundVideo = () => {
         end: "+=50000",
       });
 
-      graphicVideoElement.pause();
-      graphicVideoElement.currentTime = 0;
+    }
+    if (graphicVideoElement) {
+ 
+      graphicVideoElement.play().then(() => {
+        graphicVideoElement.pause();
+        graphicVideoElement.currentTime = 0;
+      })
+
 
       let graphicCardVideoTL = gsap.timeline({
         scrollTrigger: {
@@ -81,8 +86,11 @@ export const BackgroundVideo = () => {
     const chipVideoElement = chipVideoRef.current;
     const board5 = document.querySelector(".board5");
     if (chipVideoElement &&!(width<MOBILE_BREAKPOINT)) {
-      chipVideoElement.pause();
-      chipVideoElement.currentTime = 0.3;
+      chipVideoElement.play().then(() => {
+        chipVideoElement.pause();
+        chipVideoElement.currentTime = 0;
+      })
+
       let chipVideoTL = gsap.timeline({
         scrollTrigger: {
           trigger: board5,
@@ -118,32 +126,35 @@ export const BackgroundVideo = () => {
     <>
       <div id="bg-video-container" className="bg-video-container">
         <video
-          loop
+          loop          
+          playsInline
           muted
           className="bg-video pc"
           src={gpuVideo}
-          preload="auto"
+          preload="metadata"
           type="video/mp4"
-        ></video>
+        >  Your browser does not support the video tag.</video>
         <video
           loop
-          muted
+          muted          
+          playsInline
           className="bg-video mobile"
           src={gpuVideoMobile}
-          preload="auto"
+          preload="metadata"
           type="video/mp4"
-        ></video>
+        >  Your browser does not support the video tag.</video>
       </div>
       <div id="chip-video-container" className="bg-video-container">
         <video
           ref={chipVideoRef}
-          loop
+          loop          
+          playsInline
           muted
           className="chip-video"
           src={chipVideo}
-          preload="auto"
+          preload="metadata"
           type="video/mp4"
-        ></video>
+        >   Your browser does not support the video tag.</video>
       </div>
     </>
   );

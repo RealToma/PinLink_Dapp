@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-import Carousel from "../components/home/Carousel";
+import Carousel from "../components/home/carousel";
 import RandomizeText from "../components/home/RandomizeText";
 
 import planetVideo from "./assets/vids/planet.mp4";
@@ -260,11 +260,13 @@ function App() {
               <video
                 loop
                 muted
+                autoPlay                
+                playsInline
                 className="bg-video planet-video"
                 src={planetVideo}
                 preload="auto"
                 type="video/mp4"
-              ></video>
+              >   Your browser does not support the video tag.</video>
               <Carousel />
           </div>
           <div className="board7" ref={tokenomicsRef}>
