@@ -86,8 +86,8 @@ export const BackgroundVideo = () => {
       let chipVideoTL = gsap.timeline({
         scrollTrigger: {
           trigger: board5,
-          start: "top top",
-          end: "bottom+=100% bottom",
+          start: "top 10%",
+          end: "bottom top+=-200",
           scrub: true,
           //markers: true,
         },

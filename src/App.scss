@@ -279,6 +279,7 @@
     position: relative;
     flex-wrap: wrap;
     margin-bottom: 120px;
+    z-index: 1;
     .mobileCarousel {
       display: none;
     }
@@ -303,8 +304,6 @@
       width: 60%;
     }
     .react-responsive-3d-carousel__carousel {
-      display: initial;
-      transform: translateY(4rem);
     }
 
     .carouselItem {
@@ -726,7 +725,7 @@
         width: 130vw;
       }
       .react-responsive-3d-carousel__carousel {
-        display: none;
+       display: none;
       }
       .carouselItem {
         background-color: black;

@@ -1,9 +1,8 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect } from "react";
 
 export const Loader = () => {
-  useGSAP(() => {
+  useEffect(() => {
     document.documentElement.style.overflow = "hidden";
     document.documentElement.scrollTop = 0;
 

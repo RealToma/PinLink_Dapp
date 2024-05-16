@@ -30,12 +30,21 @@ const CarouselMain = () => {
 ]
 
 const transitionTime = 500;
+const handleCarouselItemClick = (i) => {
+  // const carouselItems = document.querySelectorAll('.carouselItem img');
+  // carouselItems.forEach((item,index)=>item.src=imgs[index].src)
+
+  // setTimeout(()=>{
+  //   carouselItems[i].src=imgs[i].active
+  //   },transitionTime)
+}
 
 useEffect (()=>{
 
 
   const lefttbtn = document.querySelector('.react-responsive-3d-carousel__arrows.left');
   const rightbtn = document.querySelector('.react-responsive-3d-carousel__arrows.right');
+  const carouselItems = document.querySelectorAll('.carouselItem');
   let i=0;
 
   const handleClick=(direction)=>{
@@ -56,17 +65,19 @@ useEffect (()=>{
     handleClick(1)
   };
 
+
   if(lefttbtn && rightbtn)
     {
       lefttbtn.addEventListener('click', handleLeftClick);
-      rightbtn.addEventListener('click', handleRightClick);
+      rightbtn.addEventListener('click', handleRightClick);     
+
     }
 
   return () => {
     if(lefttbtn && rightbtn)
       {
     lefttbtn.removeEventListener('click', handleLeftClick);
-    rightbtn.removeEventListener('click', handleRightClick);
+    rightbtn.removeEventListener('click', handleRightClick);   
       }
   };
 },[])
@@ -74,11 +85,11 @@ useEffect (()=>{
 
   return (
     <>
-     <Carousel autoPlay={false} transitionTime={transitionTime} width='35rem' height='33.25rem' depth={4} arrowsWidth={50} arrowsHeight={50} arrowsHoveredColor="#C1FF72" className="carousel">
+     <Carousel autoPlay={false} transitionTime={transitionTime} width='35rem' height='33.25rem' depth={4} selectable={false} arrowsWidth={"3.5rem"} arrowsHeight={"3.5rem"} arrowsHoveredColor="#C1FF72" >
      {
         imgs.map((item,index)=>(
           <div className='carouselItem' key={`carousel-${index}`}>
-          <img src={item.src} alt={`carousel-image-${index+1}`} />
+          <img src={index==0?item.active:item.src} alt={`carousel-image-${index+1}`} />
           <p>{item.title}</p>
           <span>{item.desc}</span>
         </div>
@@ -89,7 +100,7 @@ useEffect (()=>{
     {
         imgs.map((item,index)=>(
           <div className='carouselItem' key={`carousel-${index}`}>
-          <img src={item.src} alt={`carousel-image-${index+1}`} />
+          <img src={item.active} alt={`carousel-image-${index+1}`} />
           <p className='carousel-title'>{item.title}</p>
           <span className='carousel-desc'>{item.desc}</span>
         </div>
