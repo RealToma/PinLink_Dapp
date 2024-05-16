@@ -11,7 +11,7 @@ export const Loader = () => {
 
     const handleVideoLoaded = () => {
       loadedVideos.push(true);
-      if (loadedVideos.length === videoElements.length) {
+      if (loadedVideos.length >= videoElements.length/2) {
         gsap.to(".preload", {
           autoAlpha: 0,
           duration: 0.5,

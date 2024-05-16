@@ -1,7 +1,7 @@
 
 import { Carousel } from 'react-responsive-3d-carousel';
 import carouselImg1 from '@assets/imgs/index/01.png';
-import carouselImg1Active from '@assets/imgs/index/01_active_t.png';
+import carouselImg1Active from '@assets/imgs/index/01_active.png';
 import carouselImg2 from '@assets/imgs/index/02.png';
 import carouselImg2Active from '@assets/imgs/index/02_active.png';
 import carouselImg3 from '@assets/imgs/index/03.png';

@@ -9,6 +9,7 @@ export default defineConfig({
     dirs:["./src/utils"],
     dts: "./src/auto-imports.d.ts",
   })],
+  assetsInclude: ['**/*.glb'],
   resolve: {
     alias: {
       '@components': resolve(__dirname, 'src/components'),

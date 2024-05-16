@@ -1,6 +1,6 @@
 import gpuVideo from "@assets/vids/gpu.mp4";
 import gpuVideoMobile from "@assets/vids/gpu_mobile.mp4";
-import chipVideo from "@assets/vids/chip.mp4";
+import chipVideo from "@assets/vids/chip_works_with_windows.mp4";
 import { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -120,7 +120,7 @@ export const BackgroundVideo = () => {
         },
       });
       fadeInOutTimeLine
-        .to(chipVideoElement, { opacity: 1,...width<MOBILE_BREAKPOINT?{}:{ x: 0} }, "start")
+        .to(chipVideoElement, { opacity: 1,...width<MOBILE_BREAKPOINT?{}:{ x: 320} }, "start")
         .to(chipVideoElement, { opacity: 0}, "start+=5");
     }
   });

@@ -32,8 +32,8 @@
 
   .chip-video {
     opacity: 0;
-    width: 80%;
-    transform: translateX(-100px);
+    width: 40%;
+    transform: translateX(100px);
     z-index: 1;
   }
 
@@ -618,8 +618,8 @@
       }
     }
     .chip-video {
-      width: 220%;
-      transform: translate(-60vw, -10vh);
+      width: 120%;
+      transform: translate(-5vw, -5vh);
     }
     .board1 {
       .top {
