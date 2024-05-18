@@ -101,16 +101,16 @@ export const Tokennomics = () => {
             <img id="token-img" src={Token} alt="icon" />
           </div>
           <div className="info">
-            <div className="token-dessc">
+            <div className="token-desc">
               <p>1</p>Ticker: $PIN
             </div>
-            <div className="">
+            <div className="token-desc">
               <p>2</p>Supply: 100,000,000
             </div>
-            <div className="">
+            <div className="token-desc">
               <p>3</p>Network: Ethereum
             </div>
-            <div className="">
+            <div className="token-desc">
               <p>4</p>Token Standard: ERC-20*
             </div>
           </div>

@@ -11,8 +11,11 @@ import { MOBILE_BREAKPOINT } from "./utils/constants.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText, ScrollSmoother);
 const width = window.innerWidth;
+ScrollTrigger.normalizeScroll(false); // disable
 ScrollSmoother.create({
   smooth: width < MOBILE_BREAKPOINT ? 0 : 2.5,
+  // normalizeScroll: true,
+  ignoreMobileResize: true,
   // normalizeScroll: true,
 });
 

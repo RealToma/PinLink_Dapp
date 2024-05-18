@@ -60,7 +60,7 @@ const TokenDistributions = () => {
       clearTimeout(hoverOutTimeout.current);
     }
 
-    const tokenDescs = document.querySelectorAll(".token-desc");
+    const tokenDescs = document.querySelectorAll(".chart-desc");
     tokenDescs.forEach((item, index) => {
       const segment = document.getElementById(`segment${index + 1}`);
       if (index === e) {
@@ -75,7 +75,7 @@ const TokenDistributions = () => {
 
   const handleHoverOut = () => {
     hoverOutTimeout.current = setTimeout(() => {
-      const tokenDescs = document.querySelectorAll(".token-desc");
+      const tokenDescs = document.querySelectorAll(".chart-desc");
       tokenDescs.forEach((item, idx) => {
         const segment = document.getElementById(`segment${idx + 1}`);
         gsap.to(item, { opacity: 1, duration: 0.3,ease:"power1.easeInOut"});
@@ -164,7 +164,7 @@ const TokenDistributions = () => {
       <div className="info">
         {texts.map((item, index) => (
           <div
-            className="token-desc"
+            className="chart-desc"
             key={index}
             onMouseEnter={() => handleHoverIn(index)}
             onMouseLeave={handleHoverOut}
