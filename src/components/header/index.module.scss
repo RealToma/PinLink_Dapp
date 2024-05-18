@@ -26,9 +26,13 @@
       gap: 32px;
       align-items: center;
       div {
-        cursor: url(/src/assets/imgs/others/new-tab.png) 10 10, pointer;
+        cursor:
+          url(/src/assets/imgs/others/new-tab.png) 10 10,
+          pointer;
         span {
-          cursor: url(/src/assets/imgs/others/new-tab.png) 10 10, pointer;
+          cursor:
+            url(/src/assets/imgs/others/new-tab.png) 10 10,
+            pointer;
         }
       }
 

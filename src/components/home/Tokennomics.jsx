@@ -7,8 +7,7 @@ import Color3 from "@assets/imgs/index/color3.svg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import TokenDistributions from "./TokenDistributions";
-import {MOBILE_BREAKPOINT} from "../../utils/constants";
-
+import { MOBILE_BREAKPOINT } from "../../utils/constants";
 
 export const Tokennomics = () => {
   useGSAP(() => {
@@ -23,8 +22,8 @@ export const Tokennomics = () => {
     const tokenImgTl = gsap.timeline({
       scrollTrigger: {
         trigger: board7,
-        start: width<MOBILE_BREAKPOINT?"top bottom":"top 50%",
-        end: width<MOBILE_BREAKPOINT?"top 50%":"top 0%",
+        start: width < MOBILE_BREAKPOINT ? "top bottom" : "top 50%",
+        end: width < MOBILE_BREAKPOINT ? "top 50%" : "top 0%",
         scrub: true,
       },
     });
@@ -74,7 +73,7 @@ export const Tokennomics = () => {
     const aboutTrigger = {
       trigger: about,
       start: "top bottom",
-        end: "bottom 70%",
+      end: "bottom 70%",
       scrub: true,
     };
 
@@ -91,19 +90,19 @@ export const Tokennomics = () => {
   });
 
   return (
-    <div  className="tokenomics-wrapper">
+    <div className="tokenomics-wrapper">
       <div className="tokenomics">
         <div className="left">
           <div className="charts">
-             <img id="chart-img" src={Charts} alt="icon" />
-             {/* <TokenDistributions/>  */}
+            <img id="chart-img" src={Charts} alt="icon" />
+            {/* <TokenDistributions/>  */}
           </div>
           <div className="info">
-          <div className="chart-desc">
+            <div className="chart-desc">
               <img src={Color3} alt="icon" />
               Uniswap LP: 85%
             </div>
-            
+
             <div className="chart-desc">
               <img src={Color2} alt="icon" />
               Staking Emissions: 10%
@@ -144,12 +143,15 @@ export const Tokennomics = () => {
             Learn More About How PinLink Combines and Unleashes the Full
             Potential of RWA & DePIN.
           </p>
-          <a href="https://pinlink.gitbook.io/pinlink" target="_blank" className="button green">
+          <a
+            href="https://pinlink.gitbook.io/pinlink"
+            target="_blank"
+            className="button green"
+          >
             Read Docs
           </a>
         </div>
-        <img src={About} alt="icon"  className="about-right" id="about-right"/>
-        
+        <img src={About} alt="icon" className="about-right" id="about-right" />
       </div>
     </div>
   );

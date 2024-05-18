@@ -28,7 +28,7 @@ const RandomizeText = ({
       },
       {
         threshold: 0.5, // 调整根据需要，0.5 表示元素一半以上可见时触发
-      }
+      },
     );
 
     if (elementRef.current) {

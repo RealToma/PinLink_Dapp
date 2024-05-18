@@ -5,8 +5,7 @@ import RightImgMobile from "@assets/imgs/index/right_mobile.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
-import {MOBILE_BREAKPOINT} from "../../utils/constants";
-
+import { MOBILE_BREAKPOINT } from "@utils/constants";
 
 export const Roadmap = () => {
   useEffect(() => {
@@ -110,7 +109,7 @@ export const Roadmap = () => {
             duration: 1,
             ease: "power1.inOut",
           },
-          0
+          0,
         ); // This makes the fade-out animation scrubbed as well
       }
 
@@ -125,7 +124,7 @@ export const Roadmap = () => {
         ease: "none",
         duration: roadmapSections.length, // Ensure it lasts the duration of all sections
       },
-      0
+      0,
     );
     gsap.from(
       canvas,
@@ -140,7 +139,7 @@ export const Roadmap = () => {
           scrub: true,
         },
       },
-      0
+      0,
     );
   });
 

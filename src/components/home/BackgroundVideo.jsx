@@ -6,8 +6,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import {MOBILE_BREAKPOINT} from "../../utils/constants";
-
+import { MOBILE_BREAKPOINT } from "@utils/constants";
 
 export const BackgroundVideo = () => {
   const chipVideoRef = useRef(null);
@@ -19,13 +18,12 @@ export const BackgroundVideo = () => {
     const pcVideo = document.querySelector(".bg-video.pc");
     const mobileVideo = document.querySelector(".bg-video.mobile");
 
-    let graphicVideoElement
-    if(width<MOBILE_BREAKPOINT){
-      graphicVideoElement=mobileVideo
+    let graphicVideoElement;
+    if (width < MOBILE_BREAKPOINT) {
+      graphicVideoElement = mobileVideo;
       pcVideo.style.display = "none";
-    }
-    else{
-      graphicVideoElement=pcVideo
+    } else {
+      graphicVideoElement = pcVideo;
       mobileVideo.style.display = "none";
 
       ScrollTrigger.create({
@@ -41,43 +39,55 @@ export const BackgroundVideo = () => {
         start: "top top",
         end: "+=50000",
       });
-
     }
     const btmTexts = document.querySelectorAll(".bottom-text");
-const bottomTextsTL = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".bottom",
-          start: "bottom bottom-=10%",
-          end: "bottom bottom-=30%",
-          scrub: true,
-           //markers: true,
-        },
-})
+    const bottomTextsTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".bottom",
+        start: "bottom bottom-=10%",
+        end: "bottom bottom-=30%",
+        scrub: true,
+        //markers: true,
+      },
+    });
 
-bottomTextsTL.to(btmTexts[0], {
-        x: -100,
-        opacity: 0,
-      },0).to(btmTexts[1], {
-        opacity: 0,
-      },0).to(btmTexts[2], {
-        x: 100,
-        opacity: 0,
-      },0);
+    bottomTextsTL
+      .to(
+        btmTexts[0],
+        {
+          x: -100,
+          opacity: 0,
+        },
+        0,
+      )
+      .to(
+        btmTexts[1],
+        {
+          opacity: 0,
+        },
+        0,
+      )
+      .to(
+        btmTexts[2],
+        {
+          x: 100,
+          opacity: 0,
+        },
+        0,
+      );
 
     if (graphicVideoElement) {
- 
       // Play and pause the video otherwise the video will not be loaded on Iphone devices
       graphicVideoElement.play().then(() => {
         graphicVideoElement.pause();
         graphicVideoElement.currentTime = 0;
-      })
-
+      });
 
       let graphicCardVideoTL = gsap.timeline({
         scrollTrigger: {
           trigger: mainDiv,
           start: "top top",
-          end: width<MOBILE_BREAKPOINT?"bottom 50%":"bottom+=200% bottom",
+          end: width < MOBILE_BREAKPOINT ? "bottom 50%" : "bottom+=200% bottom",
           scrub: true,
           // markers: true,
         },
@@ -112,13 +122,13 @@ bottomTextsTL.to(btmTexts[0], {
       chipVideoElement.play().then(() => {
         chipVideoElement.pause();
         chipVideoElement.currentTime = 0;
-      })
+      });
 
       let chipVideoTL = gsap.timeline({
         scrollTrigger: {
           trigger: board5,
           start: "top 10%",
-          end: width<MOBILE_BREAKPOINT?"bottom -100%":"bottom top+=-200",
+          end: width < MOBILE_BREAKPOINT ? "bottom -100%" : "bottom top+=-200",
           scrub: true,
           //markers: true,
         },
@@ -141,43 +151,56 @@ bottomTextsTL.to(btmTexts[0], {
         },
       });
       fadeInOutTimeLine
-        .to(chipVideoElement, { opacity: 1,...width<MOBILE_BREAKPOINT?{}:{ x: 320} }, "start")
-        .to(chipVideoElement, { opacity: 0}, "start+=5");
+        .to(
+          chipVideoElement,
+          { opacity: 1, ...(width < MOBILE_BREAKPOINT ? {} : { x: 320 }) },
+          "start",
+        )
+        .to(chipVideoElement, { opacity: 0 }, "start+=5");
     }
   });
   return (
     <>
       <div id="bg-video-container" className="bg-video-container">
         <video
-          loop          
+          loop
           playsInline
           muted
           className="bg-video pc"
           src={gpuVideo}
           preload="metadata"
           type="video/mp4"
-        >  Your browser does not support the video tag.</video>
+        >
+          {" "}
+          Your browser does not support the video tag.
+        </video>
         <video
           loop
-          muted          
+          muted
           playsInline
           className="bg-video mobile"
           src={gpuVideoMobile}
           preload="metadata"
           type="video/mp4"
-        >  Your browser does not support the video tag.</video>
+        >
+          {" "}
+          Your browser does not support the video tag.
+        </video>
       </div>
       <div id="chip-video-container" className="bg-video-container">
         <video
           ref={chipVideoRef}
-          loop          
+          loop
           playsInline
           muted
           className="chip-video"
           src={chipVideo}
           preload="metadata"
           type="video/mp4"
-        >   Your browser does not support the video tag.</video>
+        >
+          {" "}
+          Your browser does not support the video tag.
+        </video>
       </div>
     </>
   );
