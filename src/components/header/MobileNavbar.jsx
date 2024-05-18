@@ -70,7 +70,7 @@ const MobileNavbar = (props) => {
             <a onClick={props.scrollToFeatures}>Features</a>
           </li>
           <li>
-            <a onClick={props.scrollToUseCases}>Use cases</a>
+            <a onClick={props.scrollToUseCases}>Key Benefits</a>
           </li>
           <li>
             <a onClick={props.scrollToTokenomics}>Tokenomics</a>

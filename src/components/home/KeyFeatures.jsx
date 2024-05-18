@@ -69,23 +69,16 @@ export const KeyFeatures = () => {
           RWA-Tokenized DePIN Marketplace
         </p>
         <span className="step-desc" id="step-desc-1">
-          At the heart of PinLink’s innovation lies our DePIN RWA-Tokenization
-          model. The RWA-Tokenized model reduces costs for DePIN service users,
-          creates more flexible monetization options for DePIN asset owners, and
-          offers opportunities for individuals who do not own DePIN assets to
-          earn a passive income stream.
+        At the heart of PinLink’s innovation lies our DePIN RWA-Tokenization model. The RWA-Tokenized model reduces costs for AI developers, creates more flexible monetization options for DePIN asset owners, and offers opportunities for individuals who do not own DePIN assets to earn a passive income stream.
         </span>
         <div></div>
       </div>
       <div className="keysItem" id="keyItems2">
         <p className="step-title" id="step-title-2">
-          Fractionalization & ERC1155 Tokens
+        Fractionalized RWA NFTs Representing DePIn Asset Ownership
         </p>
         <span className="step-desc" id="step-desc-2">
-          By selling fractions of their NFTs, DePIN asset owners can unlock the
-          capital needed to purchase new assets from which they can generate
-          additional rental income, thus creating an asset accumulation
-          flywheel.
+        By selling fractions of their RWA NFTs, DePIN asset owners can unlock the capital needed to purchase new assets from which they can generate additional rental income, thus creating an asset accumulation flywheel.
           <br />
           By purchasing fractions of NFTs, individuals who do not own DePIN
           assets gain access to a share of the revenue from these assets.
@@ -97,13 +90,7 @@ export const KeyFeatures = () => {
           Service User Rebate Model
         </p>
         <span className="step-desc" id="step-desc-3">
-          Developers can acquire customized, low-latency, highly reliable,
-          scalable compute power on PinLink not only effectively but also
-          cost-efficiently, thanks to PinLink Service User Rebate Model. In this
-          Model, NFT sales generate upfront capital payments, which are then
-          invested in generative, yield-bearing activities. These activities
-          create new revenue sources for PinLink ecosystem and offer rebates to
-          end users to lower their cost burden.
+        Sales of RWA NFTs generate upfront capital payments, which are then invested in generative, yield-bearing activities. These activities create new revenue sources for the PinLink ecosystem that are used to offer rebates to AI developers, lowering their cost burden.
         </span>
         <div></div>
       </div>

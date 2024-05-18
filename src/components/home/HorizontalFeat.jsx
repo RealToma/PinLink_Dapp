@@ -54,10 +54,9 @@ export const HorizontalFeat = () => {
           <div className="item_info">
             <img src={Board2_1} alt="icon" />
             <div>
-              <h2>RWA-Tokenized Model</h2>
+              <h2>RWA Tokenized DePIN Model</h2>
               <span>
-                The RWA-tokenized model provides new revenue streams for PinLink
-                compared with existing DePIN marketplace models.
+              The RWA-tokenized DePIN model drives down costs for AI developers
               </span>
             </div>
           </div>
@@ -68,8 +67,7 @@ export const HorizontalFeat = () => {
             <div>
               <h2>The First Fractionalized Liquidity Layer for DePIN</h2>
               <span>
-                PinLink opens the door for a huge opportunity to tokenize and
-                trade various DePIN assets.
+              Fractionalized ownership of DePIN assets creates more flexible revenue streams for DePIN asset owners
               </span>
             </div>
           </div>
@@ -79,11 +77,9 @@ export const HorizontalFeat = () => {
             <img src={Board2_3} alt="icon" />
             <div>
               <div>
-                <h2>Deep Learning AI Powered Platform</h2>
+                <h2>PinAI Performance Optimization Suite</h2>
                 <span>
-                  Analyzes the performance of the DePIN ecosystem, as well as
-                  tokenized GPUs, nodes, and other decentralized physical
-                  assets.
+                Applies machine learning tools to optimize the outputs of DePIN assets for AI Developers
                 </span>
               </div>
             </div>

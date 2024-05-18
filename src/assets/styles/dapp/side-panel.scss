@@ -1,0 +1,15 @@
+@layer utilities {
+    .border-r-gradient {
+      position: relative;
+    }
+    .border-r-gradient::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1px; /* Adjust the width as needed */
+      background: linear-gradient(to bottom, #090D04, #74A437 50.5%, #090D04);
+    }
+    }
+  

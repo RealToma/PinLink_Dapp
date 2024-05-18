@@ -1,4 +1,12 @@
+import { BannerCarousel } from "./BannerCarousel";
+import { SearchBar } from "./SearchBar";
+
 const Marketplace = () => {
-  return <h1 className="text-3xl font-bold underline">this is marketplace</h1>;
+  return (
+    <>
+      <BannerCarousel />
+      <SearchBar />
+    </>
+  );
 };
 export default Marketplace;

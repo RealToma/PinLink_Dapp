@@ -2,15 +2,16 @@ import styles from "./index.module.scss";
 import titleLogo from "@assets/imgs/index/logo_title.svg";
 import MobileNavbar from "./MobileNavbar";
 import { Link } from "react-router-dom";
+import { PrimaryButton } from "../shared/PrimaryButton";
 
 export default function Header(props) {
   return (
     <>
       <div className={styles.head}>
         <div className={styles.headMain}>
-          <a href="/" className={styles.logo}>
+          <Link to="/" className={styles.logo}>
             <img src={titleLogo} alt="logo" />
-          </a>
+          </Link>
           <div className={styles.menuList}>
             <div
               onClick={props.scrollToAbout}
@@ -22,7 +23,7 @@ export default function Header(props) {
               <span>Features</span>
             </div>
             <div onClick={props.scrollToUseCases}>
-              <span>Use cases</span>
+              <span>Key Benefits</span>
             </div>
             <div onClick={props.scrollToTokenomics}>
               <span>Tokenomics</span>
@@ -30,12 +31,8 @@ export default function Header(props) {
           </div>
           <div className={styles.h5Menu}>
             <div className="flex-gap24">
-              <Link
-                className="corner-border-button"
-                to="/dapp"
-                rel="nofollow noopener noreferrer"
-              >
-                Enter dApp
+              <Link to="/marketplace">
+              <PrimaryButton title="Enter dApp" />
               </Link>
               <a className="button" href="/" rel="nofollow noopener noreferrer">
                 Stake

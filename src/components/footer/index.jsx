@@ -23,7 +23,7 @@ export default function Footer(props) {
               <span>Features</span>
             </div>
             <div onClick={props.scrollToUseCases}>
-              <span>Use cases</span>
+              <span>Key Benefits</span>
             </div>
             <div onClick={props.scrollToTokenomics}>
               <span>Tokenomics</span>

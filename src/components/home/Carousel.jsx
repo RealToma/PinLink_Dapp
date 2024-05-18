@@ -7,6 +7,7 @@ import carouselImg3 from "@assets/imgs/index/03.png";
 import carouselImg3Active from "@assets/imgs/index/03_active.png";
 import carouselImg4 from "@assets/imgs/index/04.png";
 import carouselImg4Active from "@assets/imgs/index/04_active.png";
+import cursor from "@assets/imgs/others/new-tab.png";
 import { useEffect } from "react";
 
 const CarouselMain = () => {
@@ -15,25 +16,25 @@ const CarouselMain = () => {
       src: carouselImg1,
       active: carouselImg1Active,
       title: "Increased Income For DePIN Asset Owners",
-      desc: "DePIN asset owners can now choose between selling RWA NFT fractions for immediate capital or maintaining them for long-term rental income, allowing flexibility to meet diverse financial goals and adapt to changing needs.",
+      desc: "Increased revenue potential and more flexible monetization options via new dual income stream from asset rental and NFT sales.",
     },
     {
       src: carouselImg2,
       active: carouselImg2Active,
       title: "Attracting More Capital",
-      desc: "PinLink allows non DePIN owners to buy fractional shares of DePIN assets, earning rental income and diversifying investment strategies with RWAs, thus enhancing the ecosystem's decentralization and capital flow.",
+      desc: "By purchasing fractional shares of an RWA DePIN NFT, non DePIN owners can secure a source of passive income without having to purchase an entire DePIN asset, enhancing the ecosystem's decentralization and capital flow.",
     },
     {
       src: carouselImg3,
       active: carouselImg3Active,
-      title: "Lower Costs For DePIN End Users",
-      desc: "PinLink collects commissions on NFT sales to support the Service User Rebate Fund, which invests in low-risk yields to reduce costs for developers. Additionally, PinLink's rigorous asset vetting ensures enterprise-grade scalability for developers.",
+      title: "Lower Costs For AI Developers",
+      desc: "Discounted pricing on enterprise-grade compute power due to the capital efficiencies created by PinLink’s unique RWA-tokenized DePIN marketplace mechanics.",
     },
     {
       src: carouselImg4,
       active: carouselImg4Active,
-      title: "Decentralization & Deeper AI Learning",
-      desc: "PinLink earns from rentals and NFT sales, reinvesting in expanding its DePIN assets focused initially on AI and blockchain sectors. It uses AI analytics to target high-demand areas, advancing the RWA-tokenized DePIN ecosystem.",
+      title: "Benefits To PinLink",
+      desc: "Because PinLink earns protocol fees on both rental payments and NFT purchases on the protocol, it has a wider range of income sources compared with current DePIN models.",
     },
   ];
 
@@ -74,6 +75,12 @@ const CarouselMain = () => {
     };
 
     if (lefttbtn && rightbtn) {
+      lefttbtn.style.cursor = cursor;
+      lefttbtn.addEventListener('mouseenter', () => {
+        console.log("jsadj")
+        lefttbtn.style.color = "red";
+      });
+  
       lefttbtn.src = imgs[0].active;
       document.querySelector(
         ".react-responsive-3d-carousel__arrows.shadow svg",

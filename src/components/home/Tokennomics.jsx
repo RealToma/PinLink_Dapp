@@ -140,8 +140,7 @@ export const Tokennomics = () => {
       <div className="about">
         <div className="about-left" id="about-left">
           <p>
-            Learn More About How PinLink Combines and Unleashes the Full
-            Potential of RWA & DePIN.
+          Learn More About PinLink’s Unique RWA-Tokenized DePIN Model & How It Reduces Cost & Increases Performance For AI Developers
           </p>
           <a
             href="https://pinlink.gitbook.io/pinlink"

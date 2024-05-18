@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import "@assets/styles/loader.scss";
 @import "@assets/styles/token-distribution.scss";
+@import "@assets/styles/dapp/side-panel.scss";
 
 $break_pc_huge: 1940px;
 $break_pc_large: 1681px;
@@ -100,6 +101,54 @@ $break_phone_ss: 300px;
   font-weight: 800;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Sora-Thin.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Sora-ExtraLight.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Light.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-ExtraBold.ttf);
+  font-weight: 800;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -124,6 +173,11 @@ img {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+.react-responsive-3d-carousel__arrows svg {
+  cursor:
+    url(./assets/imgs/others/new-tab.png) 10 10,
+    pointer !important;
 }
 
 a {

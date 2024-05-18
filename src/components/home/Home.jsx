@@ -194,11 +194,9 @@ const Home = () => {
             <div className="board board1">
               <div className="top" ref={fadeInRef}>
                 <img src={Logo} alt="logo" className="pinlink-logo" />
-                <p className="board1-title">Where DePIN and RWAs meet</p>
+                <p className="board1-title">The First RWA-Tokenized DePIN Marketplace</p>
                 <span className="board1-desc">
-                  PinLink is the first RWA-Tokenized DePIN protocol, reducing
-                  costs for users of DePIN services and creating new revenue
-                  streams for owners of DePIN assets.
+                Driving Down Costs For AI Developers & Creating New Revenue Streams For DePIN Asset Owners
                 </span>
                 <div className="arrow-down" onClick={scrollDown}></div>
               </div>
@@ -214,20 +212,17 @@ const Home = () => {
             <div className="board board3">
               <div className="randomize-text-wrapper">
                 <RandomizeText
-                  originalText={"THE FIRST AI DRIVEN"}
+                  originalText={"PinAI Suite optimizes"}
                   interval={200}
                 />
                 <RandomizeText
                   color={"#C1FF72"}
-                  originalText={"DEPIN LIQUIDITY LAYER"}
+                  originalText={"resource management"}
                   interval={200}
-                />
-                <RandomizeText
-                  originalText={"WITH A FRACTIONALIZED"}
-                  interval={200}
-                />
-                <RandomizeText originalText={"COMPUTE POWER"} interval={200} />
-                <RandomizeText originalText={"MARKETPLACE"} interval={200} />
+                />             
+                <RandomizeText originalText={"for high performance "} interval={200} />
+                <RandomizeText originalText={"computing"} interval={200} />
+                <RandomizeText originalText={"and cloud storage."} interval={200} />
               </div>
             </div>
           </div>
@@ -266,7 +261,7 @@ const Home = () => {
             <div className="title">
               <img className="titleLeft" src={LeftImg} alt="icon" />
               <img className="titleLeftMobile" src={LeftImgMobile} alt="icon" />
-              <h2>Use Cases</h2>
+              <h2>Key Benefits</h2>
               <img className="titleRight" src={RightImg} alt="icon" />
               <img
                 className="titleRightMobile"
