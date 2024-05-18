@@ -5,7 +5,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 import { useGSAP } from "@gsap/react";
 
-import Header from "@components/header";
+import Navbar from "@components/header/Navbar";
 import Footer from "@components/footer";
 import Carousel from "@components/home/Carousel";
 import RandomizeText from "@components/home/RandomizeText";
@@ -151,8 +151,8 @@ const Home = () => {
     const board6TL = gsap.timeline({
       scrollTrigger: {
         trigger: board6,
-        start: "top 50%",
-        end: "top 20%",
+        start: "top 40%",
+        end: "top 15%",
         scrub: true,
       },
     });
@@ -170,8 +170,8 @@ const Home = () => {
         carouselItems,
         {
           opacity: 0,
-          x: -120,
-          scale: 0.6,
+          //x: -120,
+          // scale: 0.6,
           stagger: 1.3,
         },
         "start",
@@ -179,15 +179,16 @@ const Home = () => {
   });
 
   return (
-    <div id="smooth-wrapperss">
-      <div id="smooth-contentss">
-        <Loader />
-        <Header
+    <>
+     <Loader />
+        <Navbar
           scrollToAbout={() => scrollTo(aboutRef)}
           scrollToFeatures={() => scrollTo(featRef, "top +=100")}
           scrollToUseCases={() => scrollTo(useCasesRef)}
           scrollToTokenomics={() => scrollTo(tokenomicsRef)}
-        ></Header>
+        ></Navbar>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">       
         <div className="home">
           <BackgroundVideo />
           <div id="first-vid-trigger">
@@ -311,6 +312,7 @@ const Home = () => {
         ></Footer>
       </div>
     </div>
+    </>
   );
 };
 export default Home;

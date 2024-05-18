@@ -27,7 +27,7 @@ export const DAppSidePanel = () => {
   ];
   let location = useLocation();
   return (
-    <div className="border-r-gradient flex w-[15rem] flex-col bg-stone-950 ">
+    <div className="border-r-gradient flex w-[15rem] flex-col bg-stone-950">
       <div className="mx-auto mt-32">
         <div className="inline-flex flex-col items-end justify-start gap-10">
           <div className=" flex flex-col items-center justify-center gap-1 rounded-md border border-neutral-700 bg-neutral-900">

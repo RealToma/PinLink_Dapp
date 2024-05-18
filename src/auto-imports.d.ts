@@ -7,6 +7,7 @@ export {}
 declare global {
   const MOBILE_BREAKPOINT: typeof import('./utils/constants.js')['MOBILE_BREAKPOINT']
   const createRef: typeof import('react')['createRef']
+  const debounce: typeof import('./utils/utils.js')['debounce']
   const forwardRef: typeof import('react')['forwardRef']
   const lazy: typeof import('react')['lazy']
   const memo: typeof import('react')['memo']

@@ -4,10 +4,10 @@ import MobileNavbar from "./MobileNavbar";
 import { Link } from "react-router-dom";
 import { PrimaryButton } from "../shared/PrimaryButton";
 
-export default function Header(props) {
+export default function Navbar(props) {
   return (
     <>
-      <div className={styles.head}>
+      <div className={styles.head} id="navbar">
         <div className={styles.headMain}>
           <Link to="/" className={styles.logo}>
             <img src={titleLogo} alt="logo" />
@@ -34,9 +34,9 @@ export default function Header(props) {
               <Link to="/marketplace">
               <PrimaryButton title="Enter dApp" />
               </Link>
-              <a className="button" href="/" rel="nofollow noopener noreferrer">
+              <Link to="/stake" className="button" href="/" rel="nofollow noopener noreferrer">
                 Stake
-              </a>
+              </Link>
             </div>
           </div>
           <MobileNavbar

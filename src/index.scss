@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import "@assets/styles/loader.scss";
-@import "@assets/styles/token-distribution.scss";
+@import "@assets/styles/home/home.scss";
+@import "@assets/styles/home/token-distribution.scss";
 @import "@assets/styles/dapp/side-panel.scss";
 
 $break_pc_huge: 1940px;
@@ -147,6 +148,12 @@ $break_phone_ss: 300px;
   font-family: "Inter";
   src: url(./assets/fonts/Inter-ExtraBold.ttf);
   font-weight: 800;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url(./assets/fonts/NunitoSans-SemiBold.ttf);
+  font-weight: 600;
 }
 
 * {

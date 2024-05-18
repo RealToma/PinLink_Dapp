@@ -1,11 +1,11 @@
 export const PrimaryButton = ({title,onClick}) => {
     return (
-        <a
+        <div
                 className="corner-border-button"
                 onClick={onClick}
               >
                 {title}
-              </a>
+              </div>
     )
 
 }

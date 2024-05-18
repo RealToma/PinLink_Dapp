@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import "./MobileNavbar.scss";
 import "./index.module.scss";
 import titleLogo from "@assets/imgs/index/logo_title.svg";
+import { Link } from "react-router-dom";
 
 const MobileNavbar = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -76,20 +77,18 @@ const MobileNavbar = (props) => {
             <a onClick={props.scrollToTokenomics}>Tokenomics</a>
           </li>
           <li>
-            {" "}
-            <a
+            <Link
               className="corner-border-button"
-              href="/"
+              to="/marketplace"
               rel="nofollow noopener noreferrer"
             >
               Enter dApp
-            </a>
+            </Link>
           </li>
           <li>
-            {" "}
-            <a className="button" href="/" rel="nofollow noopener noreferrer">
+            <Link className="button" to="/stake" rel="nofollow noopener noreferrer">
               Stake
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
