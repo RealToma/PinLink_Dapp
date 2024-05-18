@@ -1,0 +1,61 @@
+.card {
+  position: relative;
+  width: 21.8rem;
+  height: 27.4rem;
+  padding: 1em 1.5em;
+    border-radius: 5px;
+    border: 1px solid #333;
+  background: linear-gradient(to bottom, #0A0D13, #333333);
+  &:hover {
+    transform: scale(1.02);
+    transition: all ease-in-out 0.15s;
+    cursor: pointer;
+  }
+}
+
+.card .corner-fold-card {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 50px;
+  height: 50px;
+  background: rgb(12,10,9);
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+.card img.card-image {
+  width: 60%;
+  border-bottom: 1px solid #333;
+  border-radius: 50%;
+}
+// .card .corner-fold-img-upper-right {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   width: 60px;
+//   height: 60px;
+//   background: #262628;
+//   clip-path: polygon(100% 0, 100% 100%, 0 0);
+// }
+// .card .corner-fold-img-btm-left {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 50px;
+//   height: 50px;
+//   background: #262628;
+//   clip-path: polygon(0 0, 100% 100%, 0 100%);
+// }
+.image-container {
+  position: relative;
+  width: 100%;
+
+}
+.image {
+  border-radius: 5px;
+}
+.owner-name{
+    background: linear-gradient(90deg, #FBED96 0%, #ABECD6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

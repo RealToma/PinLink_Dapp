@@ -1,5 +1,6 @@
 import banner1 from "@assets/imgs/dapp/banner1.png";
 import banner2 from "@assets/imgs/dapp/banner2.png";
+import banner3 from "@assets/imgs/dapp/banner3.png";
 import classNames from "classnames";
 const Banner = ({ title, desc, img }) => {
   return (
@@ -33,7 +34,7 @@ export const BannerCarousel = () => {
     {
       title: "Discover Top-Selling Assets",
       desc: "Stay ahead of the curve by exploring our curated selection of top-selling DePIN assets. From high-performance GPUs to cutting-edge storage solutions, our marketplace features the latest and greatest assets from across the DePIN ecosystem.",
-      img: banner2,
+      img: banner3,
     },
   ];
   // animate banner every 5 secs

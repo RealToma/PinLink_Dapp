@@ -5,6 +5,7 @@
 @import "@assets/styles/home/home.scss";
 @import "@assets/styles/home/token-distribution.scss";
 @import "@assets/styles/dapp/side-panel.scss";
+@import "@assets/styles/dapp/card.scss";
 
 $break_pc_huge: 1940px;
 $break_pc_large: 1681px;
@@ -185,6 +186,11 @@ img {
   cursor:
     url(./assets/imgs/others/new-tab.png) 10 10,
     pointer !important;
+}
+.corner-border-button{
+  cursor:
+  url(/src/assets/imgs/others/new-tab.png) 10 10,
+  pointer;
 }
 
 a {

@@ -20,6 +20,7 @@ export default defineConfig({
       "@styles": resolve(__dirname, "src/styles"),
       "@assets": resolve(__dirname, "src/assets"),
       "@pages": resolve(__dirname, "src/pages"),
+      "@store": resolve(__dirname, "src/store"),
     },
   },
   server: {

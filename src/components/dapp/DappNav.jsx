@@ -8,7 +8,7 @@ export const DappNav = () => {
   };
 
   return (
-    <div className="inline-flex h-20 w-screen items-center justify-start gap-52 px-20">
+    <div className="inline-flex py-4 w-screen items-center justify-start gap-52 px-20">
       <Link to="/" className="">
         <img src={titleLogo} alt="logo" />
       </Link>
