@@ -557,7 +557,6 @@
             font-style: normal;
             font-weight: 400;
             line-height: 2rem;
-            transform: translateX(30px);
           }
         }
       }
@@ -795,6 +794,7 @@
           width: auto;
           margin-right: 1rem;
           .roadmap-section {
+                    padding: 1rem;
             .roadmap-title {
               font-size: 1.75rem;
               line-height: 2.625rem;

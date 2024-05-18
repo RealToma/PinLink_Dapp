@@ -68,7 +68,7 @@ export const Roadmap = () => {
     const masterTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".roadmap",
-        start: width < MOBILE_BREAKPOINT ? "top top+=270" : "top top+=100",
+        start: width < MOBILE_BREAKPOINT ? "top top+=42%" : "top top+=100",
         end: () => "+=" + roadmapSections.length * window.innerHeight * 0.4,
         pin: true,
         scrub: true,
@@ -147,30 +147,19 @@ export const Roadmap = () => {
   const roadmaps = [
     {
       phase: 1,
-      titles: ["Protocol-Owned DePIN Assets Accepted"],
-      contents: [
-        "GPU/TPU/CPU for AI developers",
-        "GPU for blockchain miners",
-        "Cloud computing capacity for App/dApp developers",
-      ],
+      titles: ["Only Protocol-Owned DePIN Assets Accepted"],
     },
     {
-      titles: [
-        "PinLink Platform Beta Launch",
-        "Generate Profit and Prove MVP & Business Model",
-        "Reinvest In More DePIN Assets to Grow the Network",
-      ],
+      contents:
+        "Initially, only protocol-owned DePIN assets will be accepted on the PinLink marketplace. This serves two purposes. Firstly, it allows PinLink to prove out and optimize the unique RWA-tokenized DePIN marketplace model so that 3rd party DePIN asset owners can use it with confidence. Secondly, it ensures that the process of ensuring all assets are enterprise-grade and scalable easier during the onboarding of initial clients.",
     },
     {
       phase: 2,
-      titles: ["Activate Phase 2 Marketing Plans"],
+      titles: ["Opening Up PinLink To Third Party DePIN Asset Owners"],
     },
     {
-      titles: ["Activate Phase 2 Marketing Plans"],
-      contents: [
-        "Decentralized sensors for IoT applications",
-        "Wireless network capacity for consumers",
-      ],
+      contents:
+        "Once the model has been proven out and PinLink has a detailed understanding of Service User technical requirements, Stage 2 will involve allowing third party DePIN asset owners to connect their devices to the PinLink network. 3rd party DePIN asset owners will need to pass PinLink’s in-depth asset vetting process to ensure that the asset is enterprise grade and meets the specific present need of the PinLink client base.",
     },
   ];
 
@@ -201,23 +190,17 @@ export const Roadmap = () => {
                     <span>Phase {roadmap.phase}</span>
                   </div>
                 )}
-                {roadmap.titles.map((title, index) => {
+                {roadmap.titles&&roadmap.titles.map((title, index) => {
                   return (
                     <div className="roadmap-subtitle" key={index}>
                       {title}
                     </div>
                   );
                 })}
-                <ul>
-                  {roadmap.contents &&
-                    roadmap.contents.map((content, index) => {
-                      return (
-                        <li className="roadmap-desc" key={index}>
-                          {content}
-                        </li>
-                      );
-                    })}
-                </ul>
+
+                {roadmap.contents && (
+                  <span className="roadmap-desc">{roadmap.contents}</span>
+                )}
               </div>
             );
           })}
