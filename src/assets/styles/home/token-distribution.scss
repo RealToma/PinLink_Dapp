@@ -60,16 +60,16 @@ line-height: 2.10825rem; /* 150% */
   fill: none;
   stroke: url(#GradientColor1);
   stroke-width: 20px;
-  stroke-dasharray: 449;//449
-  stroke-dashoffset: 111; //796
+  stroke-dasharray: 449;
+  stroke-dashoffset: 111;
 
 }
 #segment2 {
   fill: none;
   stroke: url(#GradientColor2);
   stroke-width: 10px;
-  stroke-dasharray: 449; //449
-  stroke-dashoffset: 406;//411
+  stroke-dasharray: 449; 
+  stroke-dashoffset: 406;
 
   // display: none;
 }
@@ -77,8 +77,8 @@ line-height: 2.10825rem; /* 150% */
   fill: none;
   stroke: url(#GradientColor3);
   stroke-width: 9px;
-  stroke-dasharray: 451; //451
-  stroke-dashoffset: 432; //482
+  stroke-dasharray: 451; 
+  stroke-dashoffset: 427; 
 
   // display: none;
 }
@@ -90,11 +90,11 @@ svg {
 
 }
 .svg1 {
-  transform: rotate(183deg);
+  transform: rotate(183deg) ;
 }
 .svg2 {
-  transform: rotate(112deg);
+  transform: rotate(112deg) translate(3%, 0%);
 }
 .svg3 {
-  transform: rotate(155deg);
+  transform: rotate(153deg) translate(3%, 0%);
 }

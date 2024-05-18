@@ -35,7 +35,7 @@ const TokenDistributions = () => {
       .fromTo(
         segment3,
         { strokeDashoffset: 452 },
-        { strokeDashoffset: 432, duration: 1.4, ease: "Power3.easeOut" },
+        { strokeDashoffset: 427, duration: 1.1, ease: "Power3.easeOut" },
         "start+=0.89",
       );
   }, []);
@@ -126,7 +126,7 @@ const TokenDistributions = () => {
               <linearGradient id="GradientColor2">
                 <stop offset="0%" stopColor="#C1FF72" />
                 <stop offset="50%" stopColor="#64AFFA" />
-                <stop offset="100%" stopColor="#70C1FA" />
+                <stop offset="100%" stopColor="#6DB7EC" />
               </linearGradient>
             </defs>
             <circle
@@ -148,7 +148,7 @@ const TokenDistributions = () => {
               <linearGradient id="GradientColor3">
                 <stop offset="42.28%" stopColor="#C1FF72" />
                 <stop offset="0%" stopColor="#70C1FA" />
-                <stop offset="100%" stopColor="#042F4E" />
+                <stop offset="100%" stopColor="#026EBC" />
               </linearGradient>
             </defs>
             <circle
