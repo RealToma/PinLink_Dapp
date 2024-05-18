@@ -89,6 +89,7 @@ export const Roadmap = () => {
           start: "top top",
           end: index === 0 ? "bottom top-=200" : "bottom top-=100", // Make first section fade out earlier
           scrub: true,
+          anticipatePin:2,
           //markers: true
         },
       });

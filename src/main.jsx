@@ -14,12 +14,16 @@ import { Provider } from "react-redux";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText, ScrollSmoother);
 const width = window.innerWidth;
 ScrollTrigger.normalizeScroll(false); // disable
-ScrollSmoother.create({
-  smooth: width < MOBILE_BREAKPOINT ? 0 : 2.5,
-  // normalizeScroll: true,
-  ignoreMobileResize: true,
-  // normalizeScroll: true,
-});
+
+// Disable scroll smoothing on touch devices to prevent shaking on scroll
+if (!ScrollTrigger.isTouch) {
+  ScrollSmoother.create({
+    smooth: 2.5,
+    // normalizeScroll: true,
+    ignoreMobileResize: true,
+  });
+}
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>

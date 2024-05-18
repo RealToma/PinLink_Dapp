@@ -12,7 +12,7 @@ export const KeyFeatures = () => {
         scrollTrigger: {
           trigger: board5,
           start: "top 10%",
-          end: "bottom bottom",
+          end: "bottom bottom-=40%",
           scrub: true,
           pin: true,
           pinSpacing: false,
@@ -21,7 +21,7 @@ export const KeyFeatures = () => {
 
       // Add 2 extra items to the top and bottom of the list
       const totalItems = keysItems.length + 2;
-      const totalDuration = 12;
+      const totalDuration = 10;
 
       // Move up animation
       tl.to(keysItems, {
@@ -36,7 +36,7 @@ export const KeyFeatures = () => {
             opacity: 0,
             duration: 0.5,
             stagger: {
-              each: totalDuration / totalItems,
+              each: (totalDuration / totalItems)+(0.8),
             },
           },
           0, // Ensure it starts at the same time as the move up animation
