@@ -4,9 +4,12 @@ import "./MobileNavbar.scss";
 import "./index.module.scss";
 import titleLogo from "@assets/imgs/index/logo_title.svg";
 import { Link } from "react-router-dom";
+import { useToaster } from "@context/ToasterContext";
+import { PrimaryButton } from "../shared/PrimaryButton";
 
 const MobileNavbar = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const {Toast}=useToaster()
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -76,7 +79,7 @@ const MobileNavbar = (props) => {
           <li>
             <a onClick={props.scrollToTokenomics}>Tokenomics</a>
           </li>
-          <li>
+          {/* <li>
             <Link
               className="corner-border-button"
               to="/marketplace"
@@ -89,6 +92,14 @@ const MobileNavbar = (props) => {
             <Link className="button" to="/stake" rel="nofollow noopener noreferrer">
               Stake
             </Link>
+          </li> */}
+          <li>
+              <PrimaryButton title="Enter dApp" onClick={()=>Toast.success("DApp Coming Soon")} />
+           </li>
+          <li>
+            <div className="button" onClick={()=>Toast.success("Staking Coming Soon")} rel="nofollow noopener noreferrer">
+              Stake
+            </div>
           </li>
         </ul>
       </nav>

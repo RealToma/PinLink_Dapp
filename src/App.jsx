@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route element={<NavPanelLayout />}>
+        {/* <Route element={<NavPanelLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/marketplace/:cardId" element={<CardDetails/>}/>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/stake" element={<Stake />} />
           <Route path="/mint" element={<Mint />} />
           <Route path="/pinAi" element={<PinAI />} />
-        </Route>
+        </Route> */}
       </Routes>
     </BrowserRouter>
   );

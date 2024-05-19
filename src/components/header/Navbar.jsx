@@ -3,8 +3,10 @@ import titleLogo from "@assets/imgs/index/logo_title.svg";
 import MobileNavbar from "./MobileNavbar";
 import { Link } from "react-router-dom";
 import { PrimaryButton } from "../shared/PrimaryButton";
+import { useToaster } from "@context/ToasterContext";
 
 export default function Navbar(props) {
+  const {Toast}=useToaster()
   return (
     <>
       <div className={styles.head} id="navbar">
@@ -31,12 +33,18 @@ export default function Navbar(props) {
           </div>
           <div className={styles.h5Menu}>
             <div className="flex-gap24">
-              <Link to="/marketplace">
+              {/* <Link to="/marketplace">
               <PrimaryButton title="Enter dApp" />
               </Link>
               <Link to="/stake" className="button" href="/" rel="nofollow noopener noreferrer">
                 Stake
-              </Link>
+              </Link> */}
+             
+              <PrimaryButton title="Enter dApp" onClick={()=>Toast.success("DApp Coming Soon")} />
+             
+              <div onClick={()=>Toast.success("Staking Coming Soon")}  className="button" href="/" rel="nofollow noopener noreferrer">
+                Stake
+              </div>
             </div>
           </div>
           <MobileNavbar
