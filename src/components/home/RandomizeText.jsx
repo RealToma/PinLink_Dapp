@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useScreenWidth } from "@context/ScreenWidthContext";
 
 const RandomizeText = ({
   color,
@@ -6,18 +6,21 @@ const RandomizeText = ({
   interval,
   charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#!$%^&*",
 }) => {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedText, setDisplayedText] = useState(originalText);
   const elementRef = useRef(null);
   const observerRef = useRef(null);
+  const { isMobile } = useScreenWidth();
 
   // 初始化显示随机字符
   useEffect(() => {
-    if (!originalText) return;
+    if (!originalText||isMobile) return;
     setDisplayedText(generateRandomString(originalText.length, charset));
   }, [originalText, charset]);
 
   // IntersectionObserver 来观察元素是否出现在视口中
   useEffect(() => {
+    if (isMobile) return;
+    console.log("RandomizeText")
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

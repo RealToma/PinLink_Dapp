@@ -6,20 +6,22 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { MOBILE_BREAKPOINT } from "@utils/constants";
+import { useScreenWidth } from "@context/ScreenWidthContext";
 
 export const BackgroundVideo = () => {
   const chipVideoRef = useRef(null);
+  const { isMobile } = useScreenWidth();
+  
+
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-    const width = window.innerWidth;
     const mainDiv = document.querySelector("#first-vid-trigger");
     const pcVideo = document.querySelector(".bg-video.pc");
     const mobileVideo = document.querySelector(".bg-video.mobile");
 
     let graphicVideoElement;
-    if (width < MOBILE_BREAKPOINT) {
+    if (isMobile) {
       graphicVideoElement = mobileVideo;
       pcVideo.style.display = "none";
     } else {
@@ -87,7 +89,7 @@ export const BackgroundVideo = () => {
         scrollTrigger: {
           trigger: mainDiv,
           start: "top top",
-          end: width < MOBILE_BREAKPOINT ? "bottom 50%" : "bottom+=200% bottom",
+          end: isMobile ? "bottom 50%" : "bottom+=200% bottom",
           scrub: true,
           // markers: true,
         },
@@ -128,7 +130,7 @@ export const BackgroundVideo = () => {
         scrollTrigger: {
           trigger: board5,
           start: "top 10%",
-          end: width < MOBILE_BREAKPOINT ? "bottom -100%" : "bottom top+=-200",
+          end: isMobile? "bottom -100%" : "bottom top+=-200",
           scrub: true,
           //markers: true,
         },
@@ -153,7 +155,7 @@ export const BackgroundVideo = () => {
       fadeInOutTimeLine
         .to(
           chipVideoElement,
-          { opacity: 1, ...(width < MOBILE_BREAKPOINT ? {} : { x: 320 }) },
+          { opacity: 1, ...(isMobile ? {} : { x: 320 }) },
           "start",
         )
         .to(chipVideoElement, { opacity: 0 }, "start+=5");

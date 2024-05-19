@@ -4,11 +4,11 @@ import About from "@assets/imgs/index/about.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import TokenDistributions from "./TokenDistributions";
-import { MOBILE_BREAKPOINT } from "../../utils/constants";
+import { useScreenWidth } from "@context/ScreenWidthContext";
 
 export const Tokennomics = () => {
+  const { isMobile } = useScreenWidth();
   useGSAP(() => {
-    const width = window.innerWidth;
     const board7 = document.querySelector(".board7");
     const tokenImg = document.querySelector("#token-img");
     const tokenDescs = gsap.utils.toArray(".token-desc");
@@ -17,8 +17,8 @@ export const Tokennomics = () => {
     const tokenImgTl = gsap.timeline({
       scrollTrigger: {
         trigger: board7,
-        start: width < MOBILE_BREAKPOINT ? "top bottom" : "top 50%",
-        end: width < MOBILE_BREAKPOINT ? "top 50%" : "top 20%",
+        start: isMobile ? "top bottom" : "top 50%",
+        end: isMobile ? "top 50%" : "top 20%",
         scrub: true,
       },
     });

@@ -5,9 +5,11 @@ import RightImgMobile from "@assets/imgs/index/right_mobile.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
-import { MOBILE_BREAKPOINT } from "@utils/constants";
+import { useScreenWidth } from "@context/ScreenWidthContext";
 
 export const Roadmap = () => {
+  const { isMobile } = useScreenWidth();
+
   useEffect(() => {
     var canvas = document.body.querySelector("canvas"),
       ctx = canvas.getContext("2d", { willReadFrequently: true }),
@@ -68,7 +70,7 @@ export const Roadmap = () => {
     const masterTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".roadmap",
-        start: width < MOBILE_BREAKPOINT ? "top top+=42%" : "top top+=100",
+        start: isMobile? "top top+=42%" : "top top+=100",
         end: () => "+=" + roadmapSections.length * window.innerHeight * 0.4,
         pin: true,
         scrub: true,

@@ -5,16 +5,16 @@ import Board2_2 from "@assets/imgs/index/board2_2.svg";
 import Board2_3 from "@assets/imgs/index/board2_3.svg";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { MOBILE_BREAKPOINT } from "../../utils/constants";
+import { useScreenWidth } from "@context/ScreenWidthContext";
 
 export const HorizontalFeat = () => {
   const horizontalSectionRef = useRef(null);
+  const { isMobile } = useScreenWidth();
 
   useGSAP(() => {
     const horizontalSection = horizontalSectionRef.current;
     let board2_items = gsap.utils.toArray(".board2_item");
-    const width = window.innerWidth;
-    if (width < MOBILE_BREAKPOINT) {
+    if (isMobile) {
       board2_items.forEach((item, index) => {
         gsap.set(item, { marginBottom: "0vh" });
         if (index === 0) {

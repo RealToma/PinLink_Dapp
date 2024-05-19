@@ -26,9 +26,10 @@ import { BackgroundVideo } from "@components/home/BackgroundVideo";
 import { Tokennomics } from "@components/home/Tokennomics";
 import { Loader } from "@components/shared/Loader";
 import { Roadmap } from "@components/home/Roadmap";
-import { MOBILE_BREAKPOINT } from "@utils/constants";
+import { useScreenWidth } from "@context/ScreenWidthContext";
 const Home = () => {
   const smoother = ScrollSmoother.get();
+  const { isMobile } = useScreenWidth();
 
   useEffect(() => {
     return () => {
@@ -54,7 +55,6 @@ const Home = () => {
   const fadeInRef = useRef(null);
 
   useGSAP(() => {
-    const width = window.innerWidth;
     //下方渐入效果
     gsap.from(fadeInRef.current, {
       y: 200,
@@ -67,10 +67,10 @@ const Home = () => {
 
     titleElements.forEach((titleElement) => {
       const leftImg = titleElement.querySelector(
-        width < MOBILE_BREAKPOINT ? ".titleLeftMobile" : ".titleLeft",
+        isMobile? ".titleLeftMobile" : ".titleLeft",
       );
       const rightImg = titleElement.querySelector(
-        width < MOBILE_BREAKPOINT ? ".left" : ".titleRight",
+        isMobile? ".left" : ".titleRight",
       );
       const title = titleElement.querySelector("h2");
 

@@ -1,13 +1,14 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { MOBILE_BREAKPOINT } from "../../utils/constants";
+import { useScreenWidth } from "@context/ScreenWidthContext";
 export const KeyFeatures = () => {
+  const { isMobile } = useScreenWidth();
+
   useGSAP(() => {
-    const width = window.innerWidth;
 
     const keysItems = gsap.utils.toArray(".keysItem");
     const board5 = document.querySelector(".board5");
-    if (width < MOBILE_BREAKPOINT) {
+    if (isMobile) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: board5,

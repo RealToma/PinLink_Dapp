@@ -7,12 +7,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import { SplitText } from "gsap/SplitText";
-import { MOBILE_BREAKPOINT } from "./utils/constants.js";
 import store from "./store/store";
 import { Provider } from "react-redux";
+import { ScreenWidthProvider } from '@context/ScreenWidthContext';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText, ScrollSmoother);
-const width = window.innerWidth;
 ScrollTrigger.normalizeScroll(false); // disable
 
 // Disable scroll smoothing on touch devices to prevent shaking on scroll
@@ -26,9 +25,11 @@ if (!ScrollTrigger.isTouch) {
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+    <ScreenWidthProvider>
   <Provider store={store}>
     <React.StrictMode>
       <App />
-    </React.StrictMode>
-  </Provider>,
+      </React.StrictMode>
+  </Provider>
+    </ScreenWidthProvider>
 );
