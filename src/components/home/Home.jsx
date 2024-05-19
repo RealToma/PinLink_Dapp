@@ -70,7 +70,7 @@ const Home = () => {
         isMobile? ".titleLeftMobile" : ".titleLeft",
       );
       const rightImg = titleElement.querySelector(
-        isMobile? ".left" : ".titleRight",
+        isMobile? ".titleRightMobile" : ".titleRight",
       );
       const title = titleElement.querySelector("h2");
 

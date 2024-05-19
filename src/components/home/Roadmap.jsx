@@ -70,8 +70,8 @@ export const Roadmap = () => {
     const masterTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".roadmap",
-        start: isMobile? "top top+=42%" : "top top+=100",
-        end: () => "+=" + roadmapSections.length * window.innerHeight * 0.4,
+        start: isMobile? "top top+=10%" : "top top+=100",
+        end: () => "+=" + roadmapSections.length * window.innerHeight * (isMobile?0.6:0.4),
         pin: true,
         scrub: true,
         //markers: true,
@@ -90,8 +90,7 @@ export const Roadmap = () => {
           trigger: section,
           start: "top top",
           end: index === 0 ? "bottom top-=200" : "bottom top-=100", // Make first section fade out earlier
-          scrub: true,
-          anticipatePin:2,
+          scrub: true,      
           //markers: true
         },
       });
