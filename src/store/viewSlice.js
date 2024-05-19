@@ -1,9 +1,8 @@
-// src/store/viewSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { act } from 'react';
 
 const initialState = {
-  view: 'grid', // default view
+  view: 'grid', 
+  searchState: 'all', 
 };
 
 const viewSlice = createSlice({
@@ -13,9 +12,12 @@ const viewSlice = createSlice({
     toggleView: (state,action) => {
       state.view = action.payload;
     },
+    toggleSearchState: (state,action) => {
+      state.searchState = action.payload;
+    },
   },
 });
 
-export const { toggleView } = viewSlice.actions;
+export const { toggleView,toggleSearchState } = viewSlice.actions;
 
 export default viewSlice.reducer;

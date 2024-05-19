@@ -20,7 +20,6 @@ const RandomizeText = ({
   // IntersectionObserver 来观察元素是否出现在视口中
   useEffect(() => {
     if (isMobile) return;
-    console.log("RandomizeText")
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

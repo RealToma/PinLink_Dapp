@@ -22,6 +22,7 @@ export default defineConfig({
       "@pages": resolve(__dirname, "src/pages"),
       "@store": resolve(__dirname, "src/store"),
       "@context": resolve(__dirname, "src/context"),
+      "@middleware": resolve(__dirname, "src/middleware"),
     },
   },
   server: {

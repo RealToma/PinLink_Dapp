@@ -126,7 +126,7 @@ const TokenDistributions = () => {
               <linearGradient id="GradientColor2">
                 <stop offset="0%" stopColor="#C1FF72" />
                 <stop offset="50%" stopColor="#64AFFA" />
-                <stop offset="100%" stopColor="#6DB7EC" />
+                <stop offset="100%" stopColor="#477BAF" />
               </linearGradient>
             </defs>
             <circle
@@ -148,7 +148,7 @@ const TokenDistributions = () => {
               <linearGradient id="GradientColor3">
                 <stop offset="42.28%" stopColor="#C1FF72" />
                 <stop offset="0%" stopColor="#70C1FA" />
-                <stop offset="100%" stopColor="#026EBC" />
+                <stop offset="100%" stopColor="#073C62" />
               </linearGradient>
             </defs>
             <circle

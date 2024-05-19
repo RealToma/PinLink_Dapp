@@ -2,12 +2,8 @@ import OwnerIcon from "@assets/imgs/dapp/owner_icon.png";
 export const Card = ({ title, ownerId, price,img}) => {
   return (
     <div className="card flex flex-col gap-4">
-      <div className="corner-fold-card" />
-      {/* <div class="image-container"> */}
-      <img src={img} alt="card Image" className="image" />
-      {/* <div class="corner-fold-img-upper-right" />
-        <div class="corner-fold-img-btm-left" /> */}
-      {/* </div> */}
+      <div className="image-container" style={{backgroundImage:`url(${img})`}}>     
+       </div>
       <p className="font-['Orbitron'] text-base font-extrabold uppercase leading-snug text-white">
         {title}
       </p>

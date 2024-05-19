@@ -249,6 +249,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 44px;
+  transition: all 0.15s ease-in-out;
 
   &:hover {
     background-color: #273317;
