@@ -1,4 +1,11 @@
-@import "./assets/styles/loader.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "@assets/styles/loader.scss";
+@import "@assets/styles/home/home.scss";
+@import "@assets/styles/home/token-distribution.scss";
+@import "@assets/styles/dapp/side-panel.scss";
+@import "@assets/styles/dapp/card.scss";
 
 $break_pc_huge: 1940px;
 $break_pc_large: 1681px;
@@ -96,6 +103,59 @@ $break_phone_ss: 300px;
   font-weight: 800;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Sora-Thin.ttf);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Sora-ExtraLight.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Light.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-ExtraBold.ttf);
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url(./assets/fonts/NunitoSans-SemiBold.ttf);
+  font-weight: 600;
+}
 
 * {
   padding: 0;
@@ -108,20 +168,42 @@ body {
   padding: 0;
   margin: 0;
   color: #404040;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 16px;
   font-weight: 500;
   overflow-x: hidden;
+  width: 100vw;
 }
-
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.react-responsive-3d-carousel__arrows svg {
+  cursor:
+    url(./assets/imgs/others/new-tab.png) 10 10,
+    pointer !important;
+}
+.corner-border-button{
+  cursor:
+  url(/src/assets/imgs/others/new-tab.png) 10 10,
+  pointer;
+}
 
 a {
   text-decoration: none;
-  cursor: url(./assets/imgs/others/new-tab.png) 10 10, pointer;
+  cursor:
+    url(./assets/imgs/others/new-tab.png) 10 10,
+    pointer;
   color: #737373;
 
   span {
-    cursor: url(./assets/imgs/others/new-tab.png) 10 10, pointer !important;
+    cursor:
+      url(./assets/imgs/others/new-tab.png) 10 10,
+      pointer !important;
   }
 
   &.pointer {
@@ -143,30 +225,35 @@ a {
 }
 
 .corner-border-button {
-  background: linear-gradient(to top, #C1FF72, #C1FF72) left top no-repeat,
-    linear-gradient(to right, #C1FF72, #C1FF72) left top no-repeat,
-    linear-gradient(to left, #C1FF72, #C1FF72) right top no-repeat,
-    linear-gradient(to bottom, #C1FF72, #C1FF72) right top no-repeat,
-    linear-gradient(to left, #C1FF72, #C1FF72) left bottom no-repeat,
-    linear-gradient(to bottom, #C1FF72, #C1FF72) left bottom no-repeat,
-    linear-gradient(to top, #C1FF72, #C1FF72) right bottom no-repeat,
-    linear-gradient(to left, #C1FF72, #C1FF72) right bottom no-repeat;
-  background-size: 1px 10px, 10px 1px, 1px 10px, 10px 1px;
+  background:
+    linear-gradient(to top, #c1ff72, #c1ff72) left top no-repeat,
+    linear-gradient(to right, #c1ff72, #c1ff72) left top no-repeat,
+    linear-gradient(to left, #c1ff72, #c1ff72) right top no-repeat,
+    linear-gradient(to bottom, #c1ff72, #c1ff72) right top no-repeat,
+    linear-gradient(to left, #c1ff72, #c1ff72) left bottom no-repeat,
+    linear-gradient(to bottom, #c1ff72, #c1ff72) left bottom no-repeat,
+    linear-gradient(to top, #c1ff72, #c1ff72) right bottom no-repeat,
+    linear-gradient(to left, #c1ff72, #c1ff72) right bottom no-repeat;
+  background-size:
+    1px 10px,
+    10px 1px,
+    1px 10px,
+    10px 1px;
   padding: 8px 16px;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #C1FF72;
+  color: #c1ff72;
   min-width: 128px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 44px;
-
+  transition: all 0.15s ease-in-out;
 
   &:hover {
     background-color: #273317;
-    color: #8ACF32;
+    color: #8acf32;
   }
 }
 
@@ -182,15 +269,14 @@ a {
   align-items: center;
   height: 44px;
 
-
   &:hover {
     border: 0.5px solid #676767;
     background: #191919;
   }
 
   &.green {
-    background: #C1FF72;
-    color: #0E0E0E;
+    background: #c1ff72;
+    color: #0e0e0e;
     font-size: 18px;
     font-weight: 600;
     margin-top: 24px;
@@ -217,13 +303,11 @@ a {
   display: none;
 }
 
-
-
 .react-responsive-3d-carousel__arrows.shadow svg {
-  border: 1.333px solid #C7C7C7;
+  border: 1.333px solid #c7c7c7;
   border-radius: 50%;
-  &:hover{
-    border-color: #C1FF72;
+  &:hover {
+    border-color: #c1ff72;
   }
 }
 
@@ -244,5 +328,5 @@ a {
   border-radius: 35px;
 }
 
-
-@media screen and (max-width:1000px) {}
+@media screen and (max-width: 1000px) {
+}

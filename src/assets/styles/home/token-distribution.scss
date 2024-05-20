@@ -1,0 +1,96 @@
+.skill {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  transform: scale(2.2) translateY(3vh);
+  margin-bottom: 19vh;
+}
+
+.outer {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 0px -4px 24px 0px rgba(193, 255, 114, 0.69);
+
+  background-color: #131313;
+}
+.inner {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  box-shadow:
+    inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px rgba(0, 0, 0, 0.7),
+    -0.5px -0.5px 0px rgba(0, 0, 0, 1),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+    0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title-logo {
+  width: 3.8rem;
+  height: 1rem;
+  transform: translateY(0.7rem);
+}
+
+#inner-text {
+  color: var(--Primary, #c1ff72);
+  text-align: center;
+  font-family: "Nunito Sans";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.10825rem; /* 150% */
+}
+#number {
+  font-weight: 600;
+  color: #555;
+}
+
+#segment1 {
+  fill: none;
+  stroke: url(#GradientColor1);
+  stroke-width: 20px;
+  stroke-dasharray: 449;
+  stroke-dashoffset: 111;
+}
+#segment2 {
+  fill: none;
+  stroke: url(#GradientColor2);
+  stroke-width: 10px;
+  stroke-dasharray: 449;
+  stroke-dashoffset: 406;
+
+  // display: none;
+}
+#segment3 {
+  fill: none;
+  stroke: url(#GradientColor3);
+  stroke-width: 9px;
+  stroke-dasharray: 451;
+  stroke-dashoffset: 427;
+
+  // display: none;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.svg1 {
+  transform: rotate(183deg);
+}
+.svg2 {
+  transform: rotate(112deg) translate(3%, 0%);
+}
+.svg3 {
+  transform: rotate(153deg) translate(3%, 0%);
+}

@@ -1,0 +1,135 @@
+.head {
+  background: #0e0e0e;
+  //#0e0e0e00;
+  height: 80px;
+  padding: 0px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+
+  .headMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .logo {
+      width: 140px;
+      height: 28px;
+    }
+
+    .menuList {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      div {
+        cursor:
+          url(/src/assets/imgs/others/new-tab.png) 10 10,
+          pointer;
+        span {
+          cursor:
+            url(/src/assets/imgs/others/new-tab.png) 10 10,
+            pointer;
+        }
+      }
+
+      div {
+        border-left: 1px solid #4e4e4e;
+        padding-left: 32px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+      }
+
+      span {
+        color: #fff;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+      &.dappList {
+        span {
+          font-weight: 400;
+
+          &.active {
+            color: #52a7e5;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.h5Menu {
+  .isActive {
+    display: none;
+
+    img {
+      width: 30px;
+    }
+  }
+}
+
+.h5MenuList {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .head {
+    .headMain {
+      .logo {
+        width: 8.75rem;
+        height: 1.69106rem;
+      }
+    }
+  }
+  .h5MenuList {
+    display: block;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    background: #fff;
+    z-index: 9;
+
+    .list {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 32px;
+      gap: 20px;
+    }
+  }
+
+  .h5Menu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    display: none;
+
+    .isActive {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .head {
+    padding: 0 10px;
+    height: 55px;
+
+    .headMain {
+      .menuList {
+        display: none;
+      }
+    }
+  }
+}

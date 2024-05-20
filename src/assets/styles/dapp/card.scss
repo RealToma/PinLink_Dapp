@@ -1,0 +1,30 @@
+.card {
+  width: 21.8rem;
+  height: 27.4rem;
+  padding: 1em 1.5em;
+
+  background: url(../../imgs/dapp/card-bg.png);
+  background-size: contain;
+  &:hover {
+    transform: scale(1.02);
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 10px rgba(193, 255, 114, 0.75));
+  }
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  border-top-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+}
+
+.owner-name {
+  background: linear-gradient(90deg, #fbed96 0%, #abecd6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

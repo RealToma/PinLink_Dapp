@@ -1,0 +1,39 @@
+
+.toaster {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+    gap:8px;
+}
+
+#snackbar-loading{
+    animation:  infinite spin 1s linear;
+}
+#snackbar-close{
+    filter: invert(28%) sepia(10%) saturate(0%) hue-rotate(0deg) brightness(93%) contrast(85%);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
