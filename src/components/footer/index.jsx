@@ -31,7 +31,7 @@ export default function Footer(props) {
           </div>
           <div className={`${styles.linkList} ${"flex-gap24"}`}>
             <a
-              href="https://x.com/pinlinknetwork"
+              href="https://x.com/pinlinkai"
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
