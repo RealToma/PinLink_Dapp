@@ -10,7 +10,7 @@ export const DappFooter = () => {
           <img src={logo} alt="icon" />
         </a>
         <a
-          href="https://x.com/pinlinknetwork"
+          href="https://x.com/pinlinkai"
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
